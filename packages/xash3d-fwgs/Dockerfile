@@ -12,6 +12,6 @@ RUN mv build/3rdparty/mainui/libmenu.wasm out/cl_dll/menu_emscripten_wasm32.wasm
 RUN mv build/engine/xash.js out/raw.js
 RUN mv build/engine/xash.wasm out/xash.wasm
 RUN mv build/filesystem/filesystem_stdio.wasm out/filesystem_stdio.wasm
-RUN mv build/ref/gl/libref_gles3compat.wasm out/libref_gles3compat.wasm
+RUN mv build/ref/gl/libref_webgl2.wasm out/libref_webgl2.wasm
 RUN mv build/ref/soft/libref_soft.wasm out/libref_soft.wasm
 ENTRYPOINT ["cp", "-r", "/xash3d-fwgs/out/.", "/out/"]

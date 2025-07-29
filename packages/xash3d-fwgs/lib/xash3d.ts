@@ -15,7 +15,7 @@ import {
  */
 export type RenderLibrariesOptions = {
     soft?: string
-    gles3compat?: string
+    gl4es?: string
 }
 
 /**
@@ -33,7 +33,7 @@ export type LibrariesOptions = {
 /**
  * Renderer types supported by Xash3D.
  */
-export type Xash3DRenderer = 'gles3compat' | 'soft'
+export type Xash3DRenderer = 'gl4es' | 'soft'
 
 /**
  * Configuration options for the Xash3D instance.
@@ -162,11 +162,11 @@ export class Xash3D {
      * @param render - Renderer type to initialize
      * @returns WebGL2RenderingContext or `null` for software rendering
      */
-    private initRender(canvas?: HTMLCanvasElement, render: Xash3DOptions['renderer'] = 'gles3compat') {
+    private initRender(canvas?: HTMLCanvasElement, render: Xash3DOptions['renderer'] = 'gl4es') {
         switch (render) {
-            case 'gles3compat':
-                if (this.opts?.libraries?.render?.gles3compat) {
-                    this.opts.filesMap![DEFAULT_GLES3COMPAT_LIBRARY] = this.opts.libraries.render.gles3compat
+            case 'gl4es':
+                if (this.opts?.libraries?.render?.gl4es) {
+                    this.opts.filesMap![DEFAULT_GLES3COMPAT_LIBRARY] = this.opts.libraries.render.gl4es
                 }
                 this.opts.dynamicLibraries!.push(DEFAULT_GLES3COMPAT_LIBRARY)
                 return canvas?.getContext('webgl2', {

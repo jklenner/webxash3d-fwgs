@@ -4,7 +4,7 @@ import xashURL from 'xash3d-fwgs/xash.wasm'
 import menuURL from 'xash3d-fwgs/cl_dll/menu_emscripten_wasm32.wasm'
 import clientURL from 'hlsdk-portable/cl_dll/client_emscripten_wasm32.wasm'
 import serverURL from 'hlsdk-portable/dlls/hl_emscripten_wasm32.so'
-import gles3URL from 'xash3d-fwgs/libref_gles3compat.wasm'
+import webgl2URL from 'xash3d-fwgs/libref_webgl2.wasm'
 import {loadAsync} from 'jszip'
 import {Xash3DWebRTC} from "./webrtc";
 import './App.css';
@@ -17,7 +17,6 @@ const App: FC = () => {
             <button className="Input" onClick={async () => {
                 const x = new Xash3DWebRTC({
                     canvas: canvasRef.current!,
-                    args: ['-windowed'],
                     libraries: {
                         filesystem: filesystemURL,
                         xash: xashURL,
@@ -25,8 +24,11 @@ const App: FC = () => {
                         server: serverURL,
                         client: clientURL,
                         render: {
-                            gles3compat: gles3URL,
+                            gl4es: webgl2URL,
                         }
+                    },
+                    module: {
+                        arguments: ['-windowed', '-ref', 'webgl2'],
                     }
                 });
 
@@ -50,6 +52,7 @@ const App: FC = () => {
                     x.em.FS.writeFile(path, await file.async("uint8array"));
                 }))
 
+                x.em.FS.mkdirTree('/rwdir')
                 x.em.FS.chdir('/rodir')
                 x.main()
             }}>
