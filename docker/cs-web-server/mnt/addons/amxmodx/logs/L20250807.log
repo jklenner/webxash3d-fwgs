@@ -1,0 +1,221 @@
+L 08/07/2025 - 00:20:08: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 00:20:23: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/07/2025 - 00:22:17: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 00:22:17: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 00:22:17: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 00:50:17: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 00:50:32: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/07/2025 - 00:52:26: -------- Mapchange to de_dust --------
+L 08/07/2025 - 00:52:26: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/07/2025 - 00:52:26: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 01:20:26: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 01:20:41: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/07/2025 - 01:22:35: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 01:22:35: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 01:22:35: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 01:50:35: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 01:50:50: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/07/2025 - 01:52:44: -------- Mapchange to de_dust --------
+L 08/07/2025 - 01:52:44: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/07/2025 - 01:52:44: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 02:20:44: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 02:20:59: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/07/2025 - 02:22:53: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 02:22:53: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 02:22:53: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 02:50:54: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 02:51:09: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/07/2025 - 02:53:02: -------- Mapchange to de_dust --------
+L 08/07/2025 - 02:53:02: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/07/2025 - 02:53:02: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 03:21:03: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 03:21:18: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/07/2025 - 03:23:12: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 03:23:12: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 03:23:12: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 03:51:12: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 03:51:27: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/07/2025 - 03:53:21: -------- Mapchange to de_dust --------
+L 08/07/2025 - 03:53:21: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/07/2025 - 03:53:21: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 04:21:21: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 04:21:36: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/07/2025 - 04:23:30: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 04:23:30: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 04:23:30: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 04:51:30: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 04:51:45: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/07/2025 - 04:53:39: -------- Mapchange to de_dust --------
+L 08/07/2025 - 04:53:39: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/07/2025 - 04:53:39: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 05:21:39: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 05:21:54: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/07/2025 - 05:23:48: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 05:23:48: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 05:23:48: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 05:51:48: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 05:52:03: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/07/2025 - 05:53:57: -------- Mapchange to de_dust --------
+L 08/07/2025 - 05:53:57: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/07/2025 - 05:53:57: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 06:21:57: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 06:22:12: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/07/2025 - 06:24:06: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 06:24:06: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 06:24:06: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 06:52:06: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 06:52:21: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/07/2025 - 06:54:15: -------- Mapchange to de_dust --------
+L 08/07/2025 - 06:54:15: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/07/2025 - 06:54:15: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 07:22:15: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 07:22:30: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/07/2025 - 07:24:24: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 07:24:24: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 07:24:24: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 07:52:24: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 07:52:39: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/07/2025 - 07:54:33: -------- Mapchange to de_dust --------
+L 08/07/2025 - 07:54:33: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/07/2025 - 07:54:33: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 08:22:33: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 08:22:48: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/07/2025 - 08:24:42: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 08:24:42: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 08:24:42: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 08:52:42: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 08:52:57: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/07/2025 - 08:54:51: -------- Mapchange to de_dust --------
+L 08/07/2025 - 08:54:51: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/07/2025 - 08:54:51: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 09:22:51: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 09:23:06: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/07/2025 - 09:25:00: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 09:25:00: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 09:25:00: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 09:42:37: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/07/2025 - 09:42:37: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/07/2025 - 09:42:37: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 09:42:37: [CSTRIKE] svs global variable is not available
+L 08/07/2025 - 09:42:37: [CSTRIKE] sv global variable is not available
+L 08/07/2025 - 09:42:37: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 09:42:37: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 10:14:07: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/07/2025 - 10:14:07: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/07/2025 - 10:14:07: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 10:14:07: [CSTRIKE] svs global variable is not available
+L 08/07/2025 - 10:14:07: [CSTRIKE] sv global variable is not available
+L 08/07/2025 - 10:14:07: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 10:14:07: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 10:16:49: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.203.246.153")
+L 08/07/2025 - 10:17:59: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/07/2025 - 10:17:59: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/07/2025 - 10:17:59: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 10:17:59: [CSTRIKE] svs global variable is not available
+L 08/07/2025 - 10:17:59: [CSTRIKE] sv global variable is not available
+L 08/07/2025 - 10:18:00: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 10:18:00: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 10:30:05: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/07/2025 - 10:30:05: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/07/2025 - 10:30:05: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 10:30:05: [CSTRIKE] svs global variable is not available
+L 08/07/2025 - 10:30:05: [CSTRIKE] sv global variable is not available
+L 08/07/2025 - 10:30:05: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 10:30:05: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 10:41:00: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/07/2025 - 10:41:00: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/07/2025 - 10:41:00: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 10:41:00: [CSTRIKE] svs global variable is not available
+L 08/07/2025 - 10:41:00: [CSTRIKE] sv global variable is not available
+L 08/07/2025 - 10:41:00: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 10:41:00: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 10:42:20: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/07/2025 - 10:42:20: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/07/2025 - 10:42:20: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 10:42:20: [CSTRIKE] svs global variable is not available
+L 08/07/2025 - 10:42:20: [CSTRIKE] sv global variable is not available
+L 08/07/2025 - 10:42:20: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 10:42:20: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 10:42:48: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/07/2025 - 10:42:48: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/07/2025 - 10:42:48: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 10:42:48: [CSTRIKE] svs global variable is not available
+L 08/07/2025 - 10:42:48: [CSTRIKE] sv global variable is not available
+L 08/07/2025 - 10:42:48: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 10:42:48: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 10:43:43: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/07/2025 - 10:43:43: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/07/2025 - 10:43:43: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 10:43:43: [CSTRIKE] svs global variable is not available
+L 08/07/2025 - 10:43:43: [CSTRIKE] sv global variable is not available
+L 08/07/2025 - 10:43:43: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 10:43:43: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 10:46:32: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/07/2025 - 10:46:32: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/07/2025 - 10:46:32: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 10:46:32: [CSTRIKE] svs global variable is not available
+L 08/07/2025 - 10:46:32: [CSTRIKE] sv global variable is not available
+L 08/07/2025 - 10:46:32: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 10:46:32: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 10:49:58: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/07/2025 - 10:49:58: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/07/2025 - 10:49:58: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 10:49:58: [CSTRIKE] svs global variable is not available
+L 08/07/2025 - 10:49:58: [CSTRIKE] sv global variable is not available
+L 08/07/2025 - 10:49:58: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 10:49:58: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 10:52:09: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.24.170.255")
+L 08/07/2025 - 10:53:41: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/07/2025 - 10:53:41: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/07/2025 - 10:53:41: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 10:53:41: [CSTRIKE] svs global variable is not available
+L 08/07/2025 - 10:53:41: [CSTRIKE] sv global variable is not available
+L 08/07/2025 - 10:53:41: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 10:53:41: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 11:06:41: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 11:06:56: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/07/2025 - 11:08:50: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 11:08:50: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 11:08:50: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 11:21:50: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 11:22:05: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/07/2025 - 11:23:59: -------- Mapchange to de_dust --------
+L 08/07/2025 - 11:23:59: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/07/2025 - 11:23:59: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 11:36:59: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 11:37:14: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/07/2025 - 11:39:08: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 11:39:08: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 11:39:08: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 11:52:08: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 11:52:23: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/07/2025 - 11:54:17: -------- Mapchange to de_dust --------
+L 08/07/2025 - 11:54:17: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/07/2025 - 11:54:17: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 12:07:17: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 12:07:32: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/07/2025 - 12:09:26: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 12:09:26: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 12:09:26: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 12:22:26: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 12:22:41: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/07/2025 - 12:24:35: -------- Mapchange to de_dust --------
+L 08/07/2025 - 12:24:35: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/07/2025 - 12:24:35: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 12:37:35: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 12:37:50: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/07/2025 - 12:39:44: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 12:39:44: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 12:39:44: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 12:52:44: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 12:52:59: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/07/2025 - 12:54:53: -------- Mapchange to de_dust --------
+L 08/07/2025 - 12:54:53: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/07/2025 - 12:54:53: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 13:07:53: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 13:08:08: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/07/2025 - 13:10:02: -------- Mapchange to de_dust2 --------
+L 08/07/2025 - 13:10:02: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/07/2025 - 13:10:02: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/07/2025 - 13:23:02: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/07/2025 - 13:23:17: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust

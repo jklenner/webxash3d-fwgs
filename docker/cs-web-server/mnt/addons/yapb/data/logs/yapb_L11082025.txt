@@ -1,0 +1,51 @@
+2025-08-11 10:06:04 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 10:36:22 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 11:06:40 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 11:36:58 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 12:07:17 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 12:22:16 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/aim_dust2.graph').
+2025-08-11 12:27:59 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/aim_dust2.prc').
+2025-08-11 12:27:59 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/aim_1on1map.graph').
+2025-08-11 12:29:21 (ERROR): Unable to read magic of Graph (filename: 'addons/yapb/data/graph/aim_ak_colt_duel.graph').
+2025-08-11 12:29:21 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/aim_ak_colt_duel.graph').
+2025-08-11 12:29:34 (ERROR): Unable to load Graph (filename: 'addons/yapb/data/graph/aim_ak_colt_duel.graph'). Download process has failed as well. No nodes has been found.
+2025-08-11 12:29:50 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/aim_ak_colt_duel.prc').
+2025-08-11 12:29:50 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/aim_dm.graph').
+2025-08-11 12:30:43 (ERROR): Unable to read magic of Graph (filename: 'addons/yapb/data/graph/aim_headshot2.graph').
+2025-08-11 12:30:43 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/aim_headshot2.graph').
+2025-08-11 12:30:55 (ERROR): Unable to load Graph (filename: 'addons/yapb/data/graph/aim_headshot2.graph'). Download process has failed as well. No nodes has been found.
+2025-08-11 12:31:44 (ERROR): Unable to read magic of Graph (filename: 'addons/yapb/data/graph/aim_map_2010.graph').
+2025-08-11 12:31:44 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/aim_map_2010.graph').
+2025-08-11 12:31:53 (ERROR): Unable to load Graph (filename: 'addons/yapb/data/graph/aim_map_2010.graph'). Download process has failed as well. No nodes has been found.
+2025-08-11 12:32:54 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/aim_sot.graph').
+2025-08-11 12:34:40 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/aim_ak_colt_duel.prc').
+2025-08-11 13:40:01 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 14:10:19 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 14:40:37 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 15:54:47 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 16:31:23 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 17:08:00 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 17:44:36 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 18:21:13 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 18:57:49 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 19:34:26 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 20:11:02 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 20:47:39 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 21:24:15 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 22:00:52 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 22:37:28 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 23:14:05 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-11 23:50:41 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-12 00:27:18 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-12 01:03:54 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-12 01:40:30 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-12 02:17:07 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-12 02:53:44 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-12 03:30:20 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-12 04:06:56 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-12 04:43:33 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-12 05:20:09 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-12 05:56:46 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-12 06:33:22 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-12 07:09:59 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-12 07:46:35 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').

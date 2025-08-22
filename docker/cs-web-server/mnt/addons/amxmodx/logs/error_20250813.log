@@ -1,0 +1,151 @@
+L 08/13/2025 - 07:47:18: Start of error session.
+L 08/13/2025 - 07:47:18: Info (map "(null)") (file "addons/amxmodx/logs/error_20250813.log")
+L 08/13/2025 - 07:47:18: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:47:18: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:47:18: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:47:18: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:47:18: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:48:25: Start of error session.
+L 08/13/2025 - 07:48:25: Info (map "(null)") (file "addons/amxmodx/logs/error_20250813.log")
+L 08/13/2025 - 07:48:25: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:48:25: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:48:25: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:48:25: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:48:25: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:49:03: Start of error session.
+L 08/13/2025 - 07:49:03: Info (map "aim_map_2010") (file "addons/amxmodx/logs/error_20250813.log")
+L 08/13/2025 - 07:49:03: Invalid weapon id 0
+L 08/13/2025 - 07:49:03: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:49:03: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:49:22: Invalid weapon id 0
+L 08/13/2025 - 07:49:22: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:49:22: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:49:34: Invalid weapon id 0
+L 08/13/2025 - 07:49:34: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:49:34: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:49:43: Invalid weapon id 0
+L 08/13/2025 - 07:49:43: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:49:43: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:50:01: Invalid weapon id 0
+L 08/13/2025 - 07:50:01: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:50:01: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:50:08: Invalid weapon id 0
+L 08/13/2025 - 07:50:08: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:50:08: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:50:36: Invalid weapon id 0
+L 08/13/2025 - 07:50:36: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:50:36: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:50:44: Invalid weapon id 0
+L 08/13/2025 - 07:50:44: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:50:44: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:50:50: Invalid weapon id 0
+L 08/13/2025 - 07:50:50: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:50:50: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:50:52: Invalid weapon id 0
+L 08/13/2025 - 07:50:52: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:50:52: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:50:59: Invalid weapon id 0
+L 08/13/2025 - 07:50:59: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:50:59: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:51:36: Invalid weapon id 0
+L 08/13/2025 - 07:51:36: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:51:36: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:51:39: Start of error session.
+L 08/13/2025 - 07:51:39: Info (map "(null)") (file "addons/amxmodx/logs/error_20250813.log")
+L 08/13/2025 - 07:51:39: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:51:39: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:51:39: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:51:39: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:51:39: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:52:20: Start of error session.
+L 08/13/2025 - 07:52:20: Info (map "aim_map_2010") (file "addons/amxmodx/logs/error_20250813.log")
+L 08/13/2025 - 07:52:20: Invalid weapon id 0
+L 08/13/2025 - 07:52:20: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:52:20: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:52:47: Invalid weapon id 0
+L 08/13/2025 - 07:52:47: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:52:47: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:53:20: Invalid weapon id 0
+L 08/13/2025 - 07:53:20: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:53:20: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:53:37: Invalid weapon id 0
+L 08/13/2025 - 07:53:37: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:53:37: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:53:45: Invalid weapon id 0
+L 08/13/2025 - 07:53:45: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:53:45: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:53:54: Invalid weapon id 0
+L 08/13/2025 - 07:53:54: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 07:53:54: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 07:54:11: Start of error session.
+L 08/13/2025 - 07:54:11: Info (map "(null)") (file "addons/amxmodx/logs/error_20250813.log")
+L 08/13/2025 - 07:54:11: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:54:11: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:54:11: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:54:11: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:54:11: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:55:09: Start of error session.
+L 08/13/2025 - 07:55:09: Info (map "(null)") (file "addons/amxmodx/logs/error_20250813.log")
+L 08/13/2025 - 07:55:09: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:55:09: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:55:09: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:55:09: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 07:55:09: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 08:30:18: Start of error session.
+L 08/13/2025 - 08:30:18: Info (map "(null)") (file "addons/amxmodx/logs/error_20250813.log")
+L 08/13/2025 - 08:30:18: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 08:30:18: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 08:30:18: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 08:30:18: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 08:30:18: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 08:31:06: Start of error session.
+L 08/13/2025 - 08:31:06: Info (map "aim_map_2010") (file "addons/amxmodx/logs/error_20250813.log")
+L 08/13/2025 - 08:31:06: Invalid weapon id 0
+L 08/13/2025 - 08:31:06: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 08:31:06: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 08:31:21: Invalid weapon id 0
+L 08/13/2025 - 08:31:21: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 08:31:21: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 08:31:36: Invalid weapon id 0
+L 08/13/2025 - 08:31:36: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 08:31:36: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 08:31:40: Invalid weapon id 0
+L 08/13/2025 - 08:31:40: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 08:31:40: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 08:31:57: Invalid weapon id 0
+L 08/13/2025 - 08:31:57: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 08:31:57: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 08:32:03: Invalid weapon id 0
+L 08/13/2025 - 08:32:03: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 08:32:03: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 08:32:08: Invalid weapon id 0
+L 08/13/2025 - 08:32:08: [AMXX] Run time error 10 (plugin "csgo_arms_race.amxx") (native "get_weaponname") - debug not enabled!
+L 08/13/2025 - 08:32:08: [AMXX] To enable debug mode, add "debug" after the plugin name in plugins.ini (without quotes).
+L 08/13/2025 - 08:32:55: Start of error session.
+L 08/13/2025 - 08:32:55: Info (map "(null)") (file "addons/amxmodx/logs/error_20250813.log")
+L 08/13/2025 - 08:32:55: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 08:32:55: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 08:32:55: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 08:32:55: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 08:32:55: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 12:51:35: Start of error session.
+L 08/13/2025 - 12:51:35: Info (map "(null)") (file "addons/amxmodx/logs/error_20250813.log")
+L 08/13/2025 - 12:51:35: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 12:51:35: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 12:51:35: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 12:51:35: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 12:51:35: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 16:05:53: Start of error session.
+L 08/13/2025 - 16:05:53: Info (map "(null)") (file "addons/amxmodx/logs/error_20250813.log")
+L 08/13/2025 - 16:05:53: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 16:05:53: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 16:05:53: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 16:05:53: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 16:05:53: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 17:46:35: Start of error session.
+L 08/13/2025 - 17:46:35: Info (map "(null)") (file "addons/amxmodx/logs/error_20250813.log")
+L 08/13/2025 - 17:46:35: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 17:46:35: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 17:46:35: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 17:46:35: Unable to load library "engine" (gameconf "common.games")
+L 08/13/2025 - 17:46:35: Unable to load library "engine" (gameconf "common.games")

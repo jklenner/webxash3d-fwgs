@@ -1,0 +1,5 @@
+2025-08-06 11:40:20 (ERROR): Unable to read magic of Graph (filename: 'addons/yapb/data/graph/fy_pool_day.graph').
+2025-08-06 11:40:20 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/fy_pool_day.graph').
+2025-08-06 11:40:28 (ERROR): Unable to load Graph (filename: 'addons/yapb/data/graph/fy_pool_day.graph'). Download process has failed as well. No nodes has been found.
+2025-08-06 13:38:22 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').
+2025-08-06 14:18:37 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/de_dust.prc').

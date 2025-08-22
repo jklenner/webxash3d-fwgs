@@ -1,0 +1,311 @@
+L 08/17/2025 - 00:07:59: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 00:08:14: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_dust2
+L 08/17/2025 - 00:10:18: -------- Mapchange to aim_dust2 --------
+L 08/17/2025 - 00:10:18: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_dust2.spawns.cfg)
+L 08/17/2025 - 00:10:18: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 00:18:18: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 00:18:34: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_headshot2
+L 08/17/2025 - 00:20:38: -------- Mapchange to aim_headshot2 --------
+L 08/17/2025 - 00:20:38: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_headshot2.spawns.cfg)
+L 08/17/2025 - 00:20:38: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 00:28:38: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 00:28:53: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_map_2010
+L 08/17/2025 - 00:30:57: -------- Mapchange to aim_map_2010 --------
+L 08/17/2025 - 00:30:57: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_map_2010.spawns.cfg)
+L 08/17/2025 - 00:30:57: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 00:38:57: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 00:39:12: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_sOt
+L 08/17/2025 - 00:41:16: -------- Mapchange to aim_sOt --------
+L 08/17/2025 - 00:41:16: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_sOt.spawns.cfg)
+L 08/17/2025 - 00:41:16: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 00:49:16: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 00:49:31: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be Aim_training
+L 08/17/2025 - 00:51:35: -------- Mapchange to Aim_training --------
+L 08/17/2025 - 00:51:35: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\Aim_training.spawns.cfg)
+L 08/17/2025 - 00:51:35: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 01:45:50: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 01:46:05: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_iceworld
+L 08/17/2025 - 03:54:35: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 03:54:50: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_iceworld
+L 08/17/2025 - 04:42:20: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 04:42:35: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_iceworld
+L 08/17/2025 - 04:44:40: -------- Mapchange to fy_iceworld --------
+L 08/17/2025 - 04:44:40: [csdm_spawn_preset.amxx] Loaded 11 spawn points for map fy_iceworld.
+L 08/17/2025 - 04:44:40: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 04:52:40: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 04:52:55: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_mario
+L 08/17/2025 - 04:54:59: -------- Mapchange to fy_mario --------
+L 08/17/2025 - 04:54:59: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_mario.spawns.cfg)
+L 08/17/2025 - 04:54:59: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 05:02:59: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 05:03:14: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_mrvideo
+L 08/17/2025 - 05:05:18: -------- Mapchange to fy_mrvideo --------
+L 08/17/2025 - 05:05:18: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_mrvideo.spawns.cfg)
+L 08/17/2025 - 05:05:18: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 05:13:18: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 05:13:33: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_nuketown
+L 08/17/2025 - 05:15:37: -------- Mapchange to fy_nuketown --------
+L 08/17/2025 - 05:15:37: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_nuketown.spawns.cfg)
+L 08/17/2025 - 05:15:37: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 05:23:37: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 05:23:52: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_simpsons
+L 08/17/2025 - 05:25:57: -------- Mapchange to fy_simpsons --------
+L 08/17/2025 - 05:25:57: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_simpsons.spawns.cfg)
+L 08/17/2025 - 05:25:57: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 05:33:57: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 05:34:12: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_snow
+L 08/17/2025 - 05:36:16: -------- Mapchange to fy_snow --------
+L 08/17/2025 - 05:36:16: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_snow.spawns.cfg)
+L 08/17/2025 - 05:36:16: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 05:44:16: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 05:44:31: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_pool_day
+L 08/17/2025 - 05:46:35: -------- Mapchange to fy_pool_day --------
+L 08/17/2025 - 05:46:35: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_pool_day.spawns.cfg)
+L 08/17/2025 - 05:46:35: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 05:54:35: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 05:54:50: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be gg_ak-colt_palm_beach
+L 08/17/2025 - 05:56:54: -------- Mapchange to gg_ak-colt_palm_beach --------
+L 08/17/2025 - 05:56:54: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\gg_ak-colt_palm_beach.spawns.cfg)
+L 08/17/2025 - 05:56:54: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 06:04:54: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 06:05:09: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be gg_minecraftempire
+L 08/17/2025 - 06:07:13: -------- Mapchange to gg_minecraftempire --------
+L 08/17/2025 - 06:07:13: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\gg_minecraftempire.spawns.cfg)
+L 08/17/2025 - 06:07:13: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 06:15:13: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 06:15:28: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be gg_winterhold
+L 08/17/2025 - 06:17:32: -------- Mapchange to gg_winterhold --------
+L 08/17/2025 - 06:17:32: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\gg_winterhold.spawns.cfg)
+L 08/17/2025 - 06:17:32: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 06:25:32: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 06:25:47: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_1on1map
+L 08/17/2025 - 06:27:51: -------- Mapchange to aim_1on1map --------
+L 08/17/2025 - 06:27:52: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_1on1map.spawns.cfg)
+L 08/17/2025 - 06:27:52: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 06:35:52: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 06:36:07: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_ak_colt_duel
+L 08/17/2025 - 06:38:11: -------- Mapchange to aim_ak_colt_duel --------
+L 08/17/2025 - 06:38:11: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_ak_colt_duel.spawns.cfg)
+L 08/17/2025 - 06:38:11: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 06:46:11: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 06:46:26: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_DM
+L 08/17/2025 - 06:48:30: -------- Mapchange to aim_DM --------
+L 08/17/2025 - 06:48:30: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_DM.spawns.cfg)
+L 08/17/2025 - 06:48:30: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 06:56:30: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 06:56:45: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_dust2
+L 08/17/2025 - 06:58:49: -------- Mapchange to aim_dust2 --------
+L 08/17/2025 - 06:58:49: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_dust2.spawns.cfg)
+L 08/17/2025 - 06:58:49: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 07:06:49: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 07:07:04: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_headshot2
+L 08/17/2025 - 07:09:08: -------- Mapchange to aim_headshot2 --------
+L 08/17/2025 - 07:09:08: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_headshot2.spawns.cfg)
+L 08/17/2025 - 07:09:08: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 07:17:08: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 07:17:23: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_map_2010
+L 08/17/2025 - 07:19:27: -------- Mapchange to aim_map_2010 --------
+L 08/17/2025 - 07:19:27: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_map_2010.spawns.cfg)
+L 08/17/2025 - 07:19:27: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 07:27:27: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 07:27:42: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_sOt
+L 08/17/2025 - 07:29:47: -------- Mapchange to aim_sOt --------
+L 08/17/2025 - 07:29:47: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_sOt.spawns.cfg)
+L 08/17/2025 - 07:29:47: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 07:37:47: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 07:38:02: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be Aim_training
+L 08/17/2025 - 07:40:06: -------- Mapchange to Aim_training --------
+L 08/17/2025 - 07:40:06: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\Aim_training.spawns.cfg)
+L 08/17/2025 - 07:40:06: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 09:54:06: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 09:54:21: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_iceworld
+L 08/17/2025 - 09:56:24: -------- Mapchange to fy_iceworld --------
+L 08/17/2025 - 09:56:24: [csdm_spawn_preset.amxx] Loaded 11 spawn points for map fy_iceworld.
+L 08/17/2025 - 09:56:24: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 10:04:24: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 10:04:39: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_mario
+L 08/17/2025 - 10:06:43: -------- Mapchange to fy_mario --------
+L 08/17/2025 - 10:06:43: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_mario.spawns.cfg)
+L 08/17/2025 - 10:06:43: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 10:14:43: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 10:14:58: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_mrvideo
+L 08/17/2025 - 10:17:02: -------- Mapchange to fy_mrvideo --------
+L 08/17/2025 - 10:17:02: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_mrvideo.spawns.cfg)
+L 08/17/2025 - 10:17:02: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 10:25:02: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 10:25:17: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_nuketown
+L 08/17/2025 - 10:27:22: -------- Mapchange to fy_nuketown --------
+L 08/17/2025 - 10:27:22: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_nuketown.spawns.cfg)
+L 08/17/2025 - 10:27:22: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 10:35:22: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 10:35:37: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_simpsons
+L 08/17/2025 - 10:37:41: -------- Mapchange to fy_simpsons --------
+L 08/17/2025 - 10:37:41: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_simpsons.spawns.cfg)
+L 08/17/2025 - 10:37:41: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 10:45:41: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 10:45:56: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_snow
+L 08/17/2025 - 10:48:00: -------- Mapchange to fy_snow --------
+L 08/17/2025 - 10:48:00: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_snow.spawns.cfg)
+L 08/17/2025 - 10:48:00: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 10:56:00: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 10:56:15: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_pool_day
+L 08/17/2025 - 10:58:19: -------- Mapchange to fy_pool_day --------
+L 08/17/2025 - 10:58:19: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_pool_day.spawns.cfg)
+L 08/17/2025 - 10:58:19: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 11:06:19: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 11:06:34: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be gg_ak-colt_palm_beach
+L 08/17/2025 - 11:08:38: -------- Mapchange to gg_ak-colt_palm_beach --------
+L 08/17/2025 - 11:08:38: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\gg_ak-colt_palm_beach.spawns.cfg)
+L 08/17/2025 - 11:08:38: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 11:16:38: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 11:16:53: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be gg_minecraftempire
+L 08/17/2025 - 11:18:57: -------- Mapchange to gg_minecraftempire --------
+L 08/17/2025 - 11:18:57: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\gg_minecraftempire.spawns.cfg)
+L 08/17/2025 - 11:18:57: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 11:26:57: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 11:27:12: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be gg_winterhold
+L 08/17/2025 - 11:29:16: -------- Mapchange to gg_winterhold --------
+L 08/17/2025 - 11:29:16: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\gg_winterhold.spawns.cfg)
+L 08/17/2025 - 11:29:16: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 11:37:17: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 11:37:32: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_1on1map
+L 08/17/2025 - 11:39:36: -------- Mapchange to aim_1on1map --------
+L 08/17/2025 - 11:39:36: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_1on1map.spawns.cfg)
+L 08/17/2025 - 11:39:36: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 11:47:36: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 11:47:51: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_ak_colt_duel
+L 08/17/2025 - 11:49:55: -------- Mapchange to aim_ak_colt_duel --------
+L 08/17/2025 - 11:49:55: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_ak_colt_duel.spawns.cfg)
+L 08/17/2025 - 11:49:55: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 11:57:55: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 11:58:10: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_DM
+L 08/17/2025 - 12:00:14: -------- Mapchange to aim_DM --------
+L 08/17/2025 - 12:00:14: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_DM.spawns.cfg)
+L 08/17/2025 - 12:00:14: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 12:08:14: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 12:08:29: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_dust2
+L 08/17/2025 - 12:10:33: -------- Mapchange to aim_dust2 --------
+L 08/17/2025 - 12:10:33: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_dust2.spawns.cfg)
+L 08/17/2025 - 12:10:33: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 12:18:33: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 12:18:48: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_headshot2
+L 08/17/2025 - 12:20:52: -------- Mapchange to aim_headshot2 --------
+L 08/17/2025 - 12:20:52: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_headshot2.spawns.cfg)
+L 08/17/2025 - 12:20:52: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 12:28:52: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 12:29:07: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_map_2010
+L 08/17/2025 - 12:31:11: -------- Mapchange to aim_map_2010 --------
+L 08/17/2025 - 12:31:11: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_map_2010.spawns.cfg)
+L 08/17/2025 - 12:31:11: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 12:39:11: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 12:39:26: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_sOt
+L 08/17/2025 - 12:41:30: -------- Mapchange to aim_sOt --------
+L 08/17/2025 - 12:41:30: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_sOt.spawns.cfg)
+L 08/17/2025 - 12:41:30: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 12:49:30: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 12:49:46: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be Aim_training
+L 08/17/2025 - 12:51:50: -------- Mapchange to Aim_training --------
+L 08/17/2025 - 12:51:50: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\Aim_training.spawns.cfg)
+L 08/17/2025 - 12:51:50: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 13:21:20: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 13:21:35: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_iceworld
+L 08/17/2025 - 14:04:05: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 14:04:20: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_iceworld
+L 08/17/2025 - 15:38:35: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 15:38:50: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_iceworld
+L 08/17/2025 - 15:48:50: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 15:49:05: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_iceworld
+L 08/17/2025 - 16:18:35: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 16:18:50: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_iceworld
+L 08/17/2025 - 19:35:05: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 19:35:20: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_iceworld
+L 08/17/2025 - 19:37:15: -------- Mapchange to fy_iceworld --------
+L 08/17/2025 - 19:37:15: [csdm_spawn_preset.amxx] Loaded 11 spawn points for map fy_iceworld.
+L 08/17/2025 - 19:37:15: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 19:45:15: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 19:45:30: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_mario
+L 08/17/2025 - 19:47:34: -------- Mapchange to fy_mario --------
+L 08/17/2025 - 19:47:34: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_mario.spawns.cfg)
+L 08/17/2025 - 19:47:34: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 19:55:34: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 19:55:49: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_mrvideo
+L 08/17/2025 - 19:57:53: -------- Mapchange to fy_mrvideo --------
+L 08/17/2025 - 19:57:54: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_mrvideo.spawns.cfg)
+L 08/17/2025 - 19:57:54: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 20:05:54: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 20:06:09: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_nuketown
+L 08/17/2025 - 20:08:13: -------- Mapchange to fy_nuketown --------
+L 08/17/2025 - 20:08:13: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_nuketown.spawns.cfg)
+L 08/17/2025 - 20:08:13: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 20:16:13: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 20:16:28: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_simpsons
+L 08/17/2025 - 20:18:32: -------- Mapchange to fy_simpsons --------
+L 08/17/2025 - 20:18:32: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_simpsons.spawns.cfg)
+L 08/17/2025 - 20:18:32: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 20:26:32: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 20:26:47: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_snow
+L 08/17/2025 - 20:28:51: -------- Mapchange to fy_snow --------
+L 08/17/2025 - 20:28:51: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_snow.spawns.cfg)
+L 08/17/2025 - 20:28:51: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 20:36:51: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 20:37:06: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_pool_day
+L 08/17/2025 - 20:39:10: -------- Mapchange to fy_pool_day --------
+L 08/17/2025 - 20:39:10: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_pool_day.spawns.cfg)
+L 08/17/2025 - 20:39:10: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 20:47:10: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 20:47:25: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be gg_ak-colt_palm_beach
+L 08/17/2025 - 20:49:29: -------- Mapchange to gg_ak-colt_palm_beach --------
+L 08/17/2025 - 20:49:29: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\gg_ak-colt_palm_beach.spawns.cfg)
+L 08/17/2025 - 20:49:29: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 20:57:29: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 20:57:44: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be gg_minecraftempire
+L 08/17/2025 - 20:59:48: -------- Mapchange to gg_minecraftempire --------
+L 08/17/2025 - 20:59:48: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\gg_minecraftempire.spawns.cfg)
+L 08/17/2025 - 20:59:48: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 21:07:48: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 21:08:04: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be gg_winterhold
+L 08/17/2025 - 21:10:08: -------- Mapchange to gg_winterhold --------
+L 08/17/2025 - 21:10:08: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\gg_winterhold.spawns.cfg)
+L 08/17/2025 - 21:10:08: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 21:18:08: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 21:18:23: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_1on1map
+L 08/17/2025 - 21:20:27: -------- Mapchange to aim_1on1map --------
+L 08/17/2025 - 21:20:27: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_1on1map.spawns.cfg)
+L 08/17/2025 - 21:20:27: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 21:28:27: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 21:28:42: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_ak_colt_duel
+L 08/17/2025 - 21:30:46: -------- Mapchange to aim_ak_colt_duel --------
+L 08/17/2025 - 21:30:46: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_ak_colt_duel.spawns.cfg)
+L 08/17/2025 - 21:30:46: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 21:38:46: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 21:39:01: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_DM
+L 08/17/2025 - 21:41:05: -------- Mapchange to aim_DM --------
+L 08/17/2025 - 21:41:05: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_DM.spawns.cfg)
+L 08/17/2025 - 21:41:05: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 21:49:05: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 21:49:20: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_dust2
+L 08/17/2025 - 21:51:24: -------- Mapchange to aim_dust2 --------
+L 08/17/2025 - 21:51:24: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_dust2.spawns.cfg)
+L 08/17/2025 - 21:51:24: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 21:59:24: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 21:59:39: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_headshot2
+L 08/17/2025 - 22:01:43: -------- Mapchange to aim_headshot2 --------
+L 08/17/2025 - 22:01:43: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_headshot2.spawns.cfg)
+L 08/17/2025 - 22:01:43: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 22:09:43: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 22:09:58: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_map_2010
+L 08/17/2025 - 22:12:02: -------- Mapchange to aim_map_2010 --------
+L 08/17/2025 - 22:12:02: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_map_2010.spawns.cfg)
+L 08/17/2025 - 22:12:02: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 22:20:03: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 22:20:18: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be aim_sOt
+L 08/17/2025 - 22:22:22: -------- Mapchange to aim_sOt --------
+L 08/17/2025 - 22:22:22: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\aim_sOt.spawns.cfg)
+L 08/17/2025 - 22:22:22: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 22:30:22: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 22:30:37: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be Aim_training
+L 08/17/2025 - 22:32:41: -------- Mapchange to Aim_training --------
+L 08/17/2025 - 22:32:41: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\Aim_training.spawns.cfg)
+L 08/17/2025 - 22:32:41: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/17/2025 - 23:04:41: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/17/2025 - 23:04:56: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be fy_iceworld

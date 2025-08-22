@@ -1,0 +1,33 @@
+2025-08-14 14:19:18 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/fy_mrvideo.graph').
+2025-08-14 14:30:58 (ERROR): Unable to read magic of Graph (filename: 'addons/yapb/data/graph/fy_simpsons.graph').
+2025-08-14 14:30:58 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/fy_simpsons.graph').
+2025-08-14 14:31:07 (ERROR): Unable to load Graph (filename: 'addons/yapb/data/graph/fy_simpsons.graph'). Download process has failed as well. No nodes has been found.
+2025-08-14 15:30:56 (ERROR): Unable to load Graph (filename: 'addons/yapb/data/graph/aim_billard_rats_csz.graph'). Download process has failed as well. No nodes has been found.
+2025-08-14 15:30:56 (ERROR): Unable to read magic of Graph (filename: 'addons/yapb/data/graph/aim_billard_rats_csz.graph').
+2025-08-14 15:30:56 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/aim_billard_rats_csz.graph').
+2025-08-14 15:36:32 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/aim_rats.graph').
+2025-08-14 15:37:30 (ERROR): Unable to load Graph (filename: 'addons/yapb/data/graph/aim_skatepark_csz.graph'). Download process has failed as well. No nodes has been found.
+2025-08-14 15:37:30 (ERROR): Unable to read magic of Graph (filename: 'addons/yapb/data/graph/aim_skatepark_csz.graph').
+2025-08-14 15:37:30 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/aim_skatepark_csz.graph').
+2025-08-14 15:41:31 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/aim_training.graph').
+2025-08-14 15:42:31 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/dm_mcc12.graph').
+2025-08-14 15:45:15 (ERROR): Unable to read magic of Graph (filename: 'addons/yapb/data/graph/fy_iceworld.graph').
+2025-08-14 15:45:15 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/fy_iceworld.graph').
+2025-08-14 15:45:24 (ERROR): Unable to load Graph (filename: 'addons/yapb/data/graph/fy_iceworld.graph'). Download process has failed as well. No nodes has been found.
+2025-08-14 15:45:57 (ERROR): Unable to read magic of Graph (filename: 'addons/yapb/data/graph/fy_mario.graph').
+2025-08-14 15:45:57 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/fy_mario.graph').
+2025-08-14 15:46:05 (ERROR): Unable to load Graph (filename: 'addons/yapb/data/graph/fy_mario.graph'). Download process has failed as well. No nodes has been found.
+2025-08-14 15:46:39 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/fy_nuketown.graph').
+2025-08-14 15:51:33 (ERROR): Unable to read magic of Graph (filename: 'addons/yapb/data/graph/fy_simpsons_house.graph').
+2025-08-14 15:51:33 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/fy_simpsons_house.graph').
+2025-08-14 15:51:53 (ERROR): Unable to load Graph (filename: 'addons/yapb/data/graph/fy_simpsons_house.graph'). Download process has failed as well. No nodes has been found.
+2025-08-14 22:54:12 (ERROR): Unable to read magic of Graph (filename: 'addons/yapb/data/graph/fy_snow.graph').
+2025-08-14 22:54:12 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/fy_snow.graph').
+2025-08-14 22:54:24 (ERROR): Unable to load Graph (filename: 'addons/yapb/data/graph/fy_snow.graph'). Download process has failed as well. No nodes has been found.
+2025-08-14 23:04:50 (ERROR): Unable to read magic of Graph (filename: 'addons/yapb/data/graph/fy_spongebob.graph').
+2025-08-14 23:04:50 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/fy_spongebob.graph').
+2025-08-14 23:04:57 (ERROR): Unable to load Graph (filename: 'addons/yapb/data/graph/fy_spongebob.graph'). Download process has failed as well. No nodes has been found.
+2025-08-14 23:25:38 (ERROR): Unable to read magic of Graph (filename: 'addons/yapb/data/graph/gg_ak-colt_palm_beach.graph').
+2025-08-14 23:25:38 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/gg_ak-colt_palm_beach.graph').
+2025-08-14 23:25:51 (ERROR): Unable to load Graph (filename: 'addons/yapb/data/graph/gg_ak-colt_palm_beach.graph'). Download process has failed as well. No nodes has been found.
+2025-08-14 23:36:18 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/gg_minecraft.graph').

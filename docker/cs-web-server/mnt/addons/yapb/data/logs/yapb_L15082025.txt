@@ -1,0 +1,2 @@
+2025-08-15 08:43:42 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/gg_minecraftempire.graph').
+2025-08-15 08:46:24 (ERROR): Unable to open Graph file for reading (filename: 'addons/yapb/data/graph/gg_winterhold.graph').

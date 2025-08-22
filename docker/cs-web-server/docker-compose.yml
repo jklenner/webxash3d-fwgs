@@ -1,18 +1,24 @@
 services:
   xash3d:
-    image: yohimik/cs-web-server:latest
-    build:
-      context: .
-      tags:
-        - yohimik/cs-web-server:latest
-        - yohimik/cs-web-server:${TAG}
+    image: cs-web-server:0.0.2
+#    entrypoint: []
+#    command: sleep infinity
+    command: ["+map aim_map_2010", "+maxplayers 14"]
     restart: always
     platform: linux/386
     environment:
       PORT: 27018
-      IP: 192.168.50.123
+      IP: 10.10.16.42
+      DISABLE_X_POWERED_BY: true
     volumes:
-      - "./valve.zip:/xashds/public/valve.zip"
+      - "./mnt/client/valve.zip:/xashds/public/valve.zip"
+      - "./configs/cstrike/server.cfg:/xashds/cstrike/server.cfg"
+      - "./mnt/addons/:/xashds/cstrike/addons/"
+      - "./configs/cstrike/mapcycle.txt:/xashds/cstrike/mapcycle.txt"
+      - "./mnt/maps/:/xashds/cstrike/maps/"
+      - "./mnt/liblist.gam:/xashds/cstrike/liblist.gam"
     ports:
-      - "27016:27016"
-      - "27018:27018"
+      - "80:27016"
+      - "27018:27018/tcp"
+      - "27018:27018/udp"
+

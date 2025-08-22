@@ -1,0 +1,642 @@
+L 08/06/2025 - 06:32:40: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 06:32:40: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 06:32:40: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 06:32:40: [CSX] Could not load csstats file: cstrike/addons/amxmodx/data/csstats.dat
+L 08/06/2025 - 06:35:23: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 06:35:23: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 06:35:23: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 06:35:23: [CSX] Could not load csstats file: cstrike/addons/amxmodx/data/csstats.dat
+L 08/06/2025 - 06:37:09: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 06:37:09: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 06:37:09: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 06:37:09: [CSX] Could not load csstats file: cstrike/addons/amxmodx/data/csstats.dat
+L 08/06/2025 - 06:37:27: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.206.134.125")
+L 08/06/2025 - 06:44:10: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 06:44:10: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 06:44:10: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 06:44:10: [CSX] Could not load csstats file: cstrike/addons/amxmodx/data/csstats.dat
+L 08/06/2025 - 06:47:09: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 06:47:09: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 06:47:09: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 06:47:26: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.90.59.43")
+L 08/06/2025 - 06:57:06: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 06:57:06: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 06:57:06: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 06:57:25: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.224.231.237")
+L 08/06/2025 - 07:25:07: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 07:25:22: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/06/2025 - 07:27:16: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 07:55:16: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 07:55:31: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/06/2025 - 07:57:25: -------- Mapchange to de_dust --------
+L 08/06/2025 - 07:57:51: [admin.amxx] Login: "Johannes<2><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.115.157.194")
+L 08/06/2025 - 07:58:35: [admin.amxx] Login: "Johannes<3><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.128.14.23")
+L 08/06/2025 - 07:59:17: [mapsmenu.amxx] Vote: "Johannes<3><ID_7dea362b3fac8e00956a4952a3d4><>" vote maps (map#1 "de_aztec") (map#2 "cs_militia") (map#3 "cs_office") (map#4 "")
+L 08/06/2025 - 07:59:29: [mapsmenu.amxx] Vote: Voting successful. Map will be changed to de_aztec
+L 08/06/2025 - 07:59:35: [mapsmenu.amxx] Vote: Result accepted
+L 08/06/2025 - 07:59:38: -------- Mapchange to de_aztec --------
+L 08/06/2025 - 07:59:39: [admin.amxx] Login: "Johannes<4><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.128.14.23")
+L 08/06/2025 - 08:07:23: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:07:23: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:07:23: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:07:23: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:07:23: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:07:23: [AMXX] Plugin "csdm_main.amxx" failed to load: Plugin uses an unknown function (name "csdm_respawn") - check your modules.ini.
+L 08/06/2025 - 08:07:23: [AMXX] Plugin "csdm_equip.amxx" failed to load: Plugin uses an unknown function (name "csdm_active") - check your modules.ini.
+L 08/06/2025 - 08:07:23: [AMXX] Plugin "csdm_spawn_preset.amxx" failed to load: Plugin uses an unknown function (name "csdm_trace_hull") - check your modules.ini.
+L 08/06/2025 - 08:07:23: [AMXX] Plugin "csdm_misc.amxx" failed to load: Plugin uses an unknown function (name "csdm_active") - check your modules.ini.
+L 08/06/2025 - 08:07:23: [AMXX] Plugin "csdm_protection.amxx" failed to load: Plugin uses an unknown function (name "csdm_active") - check your modules.ini.
+L 08/06/2025 - 08:07:23: [CSDM2] CSDM failed to load, contact author...
+L 08/06/2025 - 08:08:00: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.240.207.230")
+L 08/06/2025 - 08:15:19: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:15:19: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:15:19: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:15:19: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:15:19: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:15:19: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:15:19: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:15:53: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.115.11.135")
+L 08/06/2025 - 08:16:39: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:16:39: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:16:39: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:16:39: [admin.amxx] Login: "Johannes<2><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.115.11.135")
+L 08/06/2025 - 08:32:45: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:32:45: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:32:45: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:32:45: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:32:45: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:32:45: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:32:45: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:32:56: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:32:56: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:32:56: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:32:56: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:32:56: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:32:56: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:32:56: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:33:06: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:33:06: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:33:06: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:33:06: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:33:06: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:33:07: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:33:07: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:33:17: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:33:17: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:33:17: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:33:17: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:33:17: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:33:17: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:33:17: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:33:28: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:33:28: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:33:28: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:33:28: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:33:28: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:33:28: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:33:28: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:33:39: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:33:39: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:33:39: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:33:39: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:33:39: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:33:39: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:33:39: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:33:50: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:33:50: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:33:50: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:33:50: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:33:50: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:33:50: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:33:50: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:34:19: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:34:19: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:34:19: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:34:19: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:34:19: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:34:19: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:34:19: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:34:35: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.108.233.18")
+L 08/06/2025 - 08:35:01: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:35:01: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:35:01: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:35:01: [admin.amxx] Login: "Johannes<2><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.108.233.18")
+L 08/06/2025 - 08:39:40: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:39:40: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:39:40: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:39:40: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:39:40: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:39:40: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:39:40: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:39:50: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:39:50: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:39:50: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:39:50: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:39:50: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:39:51: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:39:51: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:40:01: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:40:01: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:40:01: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:40:01: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:40:01: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:40:01: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:40:01: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:40:12: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:40:12: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:40:12: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:40:12: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:40:12: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:40:12: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:40:12: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:40:23: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:40:23: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:40:23: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:40:23: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:40:23: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:40:23: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:40:23: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:40:34: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:40:34: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:40:34: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:40:34: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:40:34: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:40:34: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:40:34: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:40:45: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:40:45: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:40:45: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:40:45: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:40:45: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:40:46: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:40:46: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:40:56: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:40:56: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:40:56: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:40:56: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:40:56: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:40:56: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:40:56: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:41:07: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:41:07: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:41:07: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:41:07: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:41:07: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:41:07: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:41:07: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:41:18: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:41:18: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:41:18: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:41:18: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:41:18: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:41:18: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:41:18: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:41:29: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:41:29: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:41:29: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:41:29: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:41:29: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:41:29: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:41:29: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:41:40: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:41:40: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:41:40: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:41:40: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:41:40: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:41:40: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:41:40: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:41:50: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:41:50: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:41:50: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:41:50: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:41:50: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:41:51: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:41:51: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:42:01: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:42:01: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:42:01: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:42:01: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:42:01: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:42:01: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:42:01: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:42:12: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:42:12: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:42:12: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:42:12: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:42:12: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:42:12: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:42:12: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:42:24: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:42:24: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:42:24: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:42:24: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:42:24: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:42:24: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:42:24: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:42:34: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:42:34: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:42:34: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:42:34: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:42:34: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:42:35: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:42:35: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:57:09: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:57:09: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:57:09: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:57:09: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:57:09: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:57:09: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:57:09: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 08:59:53: [admin.amxx] Login: "Johannes<10><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.132.197.3")
+L 08/06/2025 - 08:59:55: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 08:59:55: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 08:59:56: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 08:59:56: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 08:59:56: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 08:59:56: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 08:59:56: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 09:18:07: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 09:18:07: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 09:18:07: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 09:18:07: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 09:18:07: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 09:18:07: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 09:18:07: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 09:23:34: [admin.amxx] Login: "Johannes<10><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.47.98.193")
+L 08/06/2025 - 09:23:37: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 09:23:37: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 09:23:37: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 09:23:37: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 09:23:37: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 09:23:37: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 09:23:37: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 09:24:41: [admin.amxx] Login: "Johannes<10><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.75.26.54")
+L 08/06/2025 - 09:24:44: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 09:24:44: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 09:24:44: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 09:24:44: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 09:24:44: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 09:24:45: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 09:24:45: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 09:25:25: [admin.amxx] Login: "Johannes<10><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.235.148.92")
+L 08/06/2025 - 09:25:28: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 09:25:28: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 09:25:28: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 09:25:28: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 09:25:28: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 09:25:28: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 09:25:28: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 09:33:47: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 09:33:47: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 09:33:47: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 09:33:47: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 09:33:47: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 09:33:47: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 09:33:47: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 10:01:47: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 10:02:02: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/06/2025 - 10:03:56: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 10:03:56: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 10:03:56: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 10:07:14: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 10:07:14: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 10:07:14: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 10:07:14: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 10:07:14: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 10:07:15: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 10:07:15: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 10:07:40: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 10:07:40: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 10:07:40: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 10:07:40: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 10:07:40: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 10:07:41: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 10:07:41: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 10:07:59: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.38.120.104")
+L 08/06/2025 - 10:09:12: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 10:09:12: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 10:09:12: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 10:09:12: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 10:09:12: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 10:09:12: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 10:09:12: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 10:09:34: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.115.164.196")
+L 08/06/2025 - 10:12:46: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 10:12:46: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 10:12:46: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 10:12:46: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 10:12:46: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 10:12:47: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 10:12:47: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 10:15:40: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 10:15:40: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 10:15:40: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 10:15:40: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 10:15:40: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 10:15:40: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 10:15:40: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 10:16:01: [admin.amxx] Login: "Johannes<3><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.84.111.180")
+L 08/06/2025 - 10:19:10: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 10:19:10: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 10:19:10: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 10:19:10: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 10:19:10: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 10:19:10: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 10:19:10: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 10:45:39: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 10:45:39: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 10:45:39: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 10:45:39: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 10:45:39: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 10:45:39: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 10:45:39: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 10:45:56: [admin.amxx] Login: "Johannes<6><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.104.152.64")
+L 08/06/2025 - 10:47:55: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 10:47:55: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 10:47:55: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 10:47:55: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 10:47:55: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 10:47:55: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 10:47:55: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 10:50:34: [admin.amxx] Login: "Johannes<6><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.120.115.104")
+L 08/06/2025 - 10:51:33: [plmenu.amxx] Cmd: "Johannes<6><ID_7dea362b3fac8e00956a4952a3d4><>" transfer "[BOT] miesso<2><ID_BOT><>" (team "CT")
+L 08/06/2025 - 10:51:33: [CSTRIKE] Postponing of model update disabled, check your gamedata files
+L 08/06/2025 - 10:51:33: [CSTRIKE] Postponing of model update disabled, check your gamedata files
+L 08/06/2025 - 10:52:32: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 10:52:32: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 10:52:32: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 10:52:32: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 10:52:32: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 10:52:33: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 10:52:33: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 10:54:16: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 10:54:16: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 10:54:16: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 10:54:16: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 10:54:16: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 10:54:16: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 10:54:16: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 10:55:43: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.207.186.126")
+L 08/06/2025 - 10:58:22: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 10:58:22: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 10:58:22: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 10:58:22: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 10:58:22: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 10:58:22: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 10:58:22: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 10:58:45: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.231.138.125")
+L 08/06/2025 - 11:01:35: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 11:01:35: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 11:01:35: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 11:01:35: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 11:01:35: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 11:01:35: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 11:01:35: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 11:02:02: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.12.231.129")
+L 08/06/2025 - 11:06:20: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 11:06:20: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 11:06:20: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 11:06:21: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 11:06:21: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 11:06:21: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 11:06:21: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 11:06:43: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.156.26.85")
+L 08/06/2025 - 11:09:12: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 11:09:12: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 11:09:12: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 11:09:12: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 11:09:12: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 11:09:12: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 11:09:12: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 11:25:52: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 11:25:52: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 11:25:52: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 11:25:52: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 11:25:52: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 11:25:52: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 11:25:52: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 11:26:10: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.179.201.232")
+L 08/06/2025 - 11:37:23: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 11:37:23: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 11:38:58: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 11:38:58: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 11:38:58: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 11:38:58: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 11:38:58: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 11:38:58: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 11:38:58: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 11:39:21: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.142.173.48")
+L 08/06/2025 - 11:40:20: -------- Mapchange to fy_pool_day --------
+L 08/06/2025 - 11:40:20: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_pool_day.spawns.cfg)
+L 08/06/2025 - 11:40:20: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 11:40:20: [admin.amxx] Login: "Johannes<2><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.142.173.48")
+L 08/06/2025 - 11:41:48: [admin.amxx] Login: "Johannes<11><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.40.112.17")
+L 08/06/2025 - 11:42:03: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 11:42:03: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 11:42:03: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 11:42:03: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 11:42:03: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 11:42:03: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 11:42:03: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 11:43:03: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.28.14.146")
+L 08/06/2025 - 11:48:59: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 11:48:59: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 11:48:59: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 11:48:59: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 11:48:59: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 11:48:59: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 11:48:59: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 11:49:26: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.82.214.185")
+L 08/06/2025 - 11:55:43: [admin.amxx] Login: "Johannes<3><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.27.175.153")
+L 08/06/2025 - 11:56:15: -------- Mapchange to fy_pool_day --------
+L 08/06/2025 - 11:56:15: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_pool_day.spawns.cfg)
+L 08/06/2025 - 11:56:15: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 11:56:15: [admin.amxx] Login: "Johannes<4><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.27.175.153")
+L 08/06/2025 - 11:58:15: [admin.amxx] Login: "Johannes<5><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.70.134.116")
+L 08/06/2025 - 12:07:53: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 12:07:53: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 12:07:53: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 12:07:53: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 12:07:53: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 12:07:54: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 12:07:54: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 12:08:51: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.30.232.163")
+L 08/06/2025 - 12:35:54: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 12:36:09: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/06/2025 - 12:38:03: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 12:38:03: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 12:38:03: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 13:06:04: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 13:06:19: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/06/2025 - 13:08:13: -------- Mapchange to de_dust --------
+L 08/06/2025 - 13:08:13: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/06/2025 - 13:08:13: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 13:36:13: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 13:36:28: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/06/2025 - 13:38:22: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 13:38:22: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 13:38:22: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 14:06:22: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 14:06:37: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/06/2025 - 14:08:31: -------- Mapchange to de_dust --------
+L 08/06/2025 - 14:08:31: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/06/2025 - 14:08:31: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 14:21:48: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 14:21:48: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 14:21:48: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 14:21:48: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 14:21:48: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 14:21:48: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 14:21:48: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 14:49:48: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 14:50:03: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/06/2025 - 14:51:57: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 14:51:57: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 14:51:57: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 15:19:57: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 15:20:12: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/06/2025 - 15:22:06: -------- Mapchange to de_dust --------
+L 08/06/2025 - 15:22:06: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/06/2025 - 15:22:06: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 15:33:08: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 15:33:08: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 15:33:08: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 15:33:08: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 15:33:08: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 15:33:08: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 15:33:08: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 15:34:58: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 15:34:58: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 15:34:58: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 15:34:58: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 15:34:58: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 15:34:58: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 15:34:58: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 15:35:14: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.77.163.201")
+L 08/06/2025 - 15:38:12: [plmenu.amxx] Cmd: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" transfer "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" (team "CT")
+L 08/06/2025 - 15:38:12: [CSTRIKE] Postponing of model update disabled, check your gamedata files
+L 08/06/2025 - 15:38:12: [CSTRIKE] Postponing of model update disabled, check your gamedata files
+L 08/06/2025 - 15:40:49: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 15:40:49: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 15:40:49: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 15:40:49: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 15:40:49: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 15:40:49: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 15:40:49: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 15:41:40: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 15:41:40: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 15:41:40: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 15:41:40: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 15:41:40: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 15:41:40: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 15:41:40: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 15:42:01: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.175.211.78")
+L 08/06/2025 - 16:13:10: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 16:13:25: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/06/2025 - 16:15:26: -------- Mapchange to de_dust --------
+L 08/06/2025 - 16:15:26: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/06/2025 - 16:15:26: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 16:15:26: [admin.amxx] Login: "Johannes<4><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.175.211.78")
+L 08/06/2025 - 16:16:04: -------- Mapchange to fy_pool_day --------
+L 08/06/2025 - 16:16:04: [csdm_spawn_preset.amxx] No spawn points file found (addons/amxmodx/configs\csdm\fy_pool_day.spawns.cfg)
+L 08/06/2025 - 16:16:04: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 16:16:04: [admin.amxx] Login: "Johannes<8><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.175.211.78")
+L 08/06/2025 - 16:16:06: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 16:16:06: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 16:16:06: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 16:16:06: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 16:16:06: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 16:16:06: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 16:16:06: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 16:16:48: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.56.108.83")
+L 08/06/2025 - 16:47:21: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 16:47:36: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_torn
+L 08/06/2025 - 16:49:35: -------- Mapchange to de_torn --------
+L 08/06/2025 - 16:49:35: [csdm_spawn_preset.amxx] Loaded 21 spawn points for map de_torn.
+L 08/06/2025 - 16:49:35: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 16:49:36: [admin.amxx] Login: "Johannes<5><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.56.108.83")
+L 08/06/2025 - 16:49:51: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 16:49:51: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 16:49:51: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 16:49:51: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 16:49:51: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 16:49:51: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 16:49:51: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 16:50:01: client_disconnected and client_remove forwards have been disabled - check your gamedata files.
+L 08/06/2025 - 16:50:01: Binding/Hooking cvars have been disabled - check your gamedata files.
+L 08/06/2025 - 16:50:01: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 16:50:01: [CSTRIKE] svs global variable is not available
+L 08/06/2025 - 16:50:01: [CSTRIKE] sv global variable is not available
+L 08/06/2025 - 16:50:01: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 16:50:01: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 17:18:01: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 17:18:16: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/06/2025 - 17:20:10: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 17:20:10: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 17:20:10: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 17:48:10: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 17:48:25: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/06/2025 - 17:50:19: -------- Mapchange to de_dust --------
+L 08/06/2025 - 17:50:19: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/06/2025 - 17:50:19: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 18:18:19: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 18:18:34: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/06/2025 - 18:20:28: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 18:20:28: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 18:20:28: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 18:21:08: [admin.amxx] Login: "Johannes<1><ID_7dea362b3fac8e00956a4952a3d4><>" became an admin (account "Johannes") (access "abcdefghijklmnopqrstuv") (address "0.155.125.114")
+L 08/06/2025 - 18:48:28: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 18:48:44: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/06/2025 - 18:50:37: -------- Mapchange to de_dust --------
+L 08/06/2025 - 18:50:37: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/06/2025 - 18:50:37: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 19:18:38: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 19:18:53: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/06/2025 - 19:20:47: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 19:20:47: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 19:20:47: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 19:48:47: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 19:49:02: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/06/2025 - 19:50:56: -------- Mapchange to de_dust --------
+L 08/06/2025 - 19:50:56: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/06/2025 - 19:50:56: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 20:18:56: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 20:19:11: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/06/2025 - 20:21:05: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 20:21:05: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 20:21:05: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 20:49:05: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 20:49:20: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/06/2025 - 20:51:14: -------- Mapchange to de_dust --------
+L 08/06/2025 - 20:51:14: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/06/2025 - 20:51:14: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 21:19:14: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 21:19:29: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/06/2025 - 21:21:23: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 21:21:23: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 21:21:23: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 21:49:23: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 21:49:38: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/06/2025 - 21:51:32: -------- Mapchange to de_dust --------
+L 08/06/2025 - 21:51:32: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/06/2025 - 21:51:32: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 22:19:32: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 22:19:47: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/06/2025 - 22:21:41: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 22:21:41: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 22:21:41: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 22:49:41: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 22:49:56: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/06/2025 - 22:51:50: -------- Mapchange to de_dust --------
+L 08/06/2025 - 22:51:50: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/06/2025 - 22:51:50: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 23:19:50: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 23:20:05: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust2
+L 08/06/2025 - 23:21:59: -------- Mapchange to de_dust2 --------
+L 08/06/2025 - 23:21:59: [csdm_spawn_preset.amxx] Loaded 40 spawn points for map de_dust2.
+L 08/06/2025 - 23:21:59: [csdm_main.amxx] CSDM spawn mode set to preset
+L 08/06/2025 - 23:49:59: [mapchooser.amxx] Vote: Voting for the nextmap started
+L 08/06/2025 - 23:50:14: [mapchooser.amxx] Vote: Voting for the nextmap finished. The nextmap will be de_dust
+L 08/06/2025 - 23:52:08: -------- Mapchange to de_dust --------
+L 08/06/2025 - 23:52:08: [csdm_spawn_preset.amxx] Loaded 32 spawn points for map de_dust.
+L 08/06/2025 - 23:52:08: [csdm_main.amxx] CSDM spawn mode set to preset

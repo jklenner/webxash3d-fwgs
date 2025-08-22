@@ -1,0 +1,33 @@
+; Maps configuration file
+; File location: $moddir/addons/amxmodx/configs/maps.ini
+; To use with Maps Menu plugin
+
+; Add in your mod's maps here
+; Delete this file to use mapcycle.txt
+
+aim_1on1map
+aim_ak_colt_duel
+aim_billard_rats_csz
+aim_DM
+aim_dust2
+aim_headshot2
+aim_map_2010
+aim_sOt
+aim_rats
+aim_skatepark_csz
+Aim_training
+dm_mcc12
+fy_iceworld
+fy_mario
+fy_mrvideo
+fy_nuketown
+fy_simpsons
+fy_simpsons_house
+fy_snow
+fy_spongebob
+fy_pool_day
+gg_ak-colt_palm_beach
+gg_minecraft
+gg_minecraftempire
+gg_winterhold
+
