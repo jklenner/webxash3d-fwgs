@@ -10,11 +10,11 @@ require (
 	github.com/pion/rtcp v1.2.15
 	github.com/pion/rtp v1.8.21
 	github.com/pion/webrtc/v4 v4.1.3
-	github.com/yohimik/goxash3d-fwgs v0.0.0-20250730003640-90b4aa816099
 )
 
 require (
 	github.com/google/uuid v1.6.0 // indirect
+	github.com/jklenner/goxash3d-fwgs v0.0.0-20250822072706-16973605c2fb // indirect
 	github.com/pion/datachannel v1.5.10 // indirect
 	github.com/pion/dtls/v3 v3.0.6 // indirect
 	github.com/pion/mdns/v2 v2.0.7 // indirect

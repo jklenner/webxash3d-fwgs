@@ -20,7 +20,8 @@ ENV PKG_CONFIG_PATH=/usr/lib/i386-linux-gnu/pkgconfig
 
 WORKDIR /xash
 
-RUN git clone --branch go --single-branch https://github.com/yohimik/xash3d-fwgs . \
+#ADD https://api.github.com/repos/jklenner/xash3d-fwgs/git/refs/heads/go version.json
+RUN git clone --branch go --single-branch https://github.com/jklenner/xash3d-fwgs . \
     && git submodule update --init --recursive
 
 RUN ./waf configure -T release -d --enable-lto --enable-openmp && ./waf build
@@ -31,15 +32,15 @@ WORKDIR /go
 COPY go.mod go.mod
 COPY go.sum go.sum
 RUN go mod download
-RUN mkdir -p ../github.com/yohimik/goxash3d-fwgs
-RUN cp -r $(go list -m -f '{{.Dir}}' github.com/yohimik/goxash3d-fwgs)/* ../github.com/yohimik/goxash3d-fwgs
-RUN echo 'replace github.com/yohimik/goxash3d-fwgs => ../github.com/yohimik/goxash3d-fwgs' >> go.mod
+RUN mkdir -p ../github.com/jklenner/goxash3d-fwgs
+RUN cp -r $(go list -m -f '{{.Dir}}' github.com/jklenner/goxash3d-fwgs)/* ../github.com/jklenner/goxash3d-fwgs
+RUN echo 'replace github.com/jklenner/goxash3d-fwgs => ../github.com/jklenner/goxash3d-fwgs' >> go.mod
 
 COPY src/server src/server
-COPY --from=engine /xash/build/engine/libxash.a ../github.com/yohimik/goxash3d-fwgs/pkg/libxash.a
-COPY --from=engine /xash/build/public/libbuild_vcs.a ../github.com/yohimik/goxash3d-fwgs/pkg/libbuild_vcs.a
-COPY --from=engine /xash/build/public/libpublic.a ../github.com/yohimik/goxash3d-fwgs/pkg/libpublic.a
-COPY --from=engine /xash/build/3rdparty/libbacktrace/libbacktrace.a ../github.com/yohimik/goxash3d-fwgs/pkg/libbacktrace.a
+COPY --from=engine /xash/build/engine/libxash.a ../github.com/jklenner/goxash3d-fwgs/pkg/libxash.a
+COPY --from=engine /xash/build/public/libbuild_vcs.a ../github.com/jklenner/goxash3d-fwgs/pkg/libbuild_vcs.a
+COPY --from=engine /xash/build/public/libpublic.a ../github.com/jklenner/goxash3d-fwgs/pkg/libpublic.a
+COPY --from=engine /xash/build/3rdparty/libbacktrace/libbacktrace.a ../github.com/jklenner/goxash3d-fwgs/pkg/libbacktrace.a
 
 ENV GOARCH=386
 ENV CC="gcc -m32 -D__i386__"

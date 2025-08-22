@@ -10,7 +10,7 @@ import (
 	"github.com/pion/rtcp"
 	"github.com/pion/rtp"
 	"github.com/pion/webrtc/v4"
-	"github.com/yohimik/goxash3d-fwgs/pkg"
+	"github.com/jklenner/goxash3d-fwgs/pkg"
 	"io"
 	"math/rand"
 	"net/http"
