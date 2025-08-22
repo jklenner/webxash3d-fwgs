@@ -16,9 +16,9 @@ for sourcefile in *.sma
 do
         amxxfile="`echo $sourcefile | sed -e 's/\.sma$/.amxx/'`"
         echo -n "Compiling $sourcefile ..."
-        ./amxxpc $sourcefile -ocompiled/$amxxfile >> temp.txt
+        ./amxxpc $sourcefile -ocompiled/$amxxfile >> /dev/null
         echo "done"
 done
 
-less temp.txt
-rm temp.txt
+cp compiled/gamemodes_menu.amxx ../plugins/
+cp compiled/roundend_blocker_xashsafe.amxx ../plugins/
