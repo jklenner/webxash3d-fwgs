@@ -1,6 +1,6 @@
 services:
   xash3d:
-    image: cs-web-server:0.0.2
+    image: cs-web-server:latest
 #    entrypoint: []
 #    command: sleep infinity
     command: ["+map aim_map_2010", "+maxplayers 14"]
