@@ -1,6 +1,7 @@
 node_modules
 valve.zip
 mnt/client/
+mnt/addons/amxmodx/data/csstats.dat
 mnt/addons/amxmodx/scripting/compiled/
 mnt/addons/amxmodx/logs
 mnt/addons/yapb/data/train/

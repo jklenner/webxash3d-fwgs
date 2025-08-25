@@ -12,7 +12,5 @@ fy_snow
 aim_map_2010
 gg_winterhold
 aim_1on1map
-fy_nuketown
 gg_ak-colt_palm_beach
 gg_minecraftempire
-Aim_training

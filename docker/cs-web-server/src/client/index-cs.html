@@ -1,0 +1,509 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <script type="module" src="/main.ts"></script>
+  <title>Loading</title>
+  <style>
+    :root { --brand:#1B3F5A; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background-color: var(--brand);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: #fff;
+    }
+
+    /* Background canvas */
+    #bg { width: 100vw; height: 100vh; position: fixed; inset: 0; z-index: 1; pointer-events: auto; display: block; opacity: 1; transition: opacity .3s ease; cursor: auto; }
+    #canvas { width: 100vw; height: 100vh; position: fixed; inset: 0; z-index: 6; display: block; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+
+    /* Centered logo */
+    #logo {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9; /* kept for readiness detection only */
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      user-select: none;
+      -webkit-user-drag: none;
+      border-radius: 50%;
+      opacity: 0; /* invisible; canvas draws the logo */
+      pointer-events: none; /* clicks handled on #bg */
+    }
+    /* one-time spin animation */
+    @keyframes spinOnce {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(-360deg); }
+    }
+    .spin-once { animation: spinOnce 0.8s ease-out 1; }
+
+    /* fade-out used by main.ts after loading */
+    @keyframes pulsate-end {
+      0%   { transform: translate(-50%, -50%) scale(0.75); opacity: 0.87; }
+      100% { transform: translate(-50%, -50%) scale(1);     opacity: 0; }
+    }
+
+    /* Bottom form */
+    form#form {
+      margin: 0; padding: 16px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 4;
+      display: flex; justify-content: space-between; align-items: center; color: white; gap: 12px;
+      background: linear-gradient(to top, rgba(0,0,0,0.35), rgba(0,0,0,0));
+    }
+    #form label { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+    #form input{
+      background: rgba(255,255,255,0.08);
+      border: 1px solid #444;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: white;
+      min-width: 200px;
+    }
+    #form button{
+      background: transparent; border: 1px solid #cfd8ea; color: white; padding: 8px 14px; border-radius: 10px; cursor: pointer;
+    }
+    #form button:hover{ border-color: #fff; }
+    #form button[disabled]{ opacity: .5; cursor: not-allowed; border-color: #666; }
+
+    /* Warning text */
+    #warning {
+      position: fixed; left: 0; right: 0; bottom: 56px; z-index: 4; text-align: center; color: #ff6b6b;
+      opacity: 0; transition: opacity .4s ease;
+      text-shadow: 0 1px 2px rgba(0,0,0,.35);
+    }
+
+    /* Modal */
+    body.modal-open { overflow: hidden; }
+    .modal {
+      position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.6); z-index: 10; opacity: 0; pointer-events: none; transition: opacity .2s ease;
+    }
+    .modal.show { opacity: 1; pointer-events: auto; }
+    .dialog {
+      width: min(92vw, 460px);
+      background: #0b1220; border: 1px solid #263042; border-radius: 14px; padding: 12px; color: #fff;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    }
+    .dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+    .dialog-title { font-weight: 700; letter-spacing: .2px; }
+    .icon-btn { background: transparent; color: #fff; border: 1px solid #3a4b68; border-radius: 8px; padding: 4px 10px; cursor: pointer; }
+    .icon-btn:hover { border-color: #5f7aa7; }
+    .hint { text-align: center; opacity: .85; margin: 6px 0 8px; font-size: 12px; }
+
+    /* Game canvas — fixed game pixel size, no scaling */
+    #flappy-canvas { display: block; width: 400px; height: 600px; background: #fff; border-radius: 10px; margin: 0 auto; }
+    /* CS image above the logo (original size) */
+    #cs {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 2; /* below logo so logo stays clickable */
+      transform: scale(0.5);
+      transform-origin: bottom right;
+      user-select: none;
+      -webkit-user-drag: none;
+      pointer-events: none; /* never block clicks */
+    }
+</style>
+</head>
+<body>
+  <!-- Background canvas -->
+  <canvas id="bg"></canvas>
+  <canvas id="canvas"></canvas>
+
+  <!-- Center logo (no pulse). Easter egg: 5 clicks spin, 10 total open game -->
+  <img id="cs" alt="CS" src="cs.png" />
+  <img id="logo" alt="Logo" src="logo.png" />
+
+  <!-- Bottom form -->
+  <form id="form" autocomplete="off">
+    <label>
+      Player name
+      <input id="username" type="text" required autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" />
+    </label>
+    <button type="submit" id="startBtn" disabled>Start</button>
+  </form>
+  <p id="warning">If it's not starting, try to enable microphone and refresh</p>
+
+  <!-- Waiting mini-game is integrated into the starfield canvas (#bg); modal removed -->
+
+  <script type="module">
+(() => {
+  // ===== Element references =====
+  var logoEl = document.getElementById('logo');
+  var formEl = document.getElementById('form');
+  var usernameInput = document.getElementById('username');
+  var warningEl = document.getElementById('warning');
+  var bgCanvas = document.getElementById('bg');
+  var engineCanvas = document.getElementById('canvas');
+  var startBtn = document.getElementById('startBtn');
+
+  var canStart = false; // enabled only after main.ts triggers pulsate-end
+
+  // ===== Start gating helpers =====
+  function lockStart(){ canStart = false; if (startBtn){ startBtn.disabled = true; startBtn.setAttribute('aria-disabled','true'); } }
+  function enableStart(){ canStart = true; if (startBtn){ startBtn.disabled = false; startBtn.removeAttribute('aria-disabled'); } }
+  lockStart();
+  window.addEventListener('pageshow', function(){ lockStart(); });
+
+  // ===== Background starfield (persists until Start) =====
+  var bgCtx = bgCanvas.getContext('2d');
+  function resize(){ var dpr = window.devicePixelRatio || 1; bgCanvas.width = innerWidth*dpr; bgCanvas.height = innerHeight*dpr; bgCtx.setTransform(dpr,0,0,dpr,0,0); }
+  window.addEventListener('resize', resize); resize();
+  var stars = Array.from({length:140}, function(){ return { x: Math.random()*innerWidth, y: Math.random()*innerHeight, r: Math.random()*1.6+0.2, vx:(Math.random()-0.5)*0.35, vy:(Math.random()-0.5)*0.35 }; });
+  var bgActive = true;
+  function wrap(p){ if(p.x<0)p.x+=innerWidth; if(p.x>innerWidth)p.x-=innerWidth; if(p.y<0)p.y+=innerHeight; if(p.y>innerHeight)p.y-=innerHeight; }
+
+  // ===== Waiting game on background canvas (#bg) =====
+  var logoImg = new Image();
+  logoImg.src = (logoEl && logoEl.src) ? logoEl.src : 'logo.png';
+  var logoReady = false; logoImg.onload = function(){ logoReady = true; };
+
+  var WG = {
+    state: 'idle', // 'idle' | 'spin' | 'playing' | 'ending' | 'locked'
+    clicksToSpin: 3,
+    clicksToStart: 6,
+    clickCount: 0,
+    hits: 0,
+    total: 0,
+    duration: 25,
+    timeLeft: 0,
+    highScore: parseInt(localStorage.getItem('waitingGameHighScore') || '0')
+  };
+  // Scale presets
+  var IDLE_SCALE = 1;          // centered size (initial & post-round)
+  var IDLE_PLAY_SCALE = 0.5;   // when stationary during play
+  var MOVE_PLAY_SCALE = 0.25;  // while target is traveling
+
+  var engineReady = false; // set true when loading finished
+  var everPlayed = false;  // HUD persistence
+  var lastStats = { hits: 0, total: 0 };
+
+  // Crosshair (CS-style)
+  var mx = innerWidth / 2, my = innerHeight / 2;
+  var SPREAD_BASE = 6, SPREAD_SHOT = 16; // px gap
+  var spread = SPREAD_BASE, spreadTarget = SPREAD_BASE, flashT = 0;
+  var FLASH_DUR = 0.08; // seconds
+  bgCanvas.addEventListener('mousemove', function(e){ var r = bgCanvas.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; });
+
+  // Logo transform state
+  var lx = innerWidth/2, ly = innerHeight/2; // current position
+  var tx = lx, ty = ly;                      // target position
+  var ls = IDLE_SCALE, ts = IDLE_SCALE;      // current/target scale
+  var rot = 0;                               // current rotation (radians)
+  var spinT = 0, spinning = false;           // initial spin progress
+  var INITIAL_SPIN_DUR = 0.7;                // seconds for the initial 360°
+  var hitSpinT = 0, hitSpinning = false;     // hit spin progress
+  var HIT_SPIN_DUR = 0.28;                   // faster 360° on hit
+
+  // Hit particles (white burst)
+  var particles = [];
+  function spawnHitParticles(x, y){
+    var n = 18;
+    for (var i = 0; i < n; i++){
+      var a = Math.random() * Math.PI * 2;
+      var sp = 140 + Math.random() * 180; // speed 140..320 px/s
+      var vx = Math.cos(a) * sp;
+      var vy = Math.sin(a) * sp - 60;     // slight upward bias
+      var life = 0.35 + Math.random() * 0.35; // 0.35..0.70s
+      var size = 1.5 + Math.random() * 1.5;   // 1.5..3px
+      particles.push({ x:x, y:y, vx:vx, vy:vy, life:life, max:life, size:size });
+    }
+  }
+
+  function recenterIfCentered(){
+    var st = WG.state;
+    if (st === 'idle' || st === 'spin' || st === 'locked'){
+      var cx = innerWidth/2, cy = innerHeight/2;
+      lx = cx; ly = cy; tx = cx; ty = cy; ts = (st==='locked')?0:IDLE_SCALE; ls = ts;
+    }
+  }
+  window.addEventListener('resize', recenterIfCentered);
+
+  function center(){ tx = innerWidth/2; ty = innerHeight/2; }
+
+  function setIdleState(){
+    WG.state = 'idle';
+    WG.clickCount = 0;
+    spinning = false; spinT = 0;
+    hitSpinning = false; hitSpinT = 0;
+    rot = 0;
+    center();
+    ts = IDLE_SCALE; ls = IDLE_SCALE; // force exact size
+    if (bgCanvas) bgCanvas.style.cursor = 'auto';
+    recenterIfCentered();
+  }
+
+  function randTopZone(){
+    var margin = 24;
+    var maxY = innerHeight * (2/3);
+    var base = logoReady ? Math.min(logoImg.naturalWidth, logoImg.naturalHeight) : 160;
+    var r = (base * 0.5) / 2; // radius at half size
+    var x = Math.random() * (innerWidth - 2*(margin + r)) + (margin + r);
+    var y = Math.random() * (maxY - 2*(margin + r)) + (margin + r);
+    return [x, y];
+  }
+
+  function startWaitingGame(){
+    if (WG.state === 'playing') return;
+    if (engineReady) { WG.state = 'locked'; return; }
+    WG.state = 'playing'; WG.hits = 0; WG.total = 0; WG.timeLeft = WG.duration;
+    ts = IDLE_PLAY_SCALE; // start at half size
+    var pos = randTopZone(); tx = pos[0]; ty = pos[1];
+  }
+
+  // Click handling on #bg (logo hit tests)
+  bgCanvas.addEventListener('click', function(e){
+    if (!bgActive) return;
+    var rect = bgCanvas.getBoundingClientRect();
+    var x = e.clientX - rect.left; var y = e.clientY - rect.top;
+    var base = logoReady ? Math.min(logoImg.naturalWidth, logoImg.naturalHeight) : 160;
+    var r = (base * ls) / 2; var dx = x - lx, dy = y - ly; var inside = (dx*dx + dy*dy) <= (r*r);
+
+    if (WG.state === 'locked') return; // engine finished: no restarts
+
+    if (WG.state === 'idle' || WG.state === 'spin'){
+      if (inside){
+        WG.clickCount++;
+        if (WG.clickCount === WG.clicksToSpin){ spinning = true; spinT = 0; WG.state = 'spin'; }
+        else if (WG.clickCount === WG.clicksToStart){ WG.clickCount = 0; startWaitingGame(); }
+      }
+      return;
+    }
+
+    if (WG.state === 'playing'){
+      WG.total++;
+      // crosshair shoot animation
+      spreadTarget = SPREAD_SHOT; flashT = FLASH_DUR;
+      if (inside){
+        WG.hits++; hitSpinning = true; hitSpinT = 0; spawnHitParticles(lx, ly);
+        var p = randTopZone(); tx = p[0]; ty = p[1];
+      }
+      return;
+    }
+  });
+
+  function updateWaiting(dt) {
+    // Cursor per state
+    if (bgCanvas) bgCanvas.style.cursor = (WG.state === 'playing') ? 'none' : 'auto';
+
+    // Position tween (fast) — continuous motion
+    var speed = 1800; // px/s
+    var dx = tx - lx, dy = ty - ly;
+    var dist = Math.hypot(dx, dy);
+    if (dist > 0.5) {
+      var step = Math.min(dist, speed * dt);
+      var k = step / dist;
+      lx += dx * k; ly += dy * k;
+    } else { lx = tx; ly = ty; }
+
+    // Desired scale per motion/state
+    if (WG.state === 'playing') {
+      ts = (dist > 1) ? MOVE_PLAY_SCALE : IDLE_PLAY_SCALE;
+    } else if (WG.state === 'ending') {
+      // First: move small back to center; Then: grow to idle (or shrink to 0 if engineReady)
+      if (dist > 1) {
+        ts = MOVE_PLAY_SCALE; // stay small while traveling
+      } else {
+        ts = engineReady ? 0 : IDLE_SCALE; // centered -> final size
+        if (Math.abs(ts - ls) < 0.02) {
+          if (engineReady) {
+            WG.state = 'locked';
+          } else {
+            setIdleState(); // fully reset to initial-like state (HUD persists)
+          }
+        }
+      }
+    } else if (WG.state === 'locked') {
+      ts = 0; // keep hidden after load completes
+    } else { // idle/spin
+      ts = IDLE_SCALE;
+    }
+
+    // Scale tween
+    var scaleSpeed = 6;
+    var ds = ts - ls;
+    if (Math.abs(ds) > 0.001) ls += Math.sign(ds) * Math.min(Math.abs(ds), scaleSpeed * dt);
+
+    // Spins (initial 3-click + fast hit spin) — counter-clockwise
+    if (spinning) { spinT += dt; if (spinT >= INITIAL_SPIN_DUR) { spinning = false; spinT = 0; if (WG.state === 'spin') WG.state = 'idle'; } }
+    if (hitSpinning) { hitSpinT += dt; if (hitSpinT >= HIT_SPIN_DUR) { hitSpinning = false; hitSpinT = 0; } }
+    var p1 = spinning ? (spinT / INITIAL_SPIN_DUR) : 0;
+    var p2 = hitSpinning ? (hitSpinT / HIT_SPIN_DUR) : 0;
+    rot = -2 * Math.PI * (p1 + p2);
+
+    // Crosshair recoil & muzzle flash easing
+    spread += (spreadTarget - spread) * Math.min(1, dt * 12);
+    spreadTarget += (SPREAD_BASE - spreadTarget) * Math.min(1, dt * 6);
+    flashT = Math.max(0, flashT - dt);
+
+    // Particles update
+    for (var i = particles.length - 1; i >= 0; i--){
+      var pt = particles[i];
+      pt.life -= dt;
+      if (pt.life <= 0){ particles.splice(i,1); continue; }
+      pt.x += pt.vx * dt; pt.y += pt.vy * dt;
+      pt.vy += 280 * dt; // mild gravity
+    }
+
+    // Timer
+    if (WG.state === 'playing') {
+      WG.timeLeft -= dt;
+      if (WG.timeLeft <= 0) {
+        WG.state = 'ending';
+        center();
+        // Persist HUD
+        lastStats.hits = WG.hits; lastStats.total = WG.total; everPlayed = true;
+        if (WG.hits > WG.highScore) {
+          WG.highScore = WG.hits;
+          try { localStorage.setItem('waitingGameHighScore', String(WG.highScore)); } catch (e) {}
+        }
+      }
+    }
+  }
+
+  function drawWaiting(){
+    if (!logoReady) return;
+    // draw rotating, clipped logo (hit pulse removed; rotation indicates hits)
+    var scale = ls;
+    var baseSize = Math.min(logoImg.naturalWidth, logoImg.naturalHeight);
+    var size = baseSize * Math.max(0, scale);
+    var half = size/2;
+    bgCtx.save();
+    bgCtx.translate(lx, ly);
+    bgCtx.rotate(rot);
+    bgCtx.beginPath(); bgCtx.arc(0,0,half,0,Math.PI*2); bgCtx.clip();
+    bgCtx.drawImage(logoImg, -half, -half, size, size);
+    bgCtx.restore();
+
+    // particles (white, slight glow)
+    if (particles.length){
+      bgCtx.save();
+      bgCtx.globalCompositeOperation = 'lighter';
+      for (var i = 0; i < particles.length; i++){
+        var p = particles[i];
+        var alpha = Math.max(0, p.life / p.max);
+        bgCtx.globalAlpha = alpha;
+        bgCtx.beginPath();
+        bgCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        bgCtx.fillStyle = '#ffffff';
+        bgCtx.fill();
+      }
+      bgCtx.globalAlpha = 1;
+      bgCtx.restore();
+    }
+
+    // HUD: show while playing OR after first run (best/last)
+    var showHud = (WG.state === 'playing') || everPlayed;
+    if (showHud){
+      var hitsDisp = (WG.state==='playing') ? WG.hits : lastStats.hits;
+      var totalDisp = (WG.state==='playing') ? WG.total : Math.max(1, lastStats.total);
+      var acc = Math.round((hitsDisp/totalDisp)*100);
+      var t = (WG.state==='playing') ? Math.ceil(Math.max(0, WG.timeLeft)) : 0;
+      var hud = (WG.state==='playing')
+        ? ('⏱ ' + t + 's  •  Hits ' + hitsDisp + '  •  Acc ' + acc + '%  •  Best ' + WG.highScore)
+        : ('Best ' + WG.highScore + '  •  Last ' + hitsDisp + ' hits  •  Acc ' + acc + '%');
+      bgCtx.font = '16px Arial'; bgCtx.textAlign='right'; bgCtx.fillStyle='#fff';
+      bgCtx.fillText(hud, innerWidth - 12, 24);
+    }
+
+    // Custom CS-style crosshair while playing
+    if (WG.state === 'playing'){
+      bgCtx.save();
+      bgCtx.translate(mx, my);
+      var g = spread; // gap
+      var len = 12;
+      bgCtx.lineWidth = 2;
+      bgCtx.strokeStyle = '#ffffff';
+      bgCtx.beginPath();
+      // left
+      bgCtx.moveTo(-g - len, 0); bgCtx.lineTo(-g, 0);
+      // right
+      bgCtx.moveTo(g, 0); bgCtx.lineTo(g + len, 0);
+      // top
+      bgCtx.moveTo(0, -g - len); bgCtx.lineTo(0, -g);
+      // bottom
+      bgCtx.moveTo(0, g); bgCtx.lineTo(0, g + len);
+      bgCtx.stroke();
+      // muzzle flash ring
+      if (flashT > 0){
+        var alpha = Math.min(1, flashT / FLASH_DUR);
+        bgCtx.globalAlpha = alpha;
+        bgCtx.beginPath(); bgCtx.arc(0,0, g*0.6 + 3, 0, Math.PI*2); bgCtx.stroke();
+        bgCtx.globalAlpha = 1;
+      }
+      bgCtx.restore();
+    }
+  }
+
+  // ===== Loading finished detection (robust) =====
+  var readyFlag = false;
+  function markReady(){
+    if (readyFlag) return;
+    readyFlag = true; engineReady = true; enableStart();
+    // If the user never started the waiting game, shrink the canvas logo to 0% and lock restarts
+    if (WG.state !== 'playing' && WG.state !== 'ending'){
+      center();
+      WG.state = 'locked';
+      ts = 0; // animate shrink to 0 via scale tween
+      spinning = false; hitSpinning = false; hitSpinT = 0; rot = 0;
+    }
+  }
+  if (logoEl){
+    logoEl.addEventListener('animationstart', function(e){ if (e.animationName === 'pulsate-end') markReady(); });
+    logoEl.addEventListener('animationend',   function(e){ if (e.animationName === 'pulsate-end') { markReady(); logoEl.style.display='none'; } });
+    var mo = new MutationObserver(function(){
+      var n = logoEl.style.animationName || getComputedStyle(logoEl).animationName;
+      if (n && n.indexOf('pulsate-end') !== -1) markReady();
+    });
+    mo.observe(logoEl, { attributes: true, attributeFilter: ['style'] });
+  }
+
+  // ===== Form submit (reveals engine canvas and fades bg) =====
+  if (formEl){
+    formEl.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (!canStart) return;
+      var name = (usernameInput && usernameInput.value || '').trim();
+      if (!name) { if (usernameInput) usernameInput.focus(); return; }
+      formEl.style.display = 'none';
+      if (engineCanvas){ engineCanvas.style.opacity='1'; engineCanvas.style.pointerEvents='auto'; }
+      // fade bg
+      if(bgActive){ bgCanvas.style.opacity='0'; setTimeout(function(){ if(bgCanvas){ bgActive=false; bgCanvas.style.display='none'; } }, 450); }
+      try { var getUserMedia = navigator.mediaDevices && navigator.mediaDevices.getUserMedia; if (getUserMedia) { getUserMedia.call(navigator.mediaDevices, { audio:true }).then(function(stream){ stream.getTracks().forEach(function(t){t.stop();}); if (warningEl) warningEl.style.opacity=0; }).catch(function(){ if (warningEl) warningEl.style.opacity=1; }); } } catch(_) { if (warningEl) warningEl.style.opacity=1; }
+    });
+  }
+
+  // ===== Star + Waiting main loop =====
+  var lastT = performance.now();
+  function loop(t){
+    if (!bgActive) return;
+    var dt = Math.min(0.05, ((t||performance.now()) - lastT)/1000 || 0);
+    lastT = t || performance.now();
+    // star background
+    bgCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--brand').trim()||'#1B3F5A';
+    bgCtx.fillRect(0,0,innerWidth,innerHeight);
+    bgCtx.globalAlpha=0.95; bgCtx.beginPath();
+    for(var i=0;i<stars.length;i++){ var s=stars[i]; s.x+=s.vx; s.y+=s.vy; wrap(s); bgCtx.moveTo(s.x,s.y); bgCtx.arc(s.x,s.y,s.r,0,Math.PI*2); }
+    bgCtx.fillStyle='white'; bgCtx.fill(); bgCtx.globalAlpha=1;
+    // waiting game
+    updateWaiting(dt);
+    drawWaiting();
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  // ===== Self-tests (non-blocking) =====
+  try {
+    console.assert(document.getElementById('bg'), '#bg exists');
+    console.assert(document.getElementById('canvas'), '#canvas exists');
+    console.assert(getComputedStyle(document.getElementById('canvas')).opacity === '0', '#canvas hidden until Start');
+    console.assert(logoImg instanceof Image, 'logo image prepared');
+  } catch(e) { console.warn('Self-tests warning:', e); }
+})();
+</script>
+</body>
+</html>
