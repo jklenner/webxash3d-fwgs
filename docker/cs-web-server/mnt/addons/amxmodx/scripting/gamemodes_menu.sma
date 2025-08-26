@@ -6,7 +6,7 @@
  *    2 = GUNGAME    (CSDM OFF, GunGame ON)
  *
  *  Cvars (put these in server.cfg if you want custom values):
- *    gm_mode            "0"     // 0=Standard, 1=Deathmatch, 2=GunGame (plugin keeps this in sync)
+ *    gm_mode            "1"     // 0=Standard, 1=Deathmatch, 2=GunGame (plugin keeps this in sync)
  *    gm_restart_method  "1"     // 1=sv_restart 1 (round restart), 2=changelevel <current map>
  *    gm_restart_delay   "2.0"   // seconds to wait before restarting (give mods time to switch)
  *    gm_announce        "1"     // 1=chat announce on mode switch
@@ -111,6 +111,7 @@ stock ApplyMode(mode, bool:postConfig)
             server_cmd("amx_gungame 0");
             server_cmd("gg_dm 0");
 	    server_cmd("reb_enable 0");
+	    server_cmd("mp_timelimit 20");
             if (!postConfig) Broadcast("Switched to STANDARD (CSDM OFF, GunGame OFF).");
         }
         case MODE_DM:
@@ -119,6 +120,7 @@ stock ApplyMode(mode, bool:postConfig)
             server_cmd("gg_dm 0");          // keep GG DM off when using CSDM
             server_cmd("csdm_enable");
             server_cmd("reb_enable 1");
+	    server_cmd("mp_timelimit 10");
             if (!postConfig) Broadcast("Switched to DEATHMATCH (CSDM ON, GunGame OFF).");
         }
         case MODE_GG:
@@ -127,6 +129,7 @@ stock ApplyMode(mode, bool:postConfig)
             server_cmd("amx_gungame 1");    // enable GunGame
             server_cmd("gg_dm 1");          // GunGame’s own deathmatch/respawn
             server_cmd("reb_enable 1");
+  	    server_cmd("mp_timelimit 0");
             // Optional but harmless: make sure weapon order is reloaded on new map
             if (postConfig) server_cmd("gg_reloadweapons");
             if (!postConfig) Broadcast("Switched to GUNGAME (CSDM OFF, GunGame ON).");

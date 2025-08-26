@@ -11,6 +11,8 @@
 
 test -e compiled || mkdir compiled
 rm -f temp.txt
+rm compiled/gamemodes_menu.amxx
+rm compiled/roundend_blocker_xashsafe.amxx
 
 for sourcefile in *.sma
 do

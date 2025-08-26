@@ -15,33 +15,16 @@
       color: #fff;
     }
 
-    /* Background canvas */
+    /* Background canvases */
     #bg { width: 100vw; height: 100vh; position: fixed; inset: 0; z-index: 1; pointer-events: auto; display: block; opacity: 1; transition: opacity .3s ease; cursor: auto; }
     #canvas { width: 100vw; height: 100vh; position: fixed; inset: 0; z-index: 6; display: block; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
 
-    /* Centered logo (invisible — used for readiness detection only) */
+    /* Invisible DOM logo (readiness detection via main.ts animation) */
     #logo {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 9;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      user-select: none;
-      -webkit-user-drag: none;
-      border-radius: 50%;
-      opacity: 0;           /* invisible; canvas draws the logo */
-      pointer-events: none; /* clicks handled on #bg */
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      z-index: 9; aspect-ratio: 1 / 1; object-fit: cover; user-select: none; -webkit-user-drag: none;
+      border-radius: 50%; opacity: 0; pointer-events: none;
     }
-    /* one-time spin animation (unused on the DOM img now, kept for readiness triggers) */
-    @keyframes spinOnce {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to   { transform: translate(-50%, -50%) rotate(-360deg); }
-    }
-    .spin-once { animation: spinOnce 0.8s ease-out 1; }
-
-    /* fade-out used by main.ts after loading */
     @keyframes pulsate-end {
       0%   { transform: translate(-50%, -50%) scale(0.75); opacity: 0.87; }
       100% { transform: translate(-50%, -50%) scale(1);     opacity: 0; }
@@ -49,65 +32,60 @@
 
     /* Bottom form */
     form#form {
-      margin: 0; padding: 27px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 4;
+      margin: 0; padding: 20px 26px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 4;
       display: flex; justify-content: space-between; align-items: center; color: white; gap: 12px;
       background: linear-gradient(to top, rgba(0,0,0,0.35), rgba(0,0,0,0));
     }
     #form label { display: flex; align-items: center; gap: 8px; font-weight: 600; }
     #form input{
-      background: rgba(255,255,255,0.08);
-      border: 1px solid #444;
-      padding: 8px 10px;
-      border-radius: 8px;
-      color: white;
-      min-width: 200px;
+      background: rgba(255,255,255,0.08); border: 1px solid #444; padding: 8px 10px; border-radius: 8px; color: white; min-width: 200px;
     }
-    #form button{
+
+    /* CTA slot (progress OR Start) */
+    #cta { display: flex; align-items: center; justify-content: center; min-width: 50px; min-height: 50px; }
+    #startBtn{
+      display: none; /* shown when loading is done */
       background: transparent; border: 1px solid #cfd8ea; color: white; padding: 8px 14px; border-radius: 10px; cursor: pointer;
     }
-    #form button:hover{ border-color: #fff; }
-    #form button[disabled]{ opacity: .5; cursor: not-allowed; border-color: #666; }
+    #startBtn:hover{ border-color: #fff; }
+    #startBtn[disabled]{ opacity: .5; cursor: not-allowed; border-color: #666; }
 
-    /* Warning text */
+    /* Circular progress (50x50) */
+    #progressContainer { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; }
+    #progressContainer[hidden]{ display:none; }
+    .circular { width: 50px; height: 50px; display:block; }
+    .circular .bg, .circular .bar { fill: none; stroke-width: 3; }
+    .circular .bg { stroke: rgba(255,255,255,.25); }
+    .circular .bar {
+      stroke: #fff; stroke-linecap: round;
+      transform: rotate(-90deg); transform-origin: 50% 50%;
+      stroke-dasharray: 100 100; stroke-dashoffset: 100;
+      transition: stroke-dashoffset .2s ease;
+    }
+    .circular.spin { animation: rot 1s linear infinite; }
+    @keyframes rot { to { transform: rotate(360deg); } }
+
+    /* Warning */
     #warning {
       position: fixed; left: 0; right: 0; bottom: 56px; z-index: 4; text-align: center; color: #ff6b6b;
-      opacity: 0; transition: opacity .4s ease;
-      text-shadow: 0 1px 2px rgba(0,0,0,.35);
+      opacity: 0; transition: opacity .4s ease; text-shadow: 0 1px 2px rgba(0,0,0,.35);
     }
 
     /* Modal */
     body.modal-open { overflow: hidden; }
-    .modal {
-      position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
-      background: rgba(0,0,0,0.6); z-index: 10; opacity: 0; pointer-events: none; transition: opacity .2s ease;
-    }
+    .modal { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.6); z-index: 10; opacity: 0; pointer-events: none; transition: opacity .2s ease; }
     .modal.show { opacity: 1; pointer-events: auto; }
-    .dialog {
-      width: min(92vw, 460px);
-      background: #0b1220; border: 1px solid #263042; border-radius: 14px; padding: 12px; color: #fff;
-      box-shadow: 0 20px 60px rgba(0,0,0,.5);
-    }
-    .dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
-    .dialog-title { font-weight: 700; letter-spacing: .2px; }
-    .icon-btn { background: transparent; color: #fff; border: 1px solid #3a4b68; border-radius: 8px; padding: 4px 10px; cursor: pointer; }
-    .icon-btn:hover { border-color: #5f7aa7; }
-    .hint { text-align: center; opacity: .85; margin: 6px 0 8px; font-size: 12px; }
-
-    /* Flappy canvas in modal */
+    .dialog { width: min(92vw, 460px); background: #0b1220; border: 1px solid #263042; border-radius: 14px; padding: 12px; color: #fff;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5); }
     #flappy-canvas { display: block; width: 400px; height: 600px; background: #fff; border-radius: 10px; margin: 0 auto; }
 
-    /* CS image (easter egg trigger for modal) */
+    /* CS image (easter egg trigger) */
     #cs {
-      position: fixed;
-      right: 110px;
-      bottom: 0px;
-      z-index: 2; /* below logo so clicks pass to canvas */
-      transform: scale(0.35);
-      transform-origin: bottom right;
-      user-select: none;
-      -webkit-user-drag: none;
-      pointer-events: auto; /* clickable for 6x easter egg */
-      cursor: default; /* do not change cursor on hover */
+      position: fixed; right: 110px; bottom: 0px;
+      z-index: 12; /* above the form so clicks are not swallowed */
+      transform: scale(0.35); transform-origin: bottom right;
+      user-select: none; -webkit-user-drag: none; pointer-events: auto; cursor: default;
     }
   </style>
 </head>
@@ -134,8 +112,21 @@
       Player name
       <input id="username" type="text" required autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" />
     </label>
-    <button type="submit" id="startBtn" disabled>Start</button>
+
+    <div id="cta">
+      <!-- Progress ring (visible while downloading/unzipping) -->
+      <div id="progressContainer" aria-label="Loading">
+        <svg class="circular" viewBox="0 0 36 36">
+          <circle class="bg" cx="18" cy="18" r="16" pathLength="100"></circle>
+          <circle id="progressBar" class="bar" cx="18" cy="18" r="16" pathLength="100"></circle>
+        </svg>
+      </div>
+
+      <!-- Start button (shown once loading finished) -->
+      <button type="submit" id="startBtn">Start</button>
+    </div>
   </form>
+
   <p id="warning">If it's not starting, try to enable microphone and refresh</p>
 
   <script type="module">
@@ -152,62 +143,72 @@
   const csImg = document.getElementById('cs');
   const gameModal = document.getElementById('gameModal');
 
-  let canStart = false; // enabled after main.ts triggers pulsate-end
+  // Progress UI
+  const progressWrap = document.getElementById('progressContainer');
+  const progressBar = document.getElementById('progressBar');
+  const progressSvg = progressWrap ? progressWrap.querySelector('svg') : null;
+
+  function showProgressUI(on){
+    if (!progressWrap || !startBtn) return;
+    progressWrap.hidden = !on;
+    startBtn.style.display = on ? 'none' : 'inline-block';
+  }
+  function setIndeterminate(on){
+    if (!progressSvg) return;
+    if (on) {
+      progressSvg.classList.add('spin');
+      if (progressBar) progressBar.style.strokeDashoffset = '75';
+    } else {
+      progressSvg.classList.remove('spin');
+    }
+  }
+  function setProgressPct(pct){
+    if (!progressBar) return;
+    const clamped = Math.max(0, Math.min(100, pct));
+    progressBar.style.strokeDashoffset = String(100 - clamped);
+  }
+  showProgressUI(true);
+  setIndeterminate(true);
+
+  // ===== Start gating =====
+  let canStart = false;
   function lockStart(){ canStart = false; if (startBtn){ startBtn.disabled = true; startBtn.setAttribute('aria-disabled','true'); } }
   function enableStart(){ canStart = true; if (startBtn){ startBtn.disabled = false; startBtn.removeAttribute('aria-disabled'); } }
   lockStart();
   window.addEventListener('pageshow', lockStart);
 
-  // ===== Starfield setup =====
+  // ===== Starfield =====
   if (!bgCanvas || !bgCanvas.getContext) { console.warn('#bg canvas missing'); return; }
   const bgCtx = bgCanvas.getContext('2d');
-  function resizeCanvas(){ const dpr = window.devicePixelRatio || 1; bgCanvas.width = innerWidth*dpr; bgCanvas.height = innerHeight*dpr; bgCtx.setTransform(dpr,0,0,dpr,0,0); }
-  addEventListener('resize', resizeCanvas); resizeCanvas();
+  function resize(){ const dpr = window.devicePixelRatio || 1; bgCanvas.width = innerWidth*dpr; bgCanvas.height = innerHeight*dpr; bgCtx.setTransform(dpr,0,0,dpr,0,0); }
+  addEventListener('resize', resize); resize();
   const stars = Array.from({length:140}, () => ({ x: Math.random()*innerWidth, y: Math.random()*innerHeight, r: Math.random()*1.6+0.2, vx:(Math.random()-0.5)*0.35, vy:(Math.random()-0.5)*0.35 }));
   let bgActive = true;
   function wrap(p){ if(p.x<0)p.x+=innerWidth; if(p.x>innerWidth)p.x-=innerWidth; if(p.y<0)p.y+=innerHeight; if(p.y>innerHeight)p.y-=innerHeight; }
 
-  // ===== Waiting game state (integrated on #bg) =====
+  // ===== Waiting game =====
   const logoImg = new Image();
   logoImg.src = (logoEl && logoEl.src) ? logoEl.src : 'logo.png';
   let logoReady = false; logoImg.onload = ()=>{ logoReady = true; };
 
-  // --- Evenly spaced brackets by area between smallest & largest reference resolutions ---
-  const BRACKET_COUNT = 20;
-  const AREA_MIN = 300 * 300;         // smallest reference (old smartphone)
-  const AREA_MAX = 3840 * 2160;       // largest reference (4K)
-  const AREA_STEP = (Math.sqrt(AREA_MAX) - Math.sqrt(AREA_MIN)) / BRACKET_COUNT;
-
-  function currentBracketIndex(){
-    const area = innerWidth * innerHeight;
-    let idx = Math.floor((Math.sqrt(area) - Math.sqrt(AREA_MIN)) / AREA_STEP);
-    if (idx < 0) idx = 0;
-    if (idx >= BRACKET_COUNT) idx = BRACKET_COUNT - 1;
-    return idx;
+  // High score brackets
+  const MIN_AREA = 360*640, MAX_AREA = 3840*2160, BRACKETS = 10;
+  const edges = Array.from({length: BRACKETS+1}, (_,i)=> MIN_AREA + (i*(MAX_AREA-MIN_AREA))/BRACKETS);
+  function bracketIndexFor(area){
+    if (area <= edges[0]) return 0;
+    if (area >= edges[edges.length-1]) return BRACKETS-1;
+    for (let i=0;i<BRACKETS;i++){ if (area >= edges[i] && area < edges[i+1]) return i; }
+    return BRACKETS-1;
   }
-  function scoreKeyFor(i){ return 'waitingGameHighScore@A' + i; }
-
-  function loadHighScoreFor(i){
-    const raw = localStorage.getItem(scoreKeyFor(i));
-    const v = raw !== null ? (parseInt(raw, 10) || 0) : 0;
-    WG.highScore = v;
-    WG.bracketId = i;
+  function loadHSForBracket(bi){
+    const raw = localStorage.getItem('waitingGameHS_b'+bi);
+    const n = raw == null ? 0 : parseInt(raw, 10);
+    return isNaN(n) ? 0 : n;
   }
-  function saveHighScoreForCurrent(){
-    const key = scoreKeyFor(WG.bracketId ?? currentBracketIndex());
-    localStorage.setItem(key, String(WG.highScore));
-  }
-  function updateBracketFromViewport(force=false){
-    const idx = currentBracketIndex();
-    if (force || WG.state !== 'playing'){
-      if (WG.bracketId !== idx){
-        loadHighScoreFor(idx);
-      }
-    }
-  }
+  function saveHSForBracket(bi, val){ localStorage.setItem('waitingGameHS_b'+bi, String(val)); }
 
   const WG = {
-    state: 'idle', // 'idle' | 'spin' | 'playing' | 'locked'
+    state: 'idle',
     clickCount: 0,
     clicksToSpin: 3,
     clicksToStart: 6,
@@ -216,45 +217,36 @@
     duration: 10,
     timeLeft: 0,
     highScore: 0,
-    bracketId: undefined
+    bracket: bracketIndexFor(innerWidth*innerHeight),
   };
+  WG.highScore = loadHSForBracket(WG.bracket);
 
-  // Initialize bracket/high score immediately
-  updateBracketFromViewport(true);
-
-  let engineReady = false; // set via markReady()
+  let engineReady = false;
   let everPlayed = false;
   let lastStats = { hits: 0, total: 0 };
 
-  // Crosshair (active only while playing)
+  // Crosshair
   let mx = innerWidth/2, my = innerHeight/2;
-  const SPREAD_BASE = 10, SPREAD_SHOT = 28; // increased spread
+  const SPREAD_BASE = 10, SPREAD_SHOT = 24;
   let spread = SPREAD_BASE, spreadTarget = SPREAD_BASE;
   bgCanvas.addEventListener('mousemove', (e)=>{ const r = bgCanvas.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; });
 
-  // Particle burst on hit (smaller)
+  // Particles & floaters
   const particles = [];
   function spawnHitBurst(x,y){ for(let i=0;i<12;i++){ const a=Math.random()*Math.PI*2; const v=120+Math.random()*180; particles.push({x,y, vx:Math.cos(a)*v, vy:Math.sin(a)*v, life:0.25, age:0}); } }
-
-  // Floating time-change labels
   const floaters = [];
-  function addFloater(x,y,text,color){ floaters.push({x, y, text, color, age:0, life:0.8}); }
+  function addFloater(x,y,text,color){ floaters.push({x, y, age:0, life:0.8, text, color}); }
 
-  // Logo transform (position/scale/rotation)
-  let lx = innerWidth/2, ly = innerHeight/2; // current pos
-  let tx = lx, ty = ly;                      // target pos
-  let ls = 1, ts = 1;                        // current/target scale
-  let rot = 0;                               // radians
-  let spinning=false, spinT=0;               // slow spin (3 clicks)
-  let hitSpinT=0;                            // fast spin on hit
+  // Logo transform
+  let lx = innerWidth/2, ly = innerHeight/2;
+  let tx = lx, ty = ly;
+  let ls = 1, ts = 1;
+  let rot = 0;
+  let spinning=false, spinT=0;
+  let hitSpinT=0;
 
   function recenterIfCentered(){ if (WG.state==='idle' || WG.state==='spin' || WG.state==='locked'){ const cx=innerWidth/2, cy=innerHeight/2; lx=cx; ly=cy; tx=cx; ty=cy; } }
-  addEventListener('resize', () => {
-    resizeCanvas();
-    recenterIfCentered();
-    updateBracketFromViewport(false); // update HS if not mid-round
-  });
-
+  addEventListener('resize', recenterIfCentered);
   function center(){ tx=innerWidth/2; ty=innerHeight/2; }
 
   function randTopZone(){
@@ -270,18 +262,15 @@
   function startRound(){
     if (WG.state==='playing') return;
     if (engineReady){ WG.state='locked'; return; }
-
-    // — determine / load high score for current evenly-spaced bracket (silent) —
-    const idx = currentBracketIndex();
-    if (WG.bracketId !== idx) { loadHighScoreFor(idx); }
-
+    WG.bracket = bracketIndexFor(innerWidth*innerHeight);
+    WG.highScore = loadHSForBracket(WG.bracket);
     WG.state='playing';
     WG.hits=0; WG.total=0; WG.timeLeft=WG.duration;
     ts=0.5;
     [tx,ty]=randTopZone();
   }
 
-  // Click handling on #bg
+  // Clicks on canvas
   bgCanvas.addEventListener('click', (e)=>{
     if (!bgActive) return;
     const rect = bgCanvas.getBoundingClientRect();
@@ -289,7 +278,7 @@
     const base = logoReady ? Math.min(logoImg.naturalWidth, logoImg.naturalHeight) : 160;
     const r = (base * ls) / 2; const dx = x - lx, dy = y - ly; const inside = (dx*dx + dy*dy) <= (r*r);
 
-    if (WG.state === 'locked') return; // engine finished: no restarts
+    if (WG.state === 'locked') return;
 
     if (WG.state === 'idle' || WG.state === 'spin'){
       if (inside){
@@ -302,67 +291,102 @@
 
     if (WG.state === 'playing'){
       WG.total++;
-      // crosshair recoil
       spreadTarget = SPREAD_SHOT;
       if (inside){
-        WG.hits++; hitSpinT = 0; // fast spin
+        WG.hits++; hitSpinT = 0;
         WG.timeLeft += 0.5;
         spawnHitBurst(lx,ly);
-        addFloater(lx, ly, '+0.5s', '#ffffff');   // white label at target
+        addFloater(lx, ly, '+0.5s', '#fff');
         [tx,ty] = randTopZone();
       } else {
-        // miss punishment — red label at the crosshair (click) position
         WG.timeLeft = Math.max(0, WG.timeLeft - 0.5);
-        addFloater(x, y, '-0.5s', '#ff6b6b');
+        addFloater(mx, my, '-0.5s', '#ff6666');
       }
     }
   });
 
-  // ===== Flappy modal controls (open on 6x cs.png) =====
-  let flappyHandle = null;
+  // ===== Flappy modal =====
   function openGame(){
     if(!gameModal) return;
     gameModal.classList.add('show');
     document.body.classList.add('modal-open');
-    if (window.startFlappyBird) {
-      flappyHandle = window.startFlappyBird('flappy-canvas');
-    }
+    setTimeout(()=>{ if (window.startFlappyBird) window.startFlappyBird('flappy-canvas'); }, 0);
   }
   function closeGame(){
     if(!gameModal) return;
     gameModal.classList.remove('show');
     document.body.classList.remove('modal-open');
-    if (flappyHandle && typeof flappyHandle.stop === 'function') {
-      try { flappyHandle.stop(); } catch {}
-    }
-    flappyHandle = null;
+  }
+  if (gameModal){
+    gameModal.addEventListener('click', (e)=>{ if (e.target === gameModal) closeGame(); });
+    document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape' && gameModal.classList.contains('show')) closeGame(); });
   }
   let csClicks = 0;
-  if (csImg){ csImg.addEventListener('click', ()=>{ csClicks++; if (csClicks >= 6){ csClicks = 0; openGame(); } }); }
-
-  // Close modal on backdrop click
-  if (gameModal) {
-    gameModal.addEventListener('click', (e) => {
-      if (e.target === gameModal) closeGame();
+  if (csImg){
+    csImg.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      csClicks++;
+      if (csClicks >= 6){
+        csClicks = 0;
+        openGame();
+      }
     });
   }
-  // Close modal on Esc
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && gameModal && gameModal.classList.contains('show')) {
-      closeGame();
-    }
-  });
 
-  // ===== Loading finished detection =====
+  // ===== Download + unzip progress (BroadcastChannel) =====
+  const WEIGHT_DL = 0.5, WEIGHT_UZ = 0.5;
+  const prog = {
+    dl: { active:false, loaded:0, total:0, pct:null, done:false },
+    uz: { active:false, loaded:0, total:0, pct:null, done:false }
+  };
   let readyFlag = false;
+  function recomputeOverall(){
+    if (readyFlag) return;
+    const pd = prog.dl.pct; const pu = prog.uz.pct;
+    const havePct = (pd != null) || (pu != null);
+    if (!havePct){ showProgressUI(true); setIndeterminate(true); return; }
+    showProgressUI(true); setIndeterminate(false);
+    const pDl = (pd != null) ? pd : (prog.dl.done ? 100 : 0);
+    const pUz = (pu != null) ? pu : (prog.uz.done ? 100 : (prog.uz.active ? 0 : 0));
+    const overall = WEIGHT_DL * pDl + WEIGHT_UZ * pUz;
+    setProgressPct(overall);
+  }
+  try {
+    if ('BroadcastChannel' in window){
+      const bc = new BroadcastChannel('dl-progress');
+      bc.onmessage = (ev) => {
+        const m = ev.data || {};
+        if (m.type === 'start'){
+          prog.dl.active = true; prog.dl.total = m.total || 0; prog.dl.loaded = m.loaded || 0;
+          prog.dl.pct = prog.dl.total ? (prog.dl.loaded / prog.dl.total) * 100 : null;
+        } else if (m.type === 'progress'){
+          prog.dl.active = true; prog.dl.total = m.total || prog.dl.total; prog.dl.loaded = m.loaded || prog.dl.loaded;
+          prog.dl.pct = prog.dl.total ? (prog.dl.loaded / prog.dl.total) * 100 : null;
+        } else if (m.type === 'done'){
+          prog.dl.done = true; prog.dl.pct = 100;
+        } else if (m.type === 'unzip-start'){
+          prog.uz.active = true; prog.uz.total = m.totalBytes || 0; prog.uz.loaded = 0; prog.uz.pct = prog.uz.total ? 0 : null;
+        } else if (m.type === 'unzip-progress'){
+          prog.uz.active = true; prog.uz.total = m.totalBytes || prog.uz.total; prog.uz.loaded = m.loadedBytes ?? prog.uz.loaded;
+          prog.uz.pct = prog.uz.total ? (prog.uz.loaded / prog.uz.total) * 100 : null;
+        } else if (m.type === 'unzip-done'){
+          prog.uz.done = true; prog.uz.pct = 100;
+        }
+        recomputeOverall();
+      };
+    }
+  } catch {}
+
+  // ===== Loading finished =====
   function markReady(){
     if (readyFlag) return;
     readyFlag = true;
     engineReady = true;
     enableStart();
-    closeGame();
-    // If user didn't play, shrink logo away
+    showProgressUI(false);
+    setIndeterminate(false);
     if (WG.state==='idle' || WG.state==='spin'){ WG.state='locked'; ts = 0; }
+    closeGame();
   }
   if (logoEl){
     logoEl.addEventListener('animationstart', (e)=>{ if (e.animationName === 'pulsate-end') markReady(); });
@@ -371,7 +395,7 @@
     mo.observe(logoEl, { attributes:true, attributeFilter:['style'] });
   }
 
-  // ===== Form submit (reveal engine canvas + fade bg) =====
+  // ===== Form submit =====
   formEl?.addEventListener('submit', async (e)=>{
     e.preventDefault();
     if (!canStart) return;
@@ -379,13 +403,12 @@
     if (!name) { usernameInput && usernameInput.focus(); return; }
     formEl.style.display = 'none';
     if (engineCanvas){ engineCanvas.style.opacity='1'; engineCanvas.style.pointerEvents='auto'; }
-    // fade bg and cs
     if (bgActive){ bgCanvas.style.opacity='0'; setTimeout(()=>{ bgActive=false; bgCanvas.style.display='none'; }, 450); }
     if (csImg){ if(!csImg.style.transition) csImg.style.transition='opacity .3s ease'; csImg.style.opacity='0'; setTimeout(()=>{ csImg.style.display='none'; }, 350); }
     try { const stream = await navigator.mediaDevices.getUserMedia({ audio:true }); stream.getTracks().forEach(t=>t.stop()); warningEl.style.opacity=0; } catch(_) { warningEl.style.opacity=1; }
   });
 
-  // ===== Flappy Bird (time-based; used in modal) =====
+  // ===== Flappy Bird (modal) =====
   window.startFlappyBird = function(canvasId){
     const canvas = document.getElementById(canvasId);
     if (!canvas) return { stop(){} };
@@ -402,7 +425,7 @@
     const onKeyDown=(e)=>{ if (e.code==='Space'){ e.preventDefault(); onCanvasClick(); } };
     canvas.addEventListener('click', onCanvasClick); document.addEventListener('keydown', onKeyDown);
     function update(dt){ if (gameState==='gameOver' && gameOverTimerSec>0) gameOverTimerSec=Math.max(0, gameOverTimerSec-dt); if (spinTimerSec>0) spinTimerSec=Math.max(0, spinTimerSec-dt); if (gameState!=='playing') return; bird.velocity+=bird.gravity*dt; bird.y+=bird.velocity*dt; timeSinceLastPipe+=dt; while(timeSinceLastPipe>=PIPE_SPAWN_INTERVAL){ timeSinceLastPipe-=PIPE_SPAWN_INTERVAL; const gapY=Math.random()*(canvas.height-pipeGap-40)+20; pipes.push({x:canvas.width, gapY, width:pipeWidth, gap:pipeGap, passed:false}); } for (let i=0;i<pipes.length;i++){ const p=pipes[i]; p.x -= PIPE_SPEED*dt; if(!p.passed && p.x+p.width<bird.x){ score++; p.passed=true; spinTimerSec=SPIN_DURATION; } const cx=bird.x+bird.width/2, cy=bird.y+bird.height/2, r=bird.width/2; if (circleRectCollision(cx,cy,r,p.x,0,p.width,p.gapY) || circleRectCollision(cx,cy,r,p.x,p.gapY+p.gap,p.width,canvas.height-(p.gapY+p.gap))) triggerGameOver(); } pipes=pipes.filter(p=>p.x+p.width>0); if (bird.y+bird.height>canvas.height || bird.y<0) triggerGameOver(); }
-    function draw(){ const c=ctx; c.fillStyle='#FFFFFF'; c.fillRect(0,0,canvas.width,canvas.height); if(gameState==='playing' || gameState==='gameOver'){ c.fillStyle='#1B3F5A'; pipes.forEach(p=>{ c.fillRect(p.x,0,p.width,p.gapY); c.fillRect(p.x,p.gapY+p.gap,p.width,canvas.height-(p.gapY+p.gap)); }); } c.save(); let angle=0; if (spinTimerSec>0){ const progress=1-(spinTimerSec/SPIN_DURATION); angle=progress*2*Math.PI; } c.translate(bird.x+bird.width/2, bird.y+bird.height/2); c.beginPath(); c.arc(0,0,bird.width/2,0,Math.PI*2); c.closePath(); c.clip(); c.rotate(-angle); if(imgReady){ c.drawImage(birdImage, -bird.width/2, -bird.height/2, bird.width, bird.height); } else { c.fillStyle='#1B3F5A'; c.beginPath(); c.arc(0,0,bird.width/2,0,Math.PI*2); c.fill(); } c.restore(); c.font='20px Arial'; c.textAlign='left'; let pad=4; const s1='Score: '+score, s2='High Score: '+highScore; const w=Math.max(c.measureText(s1).width, c.measureText(s2).width)+pad*2; drawRoundedRect(c,5,5,w,50,8,'#fff','#1B3F5A'); c.fillStyle='#1B3F5A'; c.fillText(s1,5+pad,25); c.fillText(s2,5+pad,45); if (gameState==='start'){ c.font='24px Arial'; c.textAlign='center'; const l1='Press Space', l2='or Click to Start'; pad=10; const bw=Math.max(c.measureText(l1).width, c.measureText(l2).width)+pad*2; const bh=70; const bx=(canvas.width-bw)/2; const by=canvas.height/2-bh/2; drawRoundedRect(c,bx,by,bw,bh,8,'#fff','#1B3F5A'); c.fillStyle='#1B3F5A'; c.fillText(l1, canvas.width/2, by+30); c.fillText(l2, canvas.width/2, by+55); } else if (gameState==='gameOver'){ const l0='Game Over', lS='Score: '+score, lR='Click or Press Space to Restart'; pad=10; c.font='40px Arial'; c.textAlign='center'; const gw=c.measureText(l0).width; c.font='24px Arial'; const sw=c.measureText(lS).width; const rw=c.measureText(lR).width; const bw=Math.max(gw,sw,rw)+pad*2; const bh=150; const bx=(canvas.width-bw)/2; const by=canvas.height/2-bh/2; drawRoundedRect(c,bx,by,bw,bh,8,'#fff','#1B3F5A'); c.fillStyle='#1B3F5A'; c.font='40px Arial'; c.fillText(l0, canvas.width/2, by+45); c.font='24px Arial'; c.fillText(lS, canvas.width/2, by+80); if (gameOverTimerSec<=0){ c.font='20px Arial'; c.fillText(lR, canvas.width/2, by+120); } } }
+    function draw(){ const c=ctx; c.fillStyle='#FFFFFF'; c.fillRect(0,0,canvas.width,canvas.height); if(gameState==='playing' || gameState==='gameOver'){ c.fillStyle='#1B3F5A'; pipes.forEach(p=>{ c.fillRect(p.x,0,p.width,p.gapY); c.fillRect(p.x,p.gapY+p.gap,p.width,canvas.height-(p.gapY+p.gap)); }); } c.save(); let angle=0; if (spinTimerSec>0){ const progress=1-(spinTimerSec/SPIN_DURATION); angle=progress*2*Math.PI; } c.translate(bird.x+bird.width/2, bird.y+bird.height/2); c.beginPath(); c.arc(0,0,bird.width/2,0,Math.PI*2); c.closePath(); c.clip(); c.rotate(-angle); if(imgReady){ c.drawImage(birdImage, -bird.width/2, -bird.height/2, bird.width, bird.height); } else { c.fillStyle='#1B3F5A'; c.beginPath(); c.arc(0,0,bird.width/2,0,Math.PI*2); c.fill(); } c.restore(); c.font='20px Arial'; c.textAlign='left'; let pad=4; const s1='Score: '+score, s2='High Score: '+highScore; const w=Math.max(c.measureText(s1).width, c.measureText(s2).width)+pad*2; drawRoundedRect(c,5,5,w,50,8,'#fff','#1B3F5A'); c.fillStyle='#1B3F5A'; c.fillText(s1,5+pad,25); c.fillText(s2,5+pad,45); if (gameState==='start'){ c.font='24px Arial'; c.textAlign='center'; const l1='Press Space', l2='or Click to Start'; pad=10; const bw=Math.max(c.measureText(l1).width, c.measureText(l2).width)+pad*2; const bh=70; const bx=(canvas.width-bw)/2; const by=canvas.height/2-bh/2; drawRoundedRect(c,bx,by,bw,bh,8,'#fff','#1B3F5A'); c.fillStyle='#1B3F5A'; c.fillText(l1, canvas.width/2, by+30); c.fillText(l2, canvas.width/2, by+55); } else if (gameState==='gameOver'){ const l0='Game Over', lS='Score: '+score, lR='Click or Press Space to Restart'; pad=10; const gw=c.measureText(l0).width; c.font='24px Arial'; const sw=c.measureText(lS).width; const rw=c.measureText(lR).width; const bw=Math.max(gw,sw,rw)+pad*2; const bh=150; const bx=(canvas.width-bw)/2; const by=canvas.height/2-bh/2; drawRoundedRect(c,bx,by,bw,bh,8,'#fff','#1B3F5A'); c.fillStyle='#1B3F5A'; c.font='40px Arial'; c.fillText(l0, canvas.width/2, by+45); c.font='24px Arial'; c.fillText(lS, canvas.width/2, by+80); if (gameOverTimerSec<=0){ c.font='20px Arial'; c.fillText(lR, canvas.width/2, by+120); } } }
     let last=null, acc=0, rafId=null, running=true;
     function gameLoop(t){ if(!running) return; const now=t/1000; if(last===null) last=now; let dt=now-last; if(dt>0.25) dt=0.25; last=now; acc+=dt; while(acc>=FIXED_DT){ update(FIXED_DT); acc-=FIXED_DT; } draw(); rafId=requestAnimationFrame(gameLoop); }
     function start(){ if(running && rafId===null) rafId=requestAnimationFrame(gameLoop); }
@@ -410,14 +433,15 @@
     return { stop };
   };
 
-  // ===== Main RAF loop =====
+  // ===== Main RAF =====
   let lastT = performance.now();
   function loop(t){
     if (!bgActive) return;
     const dt = Math.min(0.05, (t - lastT)/1000);
     lastT = t;
-    // draw background stars
-    bgCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--brand').trim()||'#1B3F5A';
+    // stars
+    const brand = getComputedStyle(document.documentElement).getPropertyValue('--brand').trim()||'#1B3F5A';
+    bgCtx.fillStyle = brand;
     bgCtx.fillRect(0,0,innerWidth,innerHeight);
     bgCtx.globalAlpha=0.95; bgCtx.beginPath();
     for(const s of stars){ s.x+=s.vx; s.y+=s.vy; wrap(s); bgCtx.moveTo(s.x,s.y); bgCtx.arc(s.x,s.y,s.r,0,Math.PI*2); }
@@ -426,61 +450,48 @@
     // waiting game
     updateWaiting(dt);
     drawWaiting();
+
     requestAnimationFrame(loop);
   }
+  requestAnimationFrame(loop);
 
   function updateWaiting(dt){
-    // cursor
     bgCanvas.style.cursor = (WG.state==='playing') ? 'none' : 'auto';
 
-    // position tween (fast)
     const speed = 1800; const dx = tx - lx, dy = ty - ly; const dist = Math.hypot(dx, dy);
     if (dist > 0.5) { const step = Math.min(dist, speed * dt); const k = step / dist; lx += dx * k; ly += dy * k; } else { lx = tx; ly = ty; }
 
-    // scale target per state
     if (WG.state === 'playing') { ts = (dist > 1) ? 0.25 : 0.5; }
     else if (WG.state === 'locked') { ts = 0; }
     else { ts = 1; }
 
-    // scale tween
     const scaleSpeed = 6; const ds = ts - ls; if (Math.abs(ds) > 0.001) { ls += Math.sign(ds) * Math.min(Math.abs(ds), scaleSpeed * dt); }
 
-    // slow spin (3-click)
     if (spinning){
       const dur=0.7; spinT += dt; const p=Math.min(spinT/dur,1);
       rot = -2*Math.PI*p;
       if (p>=1){ spinning=false; rot=0; if (WG.state==='spin') WG.state='idle'; }
     }
 
-    // fast spin on hit
     if (hitSpinT < 0.3){
       hitSpinT += dt; const hp = Math.min(hitSpinT/0.3, 1);
       rot = -4*Math.PI*hp;
       if (hp>=1 && !spinning) rot=0;
     }
 
-    // recoil easing
-    spread += (spreadTarget - spread) * Math.min(1, dt*12);
-    spreadTarget += (SPREAD_BASE - spreadTarget) * Math.min(1, dt*6);
-
-    // particles
     for (let i=particles.length-1; i>=0; i--){
       const p=particles[i]; p.age+=dt; p.x+=p.vx*dt; p.y+=p.vy*dt;
       if (p.age>=p.life) particles.splice(i,1);
     }
 
-    // floaters
     for (let i=floaters.length-1; i>=0; i--){
       const f=floaters[i]; f.age += dt; f.y -= 40*dt;
       if (f.age >= f.life) floaters.splice(i,1);
     }
 
-    // If not playing, keep high score responsive to viewport changes
-    if (WG.state !== 'playing'){
-      updateBracketFromViewport(false);
-    }
+    spread += (spreadTarget - spread) * Math.min(1, dt*12);
+    spreadTarget += (SPREAD_BASE - spreadTarget) * Math.min(1, dt*6);
 
-    // timer
     if (WG.state==='playing'){
       WG.timeLeft -= dt;
       if (WG.timeLeft <= 0){
@@ -489,7 +500,7 @@
         everPlayed = true; lastStats.hits = WG.hits; lastStats.total = WG.total;
         if (WG.hits > WG.highScore) {
           WG.highScore = WG.hits;
-          saveHighScoreForCurrent();
+          saveHSForBracket(WG.bracket, WG.highScore);
         }
         if (engineReady) { WG.state='locked'; ts = 0; }
       }
@@ -499,20 +510,16 @@
   function drawWaiting(){
     if (!logoReady) return;
 
-    // Big centered timer (with icon) — only during rounds
     if (WG.state === 'playing') {
       const tDisp = '⏱ ' + Math.max(0, WG.timeLeft).toFixed(1) + 's';
-      const shadow = () => { bgCtx.shadowColor = 'rgba(0,0,0,.45)'; bgCtx.shadowBlur = 6; bgCtx.shadowOffsetX = 0; bgCtx.shadowOffsetY = 2; };
       bgCtx.save();
       bgCtx.font = 'bold 34px Arial';
       bgCtx.textAlign = 'center';
       bgCtx.fillStyle = '#fff';
-      shadow();
       bgCtx.fillText(tDisp, innerWidth / 2, 40);
       bgCtx.restore();
     }
 
-    // draw logo clipped circle with rotation
     const base = Math.min(logoImg.naturalWidth||160, logoImg.naturalHeight||160);
     const size = base * ls; const half = size/2;
     bgCtx.save();
@@ -524,7 +531,6 @@
     bgCtx.drawImage(logoImg, -half, -half, size, size);
     bgCtx.restore();
 
-    // particles on top
     if (particles.length){
       bgCtx.save();
       bgCtx.fillStyle='#fff';
@@ -539,7 +545,6 @@
       bgCtx.restore();
     }
 
-    // floating labels (+0.5s white at target, -0.5s red at crosshair)
     if (floaters.length){
       bgCtx.save();
       bgCtx.font = 'bold 14px Arial';
@@ -547,19 +552,13 @@
         const a = Math.max(0, 1 - f.age / f.life);
         if (a <= 0) continue;
         bgCtx.globalAlpha = a;
-        bgCtx.fillStyle = f.color || '#ffffff';
-        // Shadow for readability
-        bgCtx.shadowColor = 'rgba(0,0,0,.6)';
-        bgCtx.shadowBlur = 4;
-        bgCtx.shadowOffsetX = 0;
-        bgCtx.shadowOffsetY = 1;
-        bgCtx.fillText(f.text || '+0.5s', f.x + 18, f.y - 10 - (1 - a) * 20);
+        bgCtx.fillStyle = f.color || '#fff';
+        bgCtx.fillText(f.text, f.x + 18, f.y - 10 - (1 - a) * 20);
       }
       bgCtx.globalAlpha = 1;
       bgCtx.restore();
     }
 
-    // Right-side stats (no timer here)
     if (WG.state === 'playing' || everPlayed) {
       const hitsDisp = (WG.state === 'playing') ? WG.hits : lastStats.hits;
       const totalDisp = (WG.state === 'playing') ? WG.total : Math.max(1, lastStats.total);
@@ -573,24 +572,21 @@
       bgCtx.fillText(hud, innerWidth - 12, 24);
     }
 
-    // CS-style crosshair while playing (white with black outline)
     if (WG.state === 'playing'){
       bgCtx.save();
       bgCtx.translate(mx, my);
       const g=spread; const len=12;
 
-      // black outline
-      bgCtx.lineWidth=4; bgCtx.strokeStyle='#000';
-      bgCtx.beginPath();
+      // outline
+      bgCtx.lineWidth=4; bgCtx.strokeStyle='#000'; bgCtx.beginPath();
       bgCtx.moveTo(-g-len,0); bgCtx.lineTo(-g,0);
       bgCtx.moveTo(g,0); bgCtx.lineTo(g+len,0);
       bgCtx.moveTo(0,-g-len); bgCtx.lineTo(0,-g);
       bgCtx.moveTo(0,g); bgCtx.lineTo(0,g+len);
       bgCtx.stroke();
 
-      // white inner crosshair
-      bgCtx.lineWidth=2; bgCtx.strokeStyle='#fff';
-      bgCtx.beginPath();
+      // white inner
+      bgCtx.lineWidth=2; bgCtx.strokeStyle='#fff'; bgCtx.beginPath();
       bgCtx.moveTo(-g-len,0); bgCtx.lineTo(-g,0);
       bgCtx.moveTo(g,0); bgCtx.lineTo(g+len,0);
       bgCtx.moveTo(0,-g-len); bgCtx.lineTo(0,-g);
@@ -601,16 +597,12 @@
     }
   }
 
-  // ===== RAF start =====
-  requestAnimationFrame(loop);
-
   // ===== Self tests =====
   try {
     console.assert(bgCanvas, '#bg exists');
     console.assert(engineCanvas, '#canvas exists');
     console.assert(getComputedStyle(engineCanvas).opacity === '0', '#canvas hidden until Start');
   } catch(e) { console.warn('Self-tests warning:', e); }
-
 })();
 </script>
 </body>
