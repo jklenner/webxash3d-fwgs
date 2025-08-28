@@ -9,6 +9,7 @@ services:
     environment:
       PORT: 27018
       IP: 10.10.16.42
+#      IP: 80.151.134.21
       DISABLE_X_POWERED_BY: true
     volumes:
       - "./mnt/client/valve.zip:/xashds/public/valve.zip"

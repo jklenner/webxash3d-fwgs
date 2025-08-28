@@ -7,20 +7,22 @@ import serverURL from 'cs16-client/dlls/cs_emscripten_wasm32.so?url'
 import gles3URL from 'xash3d-fwgs/libref_gles3compat.wasm?url'
 import { Xash3DWebRTC } from './webrtc'
 
+// ===== Username handshake =====
 let usernamePromiseResolve: (name: string) => void
 const usernamePromise = new Promise<string>((resolve) => {
   usernamePromiseResolve = resolve
 })
 
-// ---- Progress plumbing (BroadcastChannel) ----
+// ===== Progress plumbing (BroadcastChannel) =====
 const PROGRESS_CH = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel('dl-progress') : null
 function reportProgress(msg: any) {
   try { PROGRESS_CH?.postMessage(msg) } catch {}
 }
 
-// Stream a URL to ArrayBuffer and report progress
-async function fetchArrayBufferWithProgress(url: string): Promise<ArrayBuffer> {
-  const res = await fetch(url)
+// ===== Fetch with byte-progress & cache validation =====
+async function fetchArrayBufferWithProgress(url: string, init?: RequestInit): Promise<ArrayBuffer> {
+  const res = await fetch(url, init)
+  if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status} ${res.statusText}`)
   const total = Number(res.headers.get('content-length')) || 0
 
   if (!res.body) {
@@ -36,7 +38,6 @@ async function fetchArrayBufferWithProgress(url: string): Promise<ArrayBuffer> {
   const reader = res.body.getReader()
   const chunks: Uint8Array[] = []
   let loaded = 0
-
   try {
     while (true) {
       const { done, value } = await reader.read()
@@ -54,30 +55,158 @@ async function fetchArrayBufferWithProgress(url: string): Promise<ArrayBuffer> {
 
   const result = new Uint8Array(loaded)
   let offset = 0
-  for (const c of chunks) {
-    result.set(c, offset)
-    offset += c.byteLength
-  }
-
+  for (const c of chunks) { result.set(c, offset); offset += c.byteLength }
   reportProgress({ type: 'done', url, loaded, total })
   return result.buffer
 }
 
+// ===== Simple IndexedDB layer (no IDBFS) =====
+const DB_NAME = 'cs-assets'
+const STORE_FILES = 'rodir'
+const STORE_META = 'meta'
+type IDBValue = ArrayBuffer
+
+function idbAvailable() {
+  try { return !!indexedDB } catch { return false }
+}
+
+function openDB(): Promise<IDBDatabase> {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, 1)
+    req.onupgradeneeded = () => {
+      const db = req.result
+      if (!db.objectStoreNames.contains(STORE_FILES)) db.createObjectStore(STORE_FILES)
+      if (!db.objectStoreNames.contains(STORE_META)) db.createObjectStore(STORE_META)
+    }
+    req.onsuccess = () => resolve(req.result)
+    req.onerror = () => reject(req.error)
+  })
+}
+
+function idbGet(db: IDBDatabase, store: string, key: string): Promise<any> {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(store, 'readonly')
+    const os = tx.objectStore(store)
+    const req = os.get(key)
+    req.onsuccess = () => resolve(req.result ?? null)
+    req.onerror = () => reject(req.error)
+  })
+}
+
+function idbSet(db: IDBDatabase, store: string, key: string, val: any): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(store, 'readwrite')
+    const os = tx.objectStore(store)
+    const req = os.put(val, key)
+    req.onsuccess = () => resolve()
+    req.onerror = () => reject(req.error)
+  })
+}
+
+function idbClear(db: IDBDatabase, store: string): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(store, 'readwrite')
+    const os = tx.objectStore(store)
+    const req = os.clear()
+    req.onsuccess = () => resolve()
+    req.onerror = () => reject(req.error)
+  })
+}
+
+async function idbPutMany(db: IDBDatabase, entries: Array<{ path: string, data: Uint8Array }>): Promise<number> {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE_FILES, 'readwrite')
+    const os = tx.objectStore(STORE_FILES)
+    let totalBytes = 0
+    let i = 0
+    function next() {
+      if (i >= entries.length) return
+      const { path, data } = entries[i++]
+      totalBytes += data.byteLength
+      const req = os.put(data.buffer as IDBValue, path)
+      req.onsuccess = () => next()
+      req.onerror = () => reject(req.error)
+    }
+    tx.oncomplete = () => resolve(totalBytes)
+    tx.onerror = () => reject(tx.error)
+    next()
+  })
+}
+
+async function idbRestoreToFS(x: Xash3DWebRTC, db: IDBDatabase, totalBytesHint: number | null) {
+  const FS = x.em.FS
+  // We’ll stream via a cursor and update progress
+  return new Promise<void>((resolve, reject) => {
+    const tx = db.transaction(STORE_FILES, 'readonly')
+    const os = tx.objectStore(STORE_FILES)
+    const req = os.openCursor()
+    let loaded = 0
+    const total = totalBytesHint || 0
+
+    reportProgress({ type: 'unzip-start', totalFiles: 0, totalBytes: total })
+
+    req.onsuccess = async () => {
+      const cursor = req.result as IDBCursorWithValue | null
+      if (!cursor) return
+      const path = String(cursor.key)
+      const ab = cursor.value as ArrayBuffer
+      try {
+        const dirPath = '/rodir/' + path.split('/').slice(0, -1).join('/')
+        if (dirPath) FS.mkdirTree(dirPath)
+        FS.writeFile('/rodir/' + path, new Uint8Array(ab))
+        loaded += ab.byteLength || 0
+        reportProgress({
+          type: 'unzip-progress',
+          file: path,
+          fileIndex: 0,
+          filePercent: 100,
+          loadedBytes: total ? Math.min(loaded, total) : loaded,
+          totalBytes: total || Math.max(1, loaded) // avoid 0
+        })
+      } catch (e) {
+        reject(e)
+        return
+      }
+      cursor.continue()
+    }
+    tx.oncomplete = () => {
+      reportProgress({ type: 'unzip-done', totalFiles: 0, totalBytes: total })
+      resolve()
+    }
+    tx.onerror = () => reject(tx.error)
+  })
+}
+
+// ===== Versioning via ETag / Last-Modified / optional valve.version =====
+async function getRemoteValveTag(): Promise<string | null> {
+  try {
+    const head = await fetch('valve.zip', { method: 'HEAD', cache: 'no-cache' })
+    if (head.ok) {
+      const et = head.headers.get('etag')
+      const lm = head.headers.get('last-modified')
+      if (et) return et
+      if (lm) return lm
+    }
+  } catch {}
+  try {
+    const r = await fetch('valve.version', { cache: 'no-cache' })
+    if (r.ok) return (await r.text()).trim() || null
+  } catch {}
+  return null
+}
+
+// ===== Main =====
 async function main() {
   const x = new Xash3DWebRTC({
     canvas: document.getElementById('canvas') as HTMLCanvasElement,
-    module: {
-      arguments: ['-windowed', '-game', 'cstrike'],
-    },
+    module: { arguments: ['-windowed', '-game', 'cstrike'] },
     libraries: {
       filesystem: filesystemURL,
       xash: xashURL,
       menu: menuURL,
       server: serverURL,
       client: clientURL,
-      render: {
-        gles3compat: gles3URL,
-      }
+      render: { gles3compat: gles3URL },
     },
     filesMap: {
       'dlls/cs_emscripten_wasm32.so': serverURL,
@@ -85,83 +214,116 @@ async function main() {
     },
   })
 
-  const [zip] = await Promise.all([
-    (async () => {
-      const ab = await fetchArrayBufferWithProgress('valve.zip')
-      return await loadAsync(ab)
-    })(),
-    x.init(),
-  ])
+  // Reduce eviction risk for large caches
+  try { await navigator.storage?.persist?.() } catch {}
 
-  // ----- Unzip progress (sequential) -----
-  const entries = Object.values(zip.files).filter((f: any) => !f.dir) as any[]
-  // Try to compute total uncompressed bytes (may be 0 if JSZip can’t expose it yet)
-  // Many JSZip builds expose `f._data?.uncompressedSize`. If unavailable, we'll fall back to equal weighting.
-  let totalUnc = 0
-  const sizes: number[] = entries.map((f) => {
-    const s = (f._data && typeof f._data.uncompressedSize === 'number') ? f._data.uncompressedSize : 0
-    totalUnc += s
-    return s
-  })
+  // Init engine first (ensures x.em & FS are ready)
+  await x.init()
 
-  reportProgress({
-    type: 'unzip-start',
-    totalFiles: entries.length,
-    totalBytes: totalUnc
-  })
+  // Always work out of in-memory /rodir (classic MEMFS)
+  const FS = x.em.FS
+  try { FS.mkdir('/rodir') } catch {}
 
-  let doneBytes = 0
+  // Decide whether to restore or (re)download
+  const remoteTag = await getRemoteValveTag()
+  const canIDB = idbAvailable()
+  let db: IDBDatabase | null = null
+  let localTag: string | null = null
+  let totalBytesHint: number | null = null
 
-  for (let i = 0; i < entries.length; i++) {
-    const file = entries[i]
-    const filename = file.name as string
-    const dirPath = '/rodir/' + filename.split('/').slice(0, -1).join('/')
+  if (canIDB) {
+    db = await openDB()
+    localTag = await idbGet(db, STORE_META, 'valve.version')
+    totalBytesHint = await idbGet(db, STORE_META, 'valve.totalBytes')?.then?.((x: any)=>x).catch?.(()=>null) ?? await idbGet(db, STORE_META, 'valve.totalBytes')
+  }
 
-    if (dirPath) x.em.FS.mkdirTree(dirPath)
+  const upToDate = !!remoteTag && remoteTag === localTag
 
-    const thisSize = sizes[i] || 0
-    const hasBytes = totalUnc > 0 && thisSize > 0
+  if (canIDB && db && upToDate) {
+    // “fake” download complete to keep your UI consistent
+    reportProgress({ type: 'start', url: 'valve.zip', loaded: 0, total: 2 })
+    reportProgress({ type: 'progress', url: 'valve.zip', loaded: 1, total: 2 })
+    reportProgress({ type: 'done',  url: 'valve.zip', loaded: 2, total: 2 })
 
-    // Per-file progress callback
-    const onUpdate = (meta: { percent: number }) => {
-      const filePct = Math.max(0, Math.min(100, meta.percent || 0))
-      const loadedBytes = hasBytes
-        ? Math.round(doneBytes + thisSize * (filePct / 100))
-        : Math.round(((i + filePct / 100) / entries.length) * 1000) // pseudo-bytes scale if unknown
+    // Restore unzipped files from IDB into /rodir (fast, no unzip)
+    await idbRestoreToFS(x, db, typeof totalBytesHint === 'number' ? totalBytesHint : null)
+
+  } else {
+    // Either first run, version changed, or no IDB — download (304 if unchanged in HTTP cache)
+    const ab = await fetchArrayBufferWithProgress('valve.zip', { cache: 'no-cache' })
+    const zip = await loadAsync(ab)
+
+    // Unzip sequentially into /rodir and, if possible, persist into IDB
+    const entries = Object.values(zip.files).filter((f: any) => !f.dir) as any[]
+
+    let totalUnc = 0
+    const sizes: number[] = entries.map((f) => {
+      const s = (f._data && typeof f._data.uncompressedSize === 'number') ? f._data.uncompressedSize : 0
+      totalUnc += s
+      return s
+    })
+
+    reportProgress({ type: 'unzip-start', totalFiles: entries.length, totalBytes: totalUnc })
+
+    let doneBytes = 0
+    const batchForIDB: Array<{ path: string, data: Uint8Array }> = []
+
+    for (let i = 0; i < entries.length; i++) {
+      const file = entries[i]
+      const filename = file.name as string
+      const dirPath = '/rodir/' + filename.split('/').slice(0, -1).join('/')
+      if (dirPath) FS.mkdirTree(dirPath)
+
+      const thisSize = sizes[i] || 0
+      const hasBytes = totalUnc > 0 && thisSize > 0
+
+      const onUpdate = (meta: { percent: number }) => {
+        const filePct = Math.max(0, Math.min(100, meta.percent || 0))
+        const loadedBytes = hasBytes
+          ? Math.round(doneBytes + thisSize * (filePct / 100))
+          : Math.round(((i + filePct / 100) / entries.length) * 1000)
+        reportProgress({
+          type: 'unzip-progress',
+          file: filename,
+          fileIndex: i,
+          filePercent: filePct,
+          loadedBytes,
+          totalBytes: totalUnc || 1000
+        })
+      }
+
+      const data: Uint8Array = await file.async('uint8array', onUpdate)
+
+      // Write into in-memory FS
+      FS.writeFile('/rodir/' + filename, data)
+
+      // Stage for persistence
+      if (canIDB && db) batchForIDB.push({ path: filename, data })
+
+      if (hasBytes) doneBytes += thisSize
       reportProgress({
         type: 'unzip-progress',
         file: filename,
         fileIndex: i,
-        filePercent: filePct,
-        loadedBytes,
-        totalBytes: totalUnc || 1000 // match pseudo scale if total unknown
+        filePercent: 100,
+        loadedBytes: hasBytes ? doneBytes : Math.round(((i + 1) / entries.length) * 1000),
+        totalBytes: totalUnc || 1000
       })
     }
 
-    const data: Uint8Array = await file.async('uint8array', onUpdate)
-    const fullPath = '/rodir/' + filename
-    x.em.FS.writeFile(fullPath, data)
+    reportProgress({ type: 'unzip-done', totalFiles: entries.length, totalBytes: totalUnc })
 
-    // Close out this file’s contribution
-    if (hasBytes) doneBytes += thisSize
-    reportProgress({
-      type: 'unzip-progress',
-      file: filename,
-      fileIndex: i,
-      filePercent: 100,
-      loadedBytes: hasBytes ? doneBytes : Math.round(((i + 1) / entries.length) * 1000),
-      totalBytes: totalUnc || 1000
-    })
+    // Persist to IndexedDB (replace old content) and store new version tag/meta
+    if (canIDB && db) {
+      await idbClear(db, STORE_FILES)
+      const writtenBytes = await idbPutMany(db, batchForIDB)
+      if (remoteTag) await idbSet(db, STORE_META, 'valve.version', remoteTag)
+      await idbSet(db, STORE_META, 'valve.totalBytes', writtenBytes)
+    }
   }
 
-  reportProgress({
-    type: 'unzip-done',
-    totalFiles: entries.length,
-    totalBytes: totalUnc
-  })
-
-  // Mount and continue as before
-  x.em.FS.chdir('/rodir')
+  // Ready — change working directory and continue as before
+  FS.chdir('/rodir')
 
   // Trigger your "loading finished" animation; your page listens for this
   const logo = document.getElementById('logo')!
@@ -170,12 +332,11 @@ async function main() {
   logo.style.animationIterationCount = '1'
   logo.style.animationDirection = 'normal'
 
+  // Proceed with engine startup
   const username = await usernamePromise
   x.main()
   x.Cmd_ExecuteString('_vgui_menus 0')
-  if (!window.matchMedia('(hover: hover)').matches) {
-    x.Cmd_ExecuteString('touch_enable 1')
-  }
+  if (!window.matchMedia('(hover: hover)').matches) x.Cmd_ExecuteString('touch_enable 1')
   x.Cmd_ExecuteString(`name "${username}"`)
   x.Cmd_ExecuteString('connect 127.0.0.1:8080')
 
@@ -186,12 +347,13 @@ async function main() {
   })
 }
 
-const username = localStorage.getItem('username')
-if (username) {
-  (document.getElementById('username') as HTMLInputElement).value = username
+// ===== Username persistence in localStorage + form handling =====
+const savedUsername = localStorage.getItem('username')
+if (savedUsername) {
+  (document.getElementById('username') as HTMLInputElement).value = savedUsername
 }
 
-(document.getElementById('form') as HTMLFormElement).addEventListener('submit', (e) => {
+;(document.getElementById('form') as HTMLFormElement).addEventListener('submit', (e) => {
   e.preventDefault()
   const username = (document.getElementById('username') as HTMLInputElement).value
   localStorage.setItem('username', username)
@@ -199,4 +361,5 @@ if (username) {
   usernamePromiseResolve(username)
 })
 
+// Kick off
 main()
