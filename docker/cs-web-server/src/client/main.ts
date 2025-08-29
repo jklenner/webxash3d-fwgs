@@ -199,7 +199,7 @@ async function getRemoteValveTag(): Promise<string | null> {
 async function main() {
   const x = new Xash3DWebRTC({
     canvas: document.getElementById('canvas') as HTMLCanvasElement,
-    module: { arguments: ['-windowed', '-game', 'cstrike'] },
+    module: { arguments: ['-windowed', '-game', 'cstrike'], INITIAL_MEMORY: 512 * 1024 * 1024  },
     libraries: {
       filesystem: filesystemURL,
       xash: xashURL,
@@ -219,6 +219,16 @@ async function main() {
 
   // Init engine first (ensures x.em & FS are ready)
   await x.init()
+
+// Prevent detached-ArrayBuffer crashes on level changes: pre-grow heap
+try {
+  const em: any = (x as any).em;
+  const TARGET = 512 * 1024 * 1024; // try 256 MiB first; bump to 384/512 if you still see growth
+  if (typeof em._emscripten_resize_heap === 'function') {
+    if (em.HEAP8?.buffer?.byteLength < TARGET) em._emscripten_resize_heap(TARGET);
+  }
+  console.log('[mem] heap bytes:', em.HEAP8?.buffer?.byteLength);
+} catch (e) { console.warn('heap pre-grow failed', e); }
 
   // Always work out of in-memory /rodir (classic MEMFS)
   const FS = x.em.FS

@@ -54,22 +54,17 @@ export class Xash3DWebRTC extends Xash3D {
         let channelsCount = 0
         this.peer.ondatachannel = (e) => {
             if (e.channel.label === 'write') {
-                e.channel.onmessage = (ee) => {
-                    const packet: Packet = {
-                        ip: [127, 0, 0, 1],
-                        port: 8080,
-                        data: ee.data
-                    }
-                    if (ee.data.arrayBuffer) {
-                        ee.data.arrayBuffer().then((data: Int8Array) => {
-                            packet.data = data
-                            this.net!.incoming.enqueue(packet)
-                        })
-                    } else {
-                        this.net!.incoming.enqueue(packet)
-                    }
-                }
-            }
+  e.channel.binaryType = 'arraybuffer';
+  e.channel.onmessage = (ee) => {
+    const packet: Packet = {
+      ip: [127,0,0,1],
+      port: 8080,
+      data: new Int8Array(ee.data as ArrayBuffer)
+    };
+    queueMicrotask(() => this.net!.incoming.enqueue(packet));
+  };
+}
+
             e.channel.onopen = () => {
                 channelsCount += 1
                 if (e.channel.label === 'read') {
