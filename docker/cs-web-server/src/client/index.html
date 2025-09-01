@@ -397,7 +397,17 @@
 
   if (!bgCanvas || !bgCanvas.getContext) { console.warn('#bg canvas missing'); return; }
   const bgCtx = bgCanvas.getContext('2d');
-  function resize(){ const dpr = window.devicePixelRatio || 1; bgCanvas.width = innerWidth*dpr; bgCanvas.height = innerHeight*dpr; bgCtx.setTransform(dpr,0,0,dpr,0,0); }
+  function resize(){
+  // use real DPR, not the scaled one
+  const baseDPR = (typeof window.__origDPR === 'number' && window.__origDPR > 0)
+    ? window.__origDPR
+    : (window.devicePixelRatio || 1);
+
+  bgCanvas.width  = Math.floor(innerWidth  * baseDPR);
+  bgCanvas.height = Math.floor(innerHeight * baseDPR);
+  bgCtx.setTransform(baseDPR, 0, 0, baseDPR, 0, 0);
+}
+
   addEventListener('resize', resize); resize();
   const stars = Array.from({length:140}, () => ({ x: Math.random()*innerWidth, y: Math.random()*innerHeight, r: Math.random()*1.6+0.2, vx:(Math.random()-0.5)*0.35, vy:(Math.random()-0.5)*0.35 }));
   let bgActive = true;
