@@ -1,0 +1,10 @@
+maps/gg_zoog.bsp
+maps/gg_zoog.txt
+maps/gg_zoog.res
+models/palmtree7302.mdl
+gfx/env/sky555bk.tga
+gfx/env/sky555dn.tga
+gfx/env/sky555ft.tga
+gfx/env/sky555lf.tga
+gfx/env/sky555rt.tga
+gfx/env/sky555up.tga

@@ -4,6 +4,7 @@ services:
 #    entrypoint: []
 #    command: sleep infinity
     command: ["+map aim_map_2010", "+maxplayers 14"]
+#    network_mode: host
     restart: always
     platform: linux/386
     environment:
@@ -23,3 +24,8 @@ services:
       - "27018:27018/tcp"
       - "27018:27018/udp"
 
+networks:
+  csnet:
+    driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: "1200"   # try 1380–1400 if VPNs are flaky
