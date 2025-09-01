@@ -394,7 +394,6 @@
   window.addEventListener('pageshow', lockStart);
 
   // ===== Starfield / waiting game / modal / progress bus / markReady / submit =====
-  // (everything below unchanged from your last working version)
 
   if (!bgCanvas || !bgCanvas.getContext) { console.warn('#bg canvas missing'); return; }
   const bgCtx = bgCanvas.getContext('2d');
@@ -616,12 +615,244 @@
     try { const stream = await navigator.mediaDevices.getUserMedia({ audio:true }); stream.getTracks().forEach(t=>t.stop()); warningEl.style.opacity=0; } catch(_) { warningEl.style.opacity=1; }
   });
 
-  // Flappy & starfield loops unchanged (omitted here for brevity in this comment)
-  // ... (keep your existing Flappy game + RAF loop + waiting HUD code)
-  // For completeness, your existing code continues below with no changes:
+  // ===== Flappy Bird (modal) =====
+window.startFlappyBird = function(canvasId) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
 
-window.startFlappyBird = function(canvasId) { /* (unchanged flappy code) */ };
+    // Set canvas dimensions.
+    canvas.width = 400;
+    canvas.height = 600;
 
+    const birdImage = new Image(); let imgReady=false; birdImage.onload=()=>{ imgReady=true; start(); }; birdImage.onerror=()=>{ imgReady=false; start(); };
+    const logoForBird = document.getElementById('logo'); const birdSrc = (logoForBird && logoForBird.src) ? logoForBird.src : 'logo.png'; birdImage.src = birdSrc;
+
+    // --- Game state ---
+    let gameState = "start"; // "start" | "playing" | "gameOver"
+    let score = 0;
+    let pipes = [];
+
+    // --- Time-based constants (independent of refresh rate) ---
+    const FIXED_DT = 1 / 60;
+    const PIPE_SPEED = 120;
+    const PIPE_SPAWN_INTERVAL = 1.5;
+    const SPIN_DURATION = 0.5;
+    const GAME_OVER_LOCKOUT = 1.0;
+
+    const pipeWidth = 60;
+    const pipeGap = 150;
+
+    let timeSinceLastPipe = 0;
+    let spinTimerSec = 0;
+    let gameOverTimerSec = 0;
+
+    let highScore = parseInt(localStorage.getItem("flappyBirdHighScore") || "0");
+
+    // Bird physics
+    let bird = { x:50, y:150, width:40, height:40, velocity:0, gravity:1800, jumpForce:-480 };
+
+    function drawRoundedRect(ctx, x, y, width, height, radius, fillColor, strokeColor) {
+        ctx.beginPath();
+        ctx.moveTo(x + radius, y);
+        ctx.lineTo(x + width - radius, y);
+        ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+        ctx.lineTo(x + width, y + height - radius);
+        ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+        ctx.lineTo(x + radius, y + height);
+        ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+        ctx.lineTo(x, y + radius);
+        ctx.quadraticCurveTo(x, y, x + radius, y);
+        ctx.closePath();
+        ctx.fillStyle = fillColor;
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = strokeColor;
+        ctx.stroke();
+    }
+
+    function clamp(val, min, max) { return Math.max(min, Math.min(val, max)); }
+
+    function circleRectCollision(cx, cy, radius, rx, ry, rwidth, rheight) {
+        const closestX = clamp(cx, rx, rx + rwidth);
+        theClosestY = clamp(cy, ry, ry + rheight);
+        const dx = cx - closestX;
+        const dy = cy - theClosestY;
+        return (dx * dx + dy * dy) < (radius * radius);
+    }
+
+    function resetGame() {
+        bird.y = 150; bird.velocity = 0; pipes = []; score = 0; timeSinceLastPipe = 0; spinTimerSec = 0; gameOverTimerSec = 0;
+    }
+
+    function triggerGameOver() {
+        if (gameState !== "gameOver") {
+            gameState = "gameOver";
+            gameOverTimerSec = GAME_OVER_LOCKOUT;
+            if (score > highScore) { highScore = score; localStorage.setItem("flappyBirdHighScore", highScore); }
+        }
+    }
+
+    canvas.addEventListener("click", function() {
+        if (gameState === "start") { gameState = "playing"; resetGame(); }
+        else if (gameState === "playing") { bird.velocity = bird.jumpForce; }
+        else if (gameState === "gameOver") { if (gameOverTimerSec <= 0) { gameState = "playing"; resetGame(); } }
+    });
+
+    document.addEventListener("keydown", function(e) {
+        if (e.code === "Space") {
+            if (gameState === "start") { gameState = "playing"; resetGame(); }
+            else if (gameState === "playing") { bird.velocity = bird.jumpForce; }
+            else if (gameState === "gameOver") { if (gameOverTimerSec <= 0) { gameState = "playing"; resetGame(); } }
+        }
+    });
+
+    function update(dt) {
+        if (gameState === "gameOver" && gameOverTimerSec > 0) { gameOverTimerSec = Math.max(0, gameOverTimerSec - dt); }
+        if (spinTimerSec > 0) { spinTimerSec = Math.max(0, spinTimerSec - dt); }
+        if (gameState !== "playing") return;
+
+        bird.velocity += bird.gravity * dt;
+        bird.y += bird.velocity * dt;
+
+        timeSinceLastPipe += dt;
+        while (timeSinceLastPipe >= PIPE_SPAWN_INTERVAL) {
+            timeSinceLastPipe -= PIPE_SPAWN_INTERVAL;
+            const gapY = Math.random() * (canvas.height - pipeGap - 40) + 20;
+            pipes.push({ x: canvas.width, gapY, width: pipeWidth, gap: pipeGap, passed: false });
+        }
+
+        for (let i = 0; i < pipes.length; i++) {
+            let pipe = pipes[i];
+            pipe.x -= PIPE_SPEED * dt;
+
+            if (!pipe.passed && pipe.x + pipe.width < bird.x) { score++; pipe.passed = true; spinTimerSec = SPIN_DURATION; }
+
+            const cx = bird.x + bird.width / 2;
+            const cy = bird.y + bird.height / 2;
+            const radius = bird.width / 2;
+            if (circleRectCollision(cx, cy, radius, pipe.x, 0, pipe.width, pipe.gapY) ||
+                circleRectCollision(cx, cy, radius, pipe.x, pipe.gapY + pipe.gap, pipe.width, canvas.height - (pipe.gapY + pipe.gap))) {
+                triggerGameOver();
+            }
+        }
+
+        pipes = pipes.filter(pipe => pipe.x + pipe.width > 0);
+
+        if (bird.y + bird.height > canvas.height || bird.y < 0) { triggerGameOver(); }
+    }
+
+    function draw() {
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        if (gameState === "playing" || gameState === "gameOver") {
+            ctx.fillStyle = "#1B3F5A";
+            pipes.forEach(pipe => {
+                ctx.fillRect(pipe.x, 0, pipe.width, pipe.gapY);
+                ctx.fillRect(pipe.x, pipe.gapY + pipe.gap, pipe.width, canvas.height - (pipe.gapY + pipe.gap));
+            });
+        }
+
+        ctx.save();
+        let angle = 0;
+        if (spinTimerSec > 0) {
+            const progress = 1 - (spinTimerSec / SPIN_DURATION);
+            angle = progress * 2 * Math.PI;
+        }
+        ctx.translate(bird.x + bird.width / 2, bird.y + bird.height / 2);
+        ctx.beginPath();
+        ctx.arc(0, 0, bird.width / 2, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.clip();
+        ctx.rotate(-angle);
+        ctx.drawImage(birdImage, -bird.width / 2, -bird.height / 2, bird.width, bird.height);
+        ctx.restore();
+
+        ctx.font = "20px Arial";
+        ctx.textAlign = "left";
+        let padding = 4;
+        let scoreText = "Score: " + score;
+        let highScoreText = "High Score: " + highScore;
+        let scoreWidth = ctx.measureText(scoreText).width;
+        let highScoreWidth = ctx.measureText(highScoreText).width;
+        let boxWidth = Math.max(scoreWidth, highScoreWidth) + padding * 2;
+        let boxHeight = 50;
+        drawRoundedRect(ctx, 5, 5, boxWidth, boxHeight, 8, "white", "#1B3F5A");
+        ctx.fillStyle = "#1B3F5A";
+        ctx.fillText(scoreText, 5 + padding, 25);
+        ctx.fillText(highScoreText, 5 + padding, 45);
+
+        if (gameState === "start") {
+            ctx.font = "24px Arial";
+            ctx.textAlign = "center";
+            let line1 = "Press Space";
+            let line2 = "or Click to Start";
+            padding = 10;
+            let line1Width = ctx.measureText(line1).width;
+            let line2Width = ctx.measureText(line2).width;
+            boxWidth = Math.max(line1Width, line2Width) + padding * 2;
+            boxHeight = 70;
+            let boxX = (canvas.width - boxWidth) / 2;
+            let boxY = canvas.height / 2 - boxHeight / 2;
+            drawRoundedRect(ctx, boxX, boxY, boxWidth, boxHeight, 8, "white", "#1B3F5A");
+            ctx.fillStyle = "#1B3F5A";
+            ctx.fillText(line1, canvas.width / 2, boxY + 30);
+            ctx.fillText(line2, canvas.width / 2, boxY + 55);
+        }
+        else if (gameState === "gameOver") {
+            let gameOverLine = "Game Over";
+            let scoreLine = "Score: " + score;
+            let restartLine = "Click or Press Space to Restart";
+            padding = 10;
+            ctx.font = "40px Arial";
+            ctx.textAlign = "center";
+            let gameOverWidth = ctx.measureText(gameOverLine).width;
+            ctx.font = "24px Arial";
+            let scoreWidthGO = ctx.measureText(scoreLine).width;
+            let restartWidth = ctx.measureText(restartLine).width;
+            boxWidth = Math.max(gameOverWidth, scoreWidthGO, restartWidth) + padding * 2;
+            boxHeight = 150;
+            let boxX = (canvas.width - boxWidth) / 2;
+            let boxY = canvas.height / 2 - boxHeight / 2;
+            drawRoundedRect(ctx, boxX, boxY, boxWidth, boxHeight, 8, "white", "#1B3F5A");
+
+            ctx.fillStyle = "#1B3F5A";
+            ctx.font = "40px Arial";
+            ctx.fillText(gameOverLine, canvas.width / 2, boxY + 45);
+            ctx.font = "24px Arial";
+            ctx.fillText(scoreLine, canvas.width / 2, boxY + 80);
+            if (gameOverTimerSec <= 0) {
+                ctx.font = "20px Arial";
+                ctx.fillText(restartLine, canvas.width / 2, boxY + 120);
+            }
+        }
+    }
+
+    let lastTime = null;
+    let accumulator = 0;
+
+    function gameLoop(nowMs) {
+        const now = nowMs / 1000;
+        if (lastTime === null) lastTime = now;
+        let delta = now - lastTime;
+        if (delta > 0.25) delta = 0.25;
+        lastTime = now;
+        accumulator += delta;
+
+        while (accumulator >= FIXED_DT) {
+            update(FIXED_DT);
+            accumulator -= FIXED_DT;
+        }
+
+        draw();
+        requestAnimationFrame(gameLoop);
+    }
+
+    function start(){ requestAnimationFrame(gameLoop); }
+};
+
+  // ===== Main RAF =====
   let lastT = performance.now();
   function loop(t){
     if (!bgActive) return;
@@ -641,8 +872,147 @@ window.startFlappyBird = function(canvasId) { /* (unchanged flappy code) */ };
   }
   requestAnimationFrame(loop);
 
-  function updateWaiting(dt){ /* unchanged */ }
-  function drawWaiting(){ /* unchanged */ }
+  function updateWaiting(dt){
+    bgCanvas.style.cursor = (WG.state==='playing') ? 'none' : 'auto';
+
+    const speed = 1800; const dx = tx - lx, dy = ty - ly; const dist = Math.hypot(dx, dy);
+    if (dist > 0.5) { const step = Math.min(dist, speed * dt); const k = step / dist; lx += dx * k; ly += dy * k; } else { lx = tx; ly = ty; }
+
+    if (WG.state === 'playing') { ts = (dist > 1) ? 0.25 : 0.5; }
+    else if (WG.state === 'locked') { ts = 0; }
+    else { ts = 1; }
+
+    const scaleSpeed = 6; const ds = ts - ls; if (Math.abs(ds) > 0.001) { ls += Math.sign(ds) * Math.min(Math.abs(ds), scaleSpeed * dt); }
+
+    if (spinning){
+      const dur=0.7; spinT += dt; const p=Math.min(spinT/dur,1);
+      rot = -2*Math.PI*p;
+      if (p>=1){ spinning=false; rot=0; if (WG.state==='spin') WG.state='idle'; }
+    }
+
+    if (hitSpinT < 0.3){
+      hitSpinT += dt; const hp = Math.min(hitSpinT/0.3, 1);
+      rot = -4*Math.PI*hp;
+      if (hp>=1 && !spinning) rot=0;
+    }
+
+    for (let i=particles.length-1; i>=0; i--){
+      const p=particles[i]; p.age+=dt; p.x+=p.vx*dt; p.y+=p.vy*dt;
+      if (p.age>=p.life) particles.splice(i,1);
+    }
+
+    for (let i=floaters.length-1; i>=0; i--){
+      const f=floaters[i]; f.age += dt; f.y -= 40*dt;
+      if (f.age >= f.life) floaters.splice(i,1);
+    }
+
+    spread += (spreadTarget - spread) * Math.min(1, dt*12);
+    spreadTarget += (SPREAD_BASE - spreadTarget) * Math.min(1, dt*6);
+
+    if (WG.state==='playing'){
+      WG.timeLeft -= dt;
+      if (WG.timeLeft <= 0){
+        WG.state = 'idle';
+        center();
+        everPlayed = true; lastStats.hits = WG.hits; lastStats.total = WG.total;
+        if (WG.hits > WG.highScore) {
+          WG.highScore = WG.hits;
+          saveHSForBracket(WG.bracket, WG.highScore);
+        }
+        if (engineReady) { WG.state='locked'; ts = 0; }
+      }
+    }
+  }
+
+  function drawWaiting(){
+    if (!logoReady) return;
+
+    if (WG.state === 'playing') {
+      const tDisp = '⏱ ' + Math.max(0, WG.timeLeft).toFixed(1) + 's';
+      bgCtx.save();
+      bgCtx.font = 'bold 34px Arial';
+      bgCtx.textAlign = 'center';
+      bgCtx.fillStyle = '#fff';
+      bgCtx.fillText(tDisp, innerWidth / 2, 40);
+      bgCtx.restore();
+    }
+
+    const base = Math.min(logoImg.naturalWidth||160, logoImg.naturalHeight||160);
+    const size = base * ls; const half = size/2;
+    bgCtx.save();
+    bgCtx.translate(lx, ly);
+    bgCtx.rotate(rot);
+    bgCtx.beginPath();
+    bgCtx.arc(0,0,half,0,Math.PI*2);
+    bgCtx.clip();
+    bgCtx.drawImage(logoImg, -half, -half, size, size);
+    bgCtx.restore();
+
+    if (particles.length){
+      bgCtx.save();
+      bgCtx.fillStyle='#fff';
+      for (const p of particles){
+        const a = Math.max(0, 1 - p.age/p.life);
+        bgCtx.globalAlpha = a;
+        bgCtx.beginPath();
+        bgCtx.arc(p.x,p.y, 1 + (1-a)*1, 0, Math.PI*2);
+        bgCtx.fill();
+      }
+      bgCtx.globalAlpha=1;
+      bgCtx.restore();
+    }
+
+    if (floaters.length){
+      bgCtx.save();
+      bgCtx.font = 'bold 14px Arial';
+      for (const f of floaters){
+        const a = Math.max(0, 1 - f.age / f.life);
+        if (a <= 0) continue;
+        bgCtx.globalAlpha = a;
+        bgCtx.fillStyle = f.color || '#fff';
+        bgCtx.fillText(f.text, f.x + 18, f.y - 10 - (1 - a) * 20);
+      }
+      bgCtx.globalAlpha = 1;
+      bgCtx.restore();
+    }
+
+    if (WG.state === 'playing' || everPlayed) {
+      const hitsDisp = (WG.state === 'playing') ? WG.hits : lastStats.hits;
+      const totalDisp = (WG.state === 'playing') ? WG.total : Math.max(1, lastStats.total);
+      const acc = Math.round((hitsDisp / totalDisp) * 100);
+      const hud = (WG.state === 'playing')
+        ? `Hits ${hitsDisp}  •  Acc ${acc}%  •  Best ${WG.highScore}`
+        : `Best ${WG.highScore}  •  Last ${hitsDisp} hits  •  Acc ${acc}%`;
+      bgCtx.font = '16px Arial';
+      bgCtx.textAlign = 'right';
+      bgCtx.fillStyle = '#fff';
+      bgCtx.fillText(hud, innerWidth - 12, 24);
+    }
+
+    if (WG.state === 'playing'){
+      bgCtx.save();
+      bgCtx.translate(mx, my);
+      const g=spread; const len=12;
+
+      // outline
+      bgCtx.lineWidth=4; bgCtx.strokeStyle='#000'; bgCtx.beginPath();
+      bgCtx.moveTo(-g-len,0); bgCtx.lineTo(-g,0);
+      bgCtx.moveTo(g,0); bgCtx.lineTo(g+len,0);
+      bgCtx.moveTo(0,-g-len); bgCtx.lineTo(0,-g);
+      bgCtx.moveTo(0,g); bgCtx.lineTo(0,g+len);
+      bgCtx.stroke();
+
+      // white inner
+      bgCtx.lineWidth=2; bgCtx.strokeStyle='#fff'; bgCtx.beginPath();
+      bgCtx.moveTo(-g-len,0); bgCtx.lineTo(-g,0);
+      bgCtx.moveTo(g,0); bgCtx.lineTo(g+len,0);
+      bgCtx.moveTo(0,-g-len); bgCtx.lineTo(0,-g);
+      bgCtx.moveTo(0,g); bgCtx.lineTo(0,g+len);
+      bgCtx.stroke();
+
+      bgCtx.restore();
+    }
+  }
 
   try {
     console.assert(bgCanvas, '#bg exists');
