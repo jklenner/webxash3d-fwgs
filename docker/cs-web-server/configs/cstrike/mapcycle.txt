@@ -13,8 +13,6 @@ fy_dust2_mini
 fy_snow
 aim_headshot2
 fy_mrvideo
-gg_ak-colt_palm_beach
-aim_skatepark_csz
 aim_ak_colt_duel
 fy_simpsons
 aim_1on1map
