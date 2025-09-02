@@ -21,7 +21,7 @@ ENV PKG_CONFIG_PATH=/usr/lib/i386-linux-gnu/pkgconfig
 WORKDIR /xash
 
 #ADD https://api.github.com/repos/jklenner/xash3d-fwgs/git/refs/heads/go version.json
-RUN git clone --branch go --single-branch https://github.com/jklenner/xash3d-fwgs . \
+RUN git clone --branch go-merge-new-renderer --single-branch https://github.com/jklenner/xash3d-fwgs . \
     && git submodule update --init --recursive
 
 RUN ./waf configure -T release -d --enable-lto --enable-openmp && ./waf build
