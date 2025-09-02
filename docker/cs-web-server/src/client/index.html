@@ -79,7 +79,7 @@
 
     /* Background canvases */
     #bg { width: 100vw; height: 100vh; position: fixed; inset: 0; z-index: 1; pointer-events: auto; display: block; opacity: 1; transition: opacity .3s ease; cursor: auto; }
-    #canvas { width: 100vw; height: 100vh; position: fixed; inset: 0; z-index: 6; display: block; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+    #canvas { width: 100vw; height: 100vh; position: fixed; inset: 0; z-index: 6; display: block; opacity: 0; pointer-events: none; transition: opacity .3s ease; image-rendering: pixelated; will-change: transform; contain: strict;}
 
     /* Invisible DOM logo (readiness detection via main.ts animation) */
     #logo {
@@ -341,22 +341,27 @@
       });
     }
 
-    // audio volume
-    if (audioSlider && audioLabel){
-      const AKEY='audioVolume';
-      const clamp01 = (x)=> Math.min(1, Math.max(0, x));
-      let av = clamp01(parseFloat(localStorage.getItem(AKEY) || '1') || 1);
-      audioSlider.value = String(av);
-      audioLabel.textContent = Math.round(av*100)+'%';
-      audioLabel.classList.remove('muted');
-      audioSlider.removeAttribute('disabled');
-      audioSlider.addEventListener('input', ()=>{
-        const v = clamp01(parseFloat(audioSlider.value));
-        audioLabel.textContent = Math.round(v*100)+'%';
-        if (typeof window.__setMasterVolume === 'function') window.__setMasterVolume(v);
-        try{ localStorage.setItem(AKEY,String(v)); }catch(e){}
-      });
-    }
+// audio volume
+if (audioSlider && audioLabel){
+  const KEY='audioVolume';
+  const clamp01 = x => Math.min(1, Math.max(0, x));
+
+  const raw = parseFloat(localStorage.getItem(KEY) ?? '1');
+  const av  = Number.isFinite(raw) ? clamp01(raw) : 1;   // <-- no "|| 1" here
+
+  audioSlider.value = String(av);
+  audioLabel.textContent = Math.round(av*100)+'%';
+  audioLabel.classList.remove('muted');
+  audioSlider.removeAttribute('disabled');
+
+  audioSlider.addEventListener('input', ()=>{
+    const v = clamp01(parseFloat(audioSlider.value));
+    audioLabel.textContent = Math.round(v*100)+'%';
+    window.__setMasterVolume?.(v);
+    try{ localStorage.setItem(KEY, String(v)); }catch(e){}
+  });
+}
+
   })();
 
   // Progress UI (unchanged)
