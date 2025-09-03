@@ -79,7 +79,7 @@
 
     /* Background canvases */
     #bg { width: 100vw; height: 100vh; position: fixed; inset: 0; z-index: 1; pointer-events: auto; display: block; opacity: 1; transition: opacity .3s ease; cursor: auto; }
-    #canvas { width: 100vw; height: 100vh; position: fixed; inset: 0; z-index: 6; display: block; opacity: 0; pointer-events: none; transition: opacity .3s ease; image-rendering: pixelated; will-change: transform; contain: strict;}
+    #canvas { width: 100vw; height: 100vh; position: fixed; inset: 0; z-index: 6; display: block; opacity: 0; pointer-events: none; transition: opacity .3s ease; image-rendering: high-quality; will-change: transform; contain: strict;}
 
     /* Invisible DOM logo (readiness detection via main.ts animation) */
     #logo {
@@ -630,7 +630,6 @@ if (audioSlider && audioLabel){
     try { const stream = await navigator.mediaDevices.getUserMedia({ audio:true }); stream.getTracks().forEach(t=>t.stop()); warningEl.style.opacity=0; } catch(_) { warningEl.style.opacity=1; }
   });
 
-  // ===== Flappy Bird (modal) =====
 window.startFlappyBird = function(canvasId) {
     const canvas = document.getElementById(canvasId);
     if (!canvas) return;
@@ -640,8 +639,10 @@ window.startFlappyBird = function(canvasId) {
     canvas.width = 400;
     canvas.height = 600;
 
+    // Load the bird image.    
     const birdImage = new Image(); let imgReady=false; birdImage.onload=()=>{ imgReady=true; start(); }; birdImage.onerror=()=>{ imgReady=false; start(); };
     const logoForBird = document.getElementById('logo'); const birdSrc = (logoForBird && logoForBird.src) ? logoForBird.src : 'logo.png'; birdImage.src = birdSrc;
+
 
     // --- Game state ---
     let gameState = "start"; // "start" | "playing" | "gameOver"
@@ -649,24 +650,37 @@ window.startFlappyBird = function(canvasId) {
     let pipes = [];
 
     // --- Time-based constants (independent of refresh rate) ---
-    const FIXED_DT = 1 / 60;
-    const PIPE_SPEED = 120;
-    const PIPE_SPAWN_INTERVAL = 1.5;
-    const SPIN_DURATION = 0.5;
-    const GAME_OVER_LOCKOUT = 1.0;
+    // These values reproduce the original feel at 60 FPS.
+    const FIXED_DT = 1 / 60;           // 60 Hz simulation step (seconds)
+    const PIPE_SPEED = 120;            // px/s (was 2 px/frame * 60)
+    const PIPE_SPAWN_INTERVAL = 1.5;   // seconds (was 90 frames)
+    const SPIN_DURATION = 0.5;         // seconds (was 30 frames)
+    const GAME_OVER_LOCKOUT = 1.0;     // seconds (was 60 frames)
 
+    // Pipe geometry.
     const pipeWidth = 60;
     const pipeGap = 150;
 
+    // Time accumulators.
     let timeSinceLastPipe = 0;
-    let spinTimerSec = 0;
-    let gameOverTimerSec = 0;
+    let spinTimerSec = 0;        // counts down
+    let gameOverTimerSec = 0;    // counts down
 
+    // Retrieve high score from local storage (or 0 if not set).
     let highScore = parseInt(localStorage.getItem("flappyBirdHighScore") || "0");
 
-    // Bird physics
-    let bird = { x:50, y:150, width:40, height:40, velocity:0, gravity:1800, jumpForce:-480 };
+// Bird physics (units: px, px/s, px/s^2).
+    let bird = {
+        x: 50,
+        y: 150,
+        width: 40,
+        height: 40,
+        velocity: 0,          // px/s
+        gravity: 1800,        // px/s^2  (0.5 px/frame @60fps -> 0.5*60*60)
+        jumpForce: -480       // px/s    (-8 px/frame @60fps -> -8*60)
+    };
 
+    // --- Helpers ---
     function drawRoundedRect(ctx, x, y, width, height, radius, fillColor, strokeColor) {
         ctx.beginPath();
         ctx.moveTo(x + radius, y);
@@ -686,81 +700,141 @@ window.startFlappyBird = function(canvasId) {
         ctx.stroke();
     }
 
-    function clamp(val, min, max) { return Math.max(min, Math.min(val, max)); }
+    function clamp(val, min, max) {
+        return Math.max(min, Math.min(val, max));
+    }
 
     function circleRectCollision(cx, cy, radius, rx, ry, rwidth, rheight) {
         const closestX = clamp(cx, rx, rx + rwidth);
-        theClosestY = clamp(cy, ry, ry + rheight);
+        const closestY = clamp(cy, ry, ry + rheight);
         const dx = cx - closestX;
-        const dy = cy - theClosestY;
+        const dy = cy - closestY;
         return (dx * dx + dy * dy) < (radius * radius);
     }
 
+    // --- Control ---
     function resetGame() {
-        bird.y = 150; bird.velocity = 0; pipes = []; score = 0; timeSinceLastPipe = 0; spinTimerSec = 0; gameOverTimerSec = 0;
+        bird.y = 150;
+        bird.velocity = 0;
+        pipes = [];
+        score = 0;
+        timeSinceLastPipe = 0;
+        spinTimerSec = 0;
+        gameOverTimerSec = 0;
     }
 
     function triggerGameOver() {
         if (gameState !== "gameOver") {
             gameState = "gameOver";
-            gameOverTimerSec = GAME_OVER_LOCKOUT;
-            if (score > highScore) { highScore = score; localStorage.setItem("flappyBirdHighScore", highScore); }
+            gameOverTimerSec = GAME_OVER_LOCKOUT; // seconds
+            if (score > highScore) {
+                highScore = score;
+                localStorage.setItem("flappyBirdHighScore", highScore);
+            }
         }
     }
 
+    // --- Input ---
     canvas.addEventListener("click", function() {
-        if (gameState === "start") { gameState = "playing"; resetGame(); }
-        else if (gameState === "playing") { bird.velocity = bird.jumpForce; }
-        else if (gameState === "gameOver") { if (gameOverTimerSec <= 0) { gameState = "playing"; resetGame(); } }
+        if (gameState === "start") {
+            gameState = "playing";
+            resetGame();
+        } else if (gameState === "playing") {
+            bird.velocity = bird.jumpForce;
+        } else if (gameState === "gameOver") {
+            if (gameOverTimerSec <= 0) {
+                gameState = "playing";
+                resetGame();
+            }
+        }
     });
 
     document.addEventListener("keydown", function(e) {
         if (e.code === "Space") {
-            if (gameState === "start") { gameState = "playing"; resetGame(); }
-            else if (gameState === "playing") { bird.velocity = bird.jumpForce; }
-            else if (gameState === "gameOver") { if (gameOverTimerSec <= 0) { gameState = "playing"; resetGame(); } }
+            if (gameState === "start") {
+                gameState = "playing";
+                resetGame();
+            } else if (gameState === "playing") {
+                bird.velocity = bird.jumpForce;
+            } else if (gameState === "gameOver") {
+                if (gameOverTimerSec <= 0) {
+                    gameState = "playing";
+                    resetGame();
+                }
+            }
         }
     });
 
+    // --- Update (fixed timestep) ---
     function update(dt) {
-        if (gameState === "gameOver" && gameOverTimerSec > 0) { gameOverTimerSec = Math.max(0, gameOverTimerSec - dt); }
-        if (spinTimerSec > 0) { spinTimerSec = Math.max(0, spinTimerSec - dt); }
+        // Timers that tick regardless of "playing".
+        if (gameState === "gameOver" && gameOverTimerSec > 0) {
+            gameOverTimerSec = Math.max(0, gameOverTimerSec - dt);
+        }
+        if (spinTimerSec > 0) {
+            spinTimerSec = Math.max(0, spinTimerSec - dt);
+        }
+
         if (gameState !== "playing") return;
 
+        // Gravity and movement (time-based).
         bird.velocity += bird.gravity * dt;
         bird.y += bird.velocity * dt;
 
+        // Spawn new pipes on a time interval.
         timeSinceLastPipe += dt;
         while (timeSinceLastPipe >= PIPE_SPAWN_INTERVAL) {
             timeSinceLastPipe -= PIPE_SPAWN_INTERVAL;
             const gapY = Math.random() * (canvas.height - pipeGap - 40) + 20;
-            pipes.push({ x: canvas.width, gapY, width: pipeWidth, gap: pipeGap, passed: false });
+            pipes.push({
+                x: canvas.width,
+                gapY: gapY,
+                width: pipeWidth,
+                gap: pipeGap,
+                passed: false
+            });
         }
 
+        // Move pipes and check collisions.
         for (let i = 0; i < pipes.length; i++) {
             let pipe = pipes[i];
-            pipe.x -= PIPE_SPEED * dt;
+            pipe.x -= PIPE_SPEED * dt; // px/s * s = px
 
-            if (!pipe.passed && pipe.x + pipe.width < bird.x) { score++; pipe.passed = true; spinTimerSec = SPIN_DURATION; }
+            // Award score when the bird passes a pipe.
+            if (!pipe.passed && pipe.x + pipe.width < bird.x) {
+                score++;
+                pipe.passed = true;
+                spinTimerSec = SPIN_DURATION;
+            }
 
+            // Collision detection using circular hitbox.
             const cx = bird.x + bird.width / 2;
             const cy = bird.y + bird.height / 2;
             const radius = bird.width / 2;
-            if (circleRectCollision(cx, cy, radius, pipe.x, 0, pipe.width, pipe.gapY) ||
-                circleRectCollision(cx, cy, radius, pipe.x, pipe.gapY + pipe.gap, pipe.width, canvas.height - (pipe.gapY + pipe.gap))) {
+            if (
+                circleRectCollision(cx, cy, radius, pipe.x, 0, pipe.width, pipe.gapY) ||
+                circleRectCollision(cx, cy, radius, pipe.x, pipe.gapY + pipe.gap, pipe.width, canvas.height - (pipe.gapY + pipe.gap))
+            ) {
                 triggerGameOver();
             }
         }
 
+        // Remove off-screen pipes.
         pipes = pipes.filter(pipe => pipe.x + pipe.width > 0);
 
-        if (bird.y + bird.height > canvas.height || bird.y < 0) { triggerGameOver(); }
+        // Check boundaries.
+        if (bird.y + bird.height > canvas.height || bird.y < 0) {
+            triggerGameOver();
+        }
     }
 
+    // --- Draw ---
     function draw() {
+        // Clear background.
         ctx.fillStyle = "#FFFFFF";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+        // Draw pipes if playing or game over.
         if (gameState === "playing" || gameState === "gameOver") {
             ctx.fillStyle = "#1B3F5A";
             pipes.forEach(pipe => {
@@ -769,10 +843,11 @@ window.startFlappyBird = function(canvasId) {
             });
         }
 
+        // Bird rotation based on spin progress.
         ctx.save();
         let angle = 0;
         if (spinTimerSec > 0) {
-            const progress = 1 - (spinTimerSec / SPIN_DURATION);
+            const progress = 1 - (spinTimerSec / SPIN_DURATION); // 0 â†’ 1
             angle = progress * 2 * Math.PI;
         }
         ctx.translate(bird.x + bird.width / 2, bird.y + bird.height / 2);
@@ -784,6 +859,7 @@ window.startFlappyBird = function(canvasId) {
         ctx.drawImage(birdImage, -bird.width / 2, -bird.height / 2, bird.width, bird.height);
         ctx.restore();
 
+        // UI: Score + High Score (upper-left).
         ctx.font = "20px Arial";
         ctx.textAlign = "left";
         let padding = 4;
@@ -798,6 +874,7 @@ window.startFlappyBird = function(canvasId) {
         ctx.fillText(scoreText, 5 + padding, 25);
         ctx.fillText(highScoreText, 5 + padding, 45);
 
+        // Start screen.
         if (gameState === "start") {
             ctx.font = "24px Arial";
             ctx.textAlign = "center";
@@ -815,6 +892,7 @@ window.startFlappyBird = function(canvasId) {
             ctx.fillText(line1, canvas.width / 2, boxY + 30);
             ctx.fillText(line2, canvas.width / 2, boxY + 55);
         }
+        // Game over box.
         else if (gameState === "gameOver") {
             let gameOverLine = "Game Over";
             let scoreLine = "Score: " + score;
@@ -844,17 +922,22 @@ window.startFlappyBird = function(canvasId) {
         }
     }
 
-    let lastTime = null;
-    let accumulator = 0;
+    // --- Main loop: fixed 60 Hz updates, RAF-driven rendering ---
+    let lastTime = null;     // seconds
+    let accumulator = 0;     // seconds
 
     function gameLoop(nowMs) {
         const now = nowMs / 1000;
         if (lastTime === null) lastTime = now;
         let delta = now - lastTime;
+
+        // Avoid huge catch-up steps if tab was backgrounded.
         if (delta > 0.25) delta = 0.25;
+
         lastTime = now;
         accumulator += delta;
 
+        // Run the simulation at a fixed 60 Hz, regardless of RAF rate.
         while (accumulator >= FIXED_DT) {
             update(FIXED_DT);
             accumulator -= FIXED_DT;
@@ -864,8 +947,12 @@ window.startFlappyBird = function(canvasId) {
         requestAnimationFrame(gameLoop);
     }
 
-    function start(){ requestAnimationFrame(gameLoop); }
+    // Start the loop once the image is loaded.
+    birdImage.onload = function() {
+        requestAnimationFrame(gameLoop);
+    };
 };
+
 
   // ===== Main RAF =====
   let lastT = performance.now();
