@@ -17,9 +17,7 @@ const App: FC = () => {
             <button onClick={async () => {
                 const x = new Xash3D({
                     canvas: canvasRef.current!,
-                    module: {
-                        arguments: ['-windowed', '-game', 'cstrike'],
-                    },
+                    arguments: ['-windowed', '-game', 'cstrike'],
                     libraries: {
                         filesystem: filesystemURL,
                         xash: xashURL,
@@ -30,10 +28,10 @@ const App: FC = () => {
                             gles3compat: gles3URL,
                         }
                     },
-                    dynamicLibraries: ['dlls/cs_emscripten_wasm32.so', '/rwdir/filesystem_stdio.so'],
+                    dynamicLibraries: ['dlls/cs_emscripten_wasm32.so', '/rwdir/filesystem_stdio.wasm'],
                     filesMap: {
                         'dlls/cs_emscripten_wasm32.so': serverURL,
-                        '/rwdir/filesystem_stdio.so': filesystemURL,
+                        '/rwdir/filesystem_stdio.wasm': filesystemURL,
                     },
                 });
 

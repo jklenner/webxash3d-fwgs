@@ -22,7 +22,7 @@ Designed for use with [Xash3D-FWGS Web ports](https://github.com/yohimik/webxash
 
 ---
 
-## Discord Community
+## 🌐 Discord Community
 
 Need help? Want to share your project or ideas?
 **[Join our Discord community](https://discord.gg/cRNGjWfTDd)** to connect with others!

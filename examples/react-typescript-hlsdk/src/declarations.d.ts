@@ -11,3 +11,9 @@ declare module "*.so" {
     const value: string;
     export default value;
 }
+
+// Allow importing .pk3 files as modules
+declare module "*.pk3" {
+    const value: string;
+    export default value;
+}

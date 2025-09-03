@@ -1,4 +1,4 @@
-import {promises as fs} from 'fs';
+import {promises as fs, existsSync} from 'fs';
 
 class CompileFile {
     private data: string
@@ -20,8 +20,29 @@ class CompileFile {
     }
 }
 
+async function ensureWritable(filePath: string) {
+    if (!existsSync(filePath)) {
+        console.error(`❌ File not found: ${filePath}`);
+        process.exit(1);
+    }
+
+    try {
+        await fs.unlink(filePath);
+    } catch (err) {
+        console.error(`❌ File not found: ${filePath}`);
+        process.exit(1);
+    }
+}
+
+const FILE_PATH = './dist/raw.js'
+
 async function main() {
-    const raw = await fs.readFile('./dist/raw.js', 'utf8');
+    const raw = (await fs.readFile(FILE_PATH, 'utf8')).split('var moduleRtn;')
+        .join("var moduleRtn;if(!moduleArg.arguments)moduleArg.arguments=[];if(!moduleArg.arguments.some(a => a.trim() === '-ref'))moduleArg.arguments.push('-ref', 'webgl2');");
+
+    await ensureWritable(FILE_PATH)
+
+    await fs.writeFile(FILE_PATH, raw)
     const f = new CompileFile(raw)
 
     // fix CJS export to EJS
@@ -37,6 +58,7 @@ async function main() {
         return {
             Module,
             FS,
+            HEAPU32,
             HEAP32,
             HEAP16,
             HEAP8,
@@ -44,6 +66,15 @@ async function main() {
             getValue,
             addFunction,
             removeFunction,
+            setValue,
+            writeArrayToMemory,
+            intArrayFromString,
+            writeSockaddr,
+            readSockaddr,
+            AsciiToString,
+            _malloc,
+            addRunDependency,
+            removeRunDependency,
             start: () => {
                 preInit();
                 run();

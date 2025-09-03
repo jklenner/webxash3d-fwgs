@@ -63,7 +63,7 @@ It abstracts away the boring parts of multiplayer infrastructure so you can focu
 | `WS`   | `/ws`         | WS endpoint (client ↔ peer)                   |
 | `GET`  | `/docs`       | Swagger UI (auto-generated API docs)          |
 
-## Discord Community
+## 🌐 Discord Community
 
 Need help? Want to share your project or ideas?
 **[Join our Discord community](https://discord.gg/cRNGjWfTDd)** to connect with others!

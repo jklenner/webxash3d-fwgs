@@ -22,7 +22,7 @@ Designed for use with [Xash3D-FWGS Web ports](https://github.com/yohimik/webxash
 
 ---
 
-## Discord Community
+## 🌐 Discord Community
 
 Need help? Want to share your project or ideas?
 **[Join our Discord community](https://discord.gg/cRNGjWfTDd)** to connect with others!
@@ -46,9 +46,7 @@ import serverUrl from "cs16-client/dlls/cs_emscripten_wasm32.so"
 
 const x = new Xash3D({
     canvas: document.getElementById('canvas'),
-    module: {
-        arguments: ['-game', 'cstrike'],
-    },
+    arguments: ['-game', 'cstrike'],
     libraries: {
         menu: menuUrl,
         client: clientUrl,

@@ -72,7 +72,7 @@ The `valve.zip` file must contain the following two directories from your Steam 
 You must mount the file to the container path `/xashds/public/valve.zip`:
 
 ```shell
-docker build -t cs-web-server .
+docker build --platform linux/386 -t cs-web-server  .
 docker run -d \
   -p 27016:27016 \
   -p <your-port>:<your-port>/udp \

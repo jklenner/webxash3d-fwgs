@@ -35,9 +35,7 @@ const App: FC = () => {
                                 gles3compat: gles3URL,
                             }
                         },
-                        module: {
-                            arguments: ['-windowed']
-                        }
+                        arguments: ['-windowed'],
                     })
                     await x.init()
                     await Promise.all(Array.from(e.target.files!).map(async f => {
