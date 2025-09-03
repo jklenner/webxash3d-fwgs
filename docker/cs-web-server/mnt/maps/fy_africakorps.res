@@ -1,0 +1,9 @@
+models/fy_africa/palm1A.mdl
+models/fy_africa/palm1B.mdl
+gfx/env/dustbowlBK.tga
+gfx/env/dustbowlDN.tga
+gfx/env/dustbowlFT.tga
+gfx/env/dustbowlLF.tga
+gfx/env/dustbowlRT.tga
+gfx/env/dustbowlUP.tga
+maps/fy_africakorps.txt

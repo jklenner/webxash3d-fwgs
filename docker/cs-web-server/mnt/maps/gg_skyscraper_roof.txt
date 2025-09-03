@@ -1,0 +1,22 @@
+Skyscraper Roof - Gun Game
+Made by Foofinoo
+
+Map and Custom Textures by Foofinoo
+Normal Textures by VALVe
+
+
+
+The Terrorists and the Counter-Terrorists love playing on Gun Game Maps.
+But they are fed up to play on maps with "dev" or simple "grid" textures...
+Then, they come here to play on a realistic Gun Game Map !!
+
+Terrorists : 
+Kill the Counter-Terrorists
+
+Counter-Terrorists :
+Kill the Terrorists
+
+
+
+Notes : This map take place in a skyscraper's rooftop...
+I have make this map because I like the GG maps, but a lot of these maps have "dev" or simple textures ... This one is more realistic because I have used the textures of the game, not "grid" textures...
