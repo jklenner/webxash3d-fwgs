@@ -15,9 +15,7 @@ import { Xash3D } from "xash3d-fwgs"
 
 const x = new Xash3D({
     canvas: document.getElementById('canvas'),
-    module: {
-        arguments: ['-game', 'cstrike'],
-    }
+    arguments: ['-game', 'cstrike'],
 })
 await x.init()
 x.main()
@@ -106,9 +104,9 @@ Need help? Want to share your project or ideas?
 
 # TODO
 
-## Online
+## WebRTC/UDP proxy
 
-Support connection to servers (only xash3d-fwgs dedicated server).
+Support WebRTC/UDP proxy (webxash3d-mserver).
 
 ## Engine Touch Support
 
@@ -127,8 +125,3 @@ Requires `EAGAIN` support from the engine.
 ## WebGL improves (potentially)
 
 Support GLES3Compat batching and fix `Vertex buffer is not big enough for the draw call.Understand this warning` warning.
-
-## Scripts (potentially)
-
-Some scripts stop working after saving and loading (eg. the guard doesn't open the train door).
-Potentially related to `#define EXPORT __attribute__((visibility("default")))`.

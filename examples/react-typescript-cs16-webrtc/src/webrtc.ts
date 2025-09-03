@@ -45,11 +45,11 @@ export class Xash3DWebRTC extends Xash3D {
                     }
                     if (ee.data.arrayBuffer) {
                         ee.data.arrayBuffer().then((data: Int8Array) => {
-                            packet.data = data
-                            this.net!.incoming.enqueue(packet)
+                            packet.data = data;
+                            (this.net as Net).incoming.enqueue(packet)
                         })
                     } else {
-                        this.net!.incoming.enqueue(packet)
+                        (this.net as Net).incoming.enqueue(packet)
                     }
                 }
             }

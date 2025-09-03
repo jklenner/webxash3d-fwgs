@@ -9,7 +9,7 @@ on:
       - 'webxash3d-mserver@*'
 
 jobs:
-  publishAndPublish:
+  buildAndPublish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo

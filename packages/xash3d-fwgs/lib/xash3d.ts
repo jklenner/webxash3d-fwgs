@@ -1,5 +1,5 @@
 import Xash, { Em, Module } from './generated/xash'
-import { Net } from "./net";
+import { EmNet } from "./net";
 import {
     DEFAULT_CLIENT_LIBRARY,
     DEFAULT_SOFT_LIBRARY,
@@ -7,19 +7,21 @@ import {
     DEFAULT_MENU_LIBRARY,
     DEFAULT_SERVER_LIBRARY,
     DEFAULT_GLES3COMPAT_LIBRARY,
-    DEFAULT_XASH_LIBRARY
+    DEFAULT_XASH_LIBRARY,
+    DEFAULT_GL4ES_LIBRARY
 } from './constants'
 
 /**
- * Rendering library options.
+ * Rendering library override options.
  */
 export type RenderLibrariesOptions = {
     soft?: string
     gles3compat?: string
+    gl4es?: string
 }
 
 /**
- * Configuration paths for libraries used by the engine.
+ * Paths for core and optional engine libraries.
  */
 export type LibrariesOptions = {
     filesystem?: string
@@ -31,35 +33,54 @@ export type LibrariesOptions = {
 }
 
 /**
- * Renderer types supported by Xash3D.
+ * Supported renderer backends for Xash3D.
  */
-export type Xash3DRenderer = 'gles3compat' | 'soft'
+export type Xash3DRenderer = 'gl4es' | 'gles3compat' | 'soft'
 
 /**
- * Configuration options for the Xash3D instance.
+ * Options for configuring a Xash3D instance.
  */
 export type Xash3DOptions = {
     canvas?: HTMLCanvasElement
     renderer?: Xash3DRenderer
     filesMap?: Record<string, string>
+    arguments?: string[]
     libraries?: LibrariesOptions
     dynamicLibraries?: string[]
     module?: Partial<Module>
 }
 
 /**
- * Xash3D WebAssembly engine wrapper for running and controlling the game engine.
+ * Reads errno from the WASM runtime.
+ * @param em - Emscripten interface
+ * @returns errno value or 0 if unavailable
+ */
+export function ErrNoLocation(em?: Em) {
+    const ptr = em?.Module.ccall(
+        'getErrnoLocation',
+        'number',
+        [],
+        []
+    ) as number;
+
+    if (!ptr) return 0;
+
+    return em!.getValue(ptr, 'i32');
+}
+
+/**
+ * High-level wrapper around the Xash3D WebAssembly engine.
  */
 export class Xash3D {
-    /** User-defined configuration options */
+    /** Engine configuration */
     opts: Xash3DOptions
 
-    /** Optional networking interface */
-    net?: Net
+    /** Optional networking backend */
+    net?: EmNet
 
     private _exited = false
 
-    /** Indicates whether the engine has exited */
+    /** Whether the engine has exited */
     public get exited() {
         return this._exited;
     }
@@ -70,7 +91,7 @@ export class Xash3D {
 
     private _running = false
 
-    /** Indicates whether the engine is currently running */
+    /** Whether the engine main loop is running */
     public get running() {
         return this._running;
     }
@@ -79,23 +100,23 @@ export class Xash3D {
         this._running = value;
     }
 
-    /** Internal Emscripten interface */
+    /** Underlying Emscripten runtime */
     em?: Em
 
-    /** Promise used to track module initialization */
+    /** Resolves once the WASM module has initialized */
     private emPromise?: Promise<void>
 
     /**
-     * Creates a new instance of the Xash3D engine.
-     * @param opts - Engine configuration options
+     * Create a new engine instance.
+     * @param opts - Engine configuration
      */
     constructor(opts: Xash3DOptions = {}) {
         this.opts = opts;
     }
 
     /**
-     * Executes a command string within the engine.
-     * @param cmd - The command string to execute
+     * Execute a console command inside the engine.
+     * @param cmd - Command string
      */
     Cmd_ExecuteString(cmd: string) {
         this.em?.Module?.ccall(
@@ -107,15 +128,15 @@ export class Xash3D {
     }
 
     /**
-     * Quits the engine by executing the `quit` command.
+     * Request engine termination via the `quit` command.
      */
     Sys_Quit() {
         this.Cmd_ExecuteString('quit')
     }
 
     /**
-     * Initializes the engine asynchronously.
-     * Awaits module setup and exits immediately if flagged.
+     * Initialize the engine runtime.
+     * If already initialized, reuses the existing promise.
      */
     async init() {
         if (!this.emPromise) {
@@ -129,7 +150,8 @@ export class Xash3D {
     }
 
     /**
-     * Starts the main engine loop, if not already running or exited.
+     * Start the main engine loop.
+     * No-op if already running or exited.
      */
     main() {
         if (!this.em || this.running || this.exited) return
@@ -138,7 +160,8 @@ export class Xash3D {
     }
 
     /**
-     * Gracefully quits the engine, if running.
+     * Shut down the engine gracefully.
+     * No-op if already exited or not running.
      */
     quit() {
         if (this.exited || !this.running) return
@@ -148,8 +171,8 @@ export class Xash3D {
     }
 
     /**
-     * Maps a given file path using the configured `filesMap`.
-     * @param path - The original path
+     * Resolve a file path via `filesMap`, if mapped.
+     * @param path - Path to resolve
      * @returns Mapped path or original
      */
     private locateFile(path: string) {
@@ -157,37 +180,35 @@ export class Xash3D {
     }
 
     /**
-     * Initializes rendering context and injects render-specific dynamic libraries.
-     * @param canvas - HTMLCanvasElement used for rendering
-     * @param render - Renderer type to initialize
-     * @returns WebGL2RenderingContext or `null` for software rendering
+     * Configure renderer-specific libraries and arguments.
+     * @param render - Renderer type
+     * @returns Engine command-line arguments
      */
-    private initRender(canvas?: HTMLCanvasElement, render: Xash3DOptions['renderer'] = 'gles3compat') {
+    private initRender(render: Xash3DOptions['renderer'] = 'gl4es'): string[] {
         switch (render) {
+            case 'gl4es':
             case 'gles3compat':
                 if (this.opts?.libraries?.render?.gles3compat) {
                     this.opts.filesMap![DEFAULT_GLES3COMPAT_LIBRARY] = this.opts.libraries.render.gles3compat
                 }
+                if (this.opts?.libraries?.render?.gl4es) {
+                    this.opts.filesMap![DEFAULT_GL4ES_LIBRARY] = this.opts.libraries.render.gl4es
+                }
                 this.opts.dynamicLibraries!.push(DEFAULT_GLES3COMPAT_LIBRARY)
-                return canvas?.getContext('webgl2', {
-                    alpha: false,
-                    depth: true,
-                    stencil: true,
-                    antialias: true,
-                }) ?? null
+                return ['-ref', 'webgl2', ...(this.opts.arguments || [])]
             default:
                 if (this.opts?.libraries?.render?.soft) {
                     this.opts.filesMap![DEFAULT_SOFT_LIBRARY] = this.opts.libraries.render.soft
                 }
                 this.opts.dynamicLibraries!.push(DEFAULT_SOFT_LIBRARY)
-                return null
+                return ['-ref', 'soft', ...(this.opts.arguments || [])]
         }
     }
 
     /**
-     * Sets the path for a specific core engine library, if provided.
-     * @param library - The name of the library to initialize
-     * @param defaultPath - The default path to use if not overridden
+     * Map a provided library path into `filesMap`.
+     * @param library - Target library key
+     * @param defaultPath - Default name in WASM FS
      */
     initLibrary(library: keyof Omit<LibrariesOptions, 'render'>, defaultPath: string) {
         if (this.opts.libraries?.[library]) {
@@ -196,8 +217,10 @@ export class Xash3D {
     }
 
     /**
-     * Internal method to initialize and run the WebAssembly module.
-     * Loads dynamic libraries, sets up canvas and rendering, and connects networking.
+     * Internal: bootstrap the WASM runtime.
+     * - Loads libraries
+     * - Configures canvas & renderer
+     * - Initializes networking
      */
     private async runEm() {
         if (!this.opts.filesMap) {
@@ -205,6 +228,9 @@ export class Xash3D {
         }
         if (!this.opts.dynamicLibraries) {
             this.opts.dynamicLibraries = []
+        }
+        if (!this.opts.arguments) {
+            this.opts.arguments = []
         }
 
         this.initLibrary('filesystem', DEFAULT_FILESYSTEM_LIBRARY)
@@ -216,7 +242,7 @@ export class Xash3D {
         }
 
         const canvas = this.opts?.canvas;
-        const ctx = this.initRender(canvas, this.opts.renderer)
+        const args = this.initRender(this.opts.renderer)
         const dynamicLibraries = [
             DEFAULT_FILESYSTEM_LIBRARY,
             DEFAULT_MENU_LIBRARY,
@@ -226,15 +252,15 @@ export class Xash3D {
         ]
         this.em = await Xash({
             canvas,
-            ctx,
             dynamicLibraries,
-            sendto: this.net?.sendto,
-            recvfrom: this.net?.recvfrom,
+            net: this.net,
             locateFile: path => this.locateFile(path),
+            arguments: args,
             ...(this.opts.module ?? {}),
         })
         if (this.net) {
             this.net.init(this.em)
         }
+        this.em.FS.mkdir('/rwdir')
     }
 }
