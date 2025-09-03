@@ -24,6 +24,8 @@ github.com/jklenner/goxash3d-fwgs v0.0.0-20250822072506-b53130d8d747 h1:UEA+XFjk
 github.com/jklenner/goxash3d-fwgs v0.0.0-20250822072506-b53130d8d747/go.mod h1:xEqHU7S93/M1ohC/SFb2NMMVLdJPmKWv4gSL75E+YGk=
 github.com/jklenner/goxash3d-fwgs v0.0.0-20250822072706-16973605c2fb h1:VqakWMD/8z/1mGLMraDVuP2g3ZtAlBgtNtyeg3TVUYo=
 github.com/jklenner/goxash3d-fwgs v0.0.0-20250822072706-16973605c2fb/go.mod h1:xEqHU7S93/M1ohC/SFb2NMMVLdJPmKWv4gSL75E+YGk=
+github.com/jklenner/goxash3d-fwgs v0.0.0-20250903055649-6bb91a9daa91 h1:cuOARecf3laDMVvRsfVN1/QxvL1/1meiRx61rL4WBTw=
+github.com/jklenner/goxash3d-fwgs v0.0.0-20250903055649-6bb91a9daa91/go.mod h1:xEqHU7S93/M1ohC/SFb2NMMVLdJPmKWv4gSL75E+YGk=
 github.com/pion/datachannel v1.5.10 h1:ly0Q26K1i6ZkGf42W7D4hQYR90pZwzFOjTq5AuCKk4o=
 github.com/pion/datachannel v1.5.10/go.mod h1:p/jJfC9arb29W7WrxyKbepTU20CFgyx5oLo8Rs4Py/M=
 github.com/pion/dtls/v3 v3.0.6 h1:7Hkd8WhAJNbRgq9RgdNh1aaWlZlGpYTzdqjy9x9sK2E=
