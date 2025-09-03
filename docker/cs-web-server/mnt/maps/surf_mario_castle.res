@@ -1,0 +1,10 @@
+maps/surf_mario_castle.bsp
+maps/surf_mario_castle.res
+gfx/env/marioworldbk.tga
+gfx/env/marioworlddn.tga
+gfx/env/marioworldft.tga
+gfx/env/marioworldlf.tga
+gfx/env/marioworldrt.tga
+gfx/env/marioworldup.tga
+sprites/xtreme-surfs/sapin_mario64.spr
+sprites/xtreme-surfs/tree_mario64.spr

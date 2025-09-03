@@ -1,0 +1,8 @@
+2025-09-03 21:02:15 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/surf_excav_final.prc').
+2025-09-03 21:07:42 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/surf_ninja.prc').
+2025-09-03 21:10:58 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/surf_minecraft_fabi.prc').
+2025-09-03 21:30:45 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/surf_super_mario.prc').
+2025-09-03 21:35:42 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/surf_mk.prc').
+2025-09-03 21:46:08 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/surf_simpsons_final.prc').
+2025-09-03 21:46:48 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/surf_super_mario.prc').
+2025-09-03 21:51:46 (ERROR): Unable to save Practice file. Empty data. (filename: '/xashds/cstrike/addons/yapb/data/train/surf_mario_castle.prc').

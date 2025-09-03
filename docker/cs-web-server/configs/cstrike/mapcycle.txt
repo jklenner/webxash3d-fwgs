@@ -4,7 +4,6 @@ fy_torch
 gg_zoog
 fy_minecraft_night
 fy_pool_day
-cs_747
 gg_nuke
 aim_map_2010
 fy_africakorps
@@ -22,7 +21,6 @@ aim_headshot2
 fy_mrvideo
 aim_skatepark_csz
 aim_ak_colt_duel
-X fy_spongebob
 fy_simpsons
 aim_1on1map
 aim_duster
@@ -34,6 +32,17 @@ gg_nix
 aim_minecraft_famas
 gg_minecraftempire
 surf_ski_5
+surf_ninja
+surf_minecraft_fabi
+surf_l33tbob
+surf_excav_final
+surf_simpsons_final
+surf_mk
+surf_mario_castle
+surf_water-run
+surf_iceday_remake
+surf_minecraft_skills
+surf_super_mario
 de_aztec
 de_nuke
 de_dust
