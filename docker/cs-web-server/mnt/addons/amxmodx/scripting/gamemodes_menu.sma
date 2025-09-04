@@ -167,7 +167,7 @@ stock ApplyMode(mode, bool:postConfig)
             server_cmd("reb_enable 0");
             server_cmd("mp_timelimit 0");
 	    server_cmd("mp_freezetime 0");
-            server_cmd("sv_airaccelerate 150");
+            server_cmd("sv_airaccelerate 100");
             server_cmd("gal_vote_mapfile addons/amxmodx/configs/galileo/votefill_surf.ini");
             server_cmd("gal_mapcyclefile addons/amxmodx/configs/galileo/3.ini"); // SURF
             server_cmd("gal_nom_mapfile #");  // nominations follow current mapcycle
