@@ -165,6 +165,7 @@ stock ApplyMode(mode, bool:postConfig)
             server_cmd("amx_gungame 0"); 
 	    server_cmd("gg_dm 0");
             server_cmd("reb_enable 0");
+            server_cmd("mp_timelimit 0");
 	    server_cmd("mp_freezetime 0");
             server_cmd("sv_airaccelerate 150");
             server_cmd("gal_vote_mapfile addons/amxmodx/configs/galileo/votefill_surf.ini");

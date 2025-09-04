@@ -5,3 +5,5 @@ mnt/addons/amxmodx/data/csstats.dat
 mnt/addons/amxmodx/scripting/compiled/
 mnt/addons/amxmodx/logs
 mnt/addons/yapb/data/train/
+mnt/addons/yapb/data/logs
+mnt/addons/amxmodx/data/galileo/currentAndNextmapNames.dat
