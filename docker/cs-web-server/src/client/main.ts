@@ -199,7 +199,7 @@ async function getRemoteValveTag(): Promise<string | null> {
 async function main() {
   const x = new Xash3DWebRTC({
     canvas: document.getElementById('canvas') as HTMLCanvasElement,
-    module: { arguments: ['-windowed', '-game', 'cstrike'], INITIAL_MEMORY: 512 * 1024 * 1024  },
+    module: { arguments: ['-windowed', '-game', 'cstrike'] },
     libraries: {
       filesystem: filesystemURL,
       xash: xashURL,

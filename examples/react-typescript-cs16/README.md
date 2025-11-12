@@ -7,7 +7,7 @@ This project integrates the Xash3D-FWGS cs16-client with a React + TypeScript fr
 Install dependencies:
 
 ```shell
-npm install
+pnpm install
 ```
 
 Zip and copy the `valve` and `cstrike` folders from your Half-Life installation into the `public/valve.zip`.

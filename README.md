@@ -45,7 +45,7 @@ cd webxash3d-fwgs
 ### Install Dependencies
 
 ```shell
-npm install
+pnpm install
 ```
 
 ### Game Content
@@ -104,16 +104,20 @@ Need help? Want to share your project or ideas?
 
 # TODO
 
+## Metamod and AMX Mod X support
+
+Add support for Metamod and AMX Mod X to work with many mods
+
 ## WebRTC/UDP proxy
 
 Support WebRTC/UDP proxy (webxash3d-mserver).
 
-## Engine Touch Support
+## Engine Touch Support (potentially)
 
 Enable touch support at the engine level.
 Requires `isNeedTouch` engine function support.
 
-## Fix Text Inputs
+## Fix Text Inputs (potentially)
 
 Text inputs are not rendered as standard HTML input fields, which makes text input impossible on mobile devices.
 
@@ -122,6 +126,6 @@ Text inputs are not rendered as standard HTML input fields, which makes text inp
 Patch the FS module to load only the currently required game files using `fetch`, instead of loading all files into RAM. 
 Requires `EAGAIN` support from the engine.
 
-## WebGL improves (potentially)
+## Gles3compat improves (potentially)
 
 Support GLES3Compat batching and fix `Vertex buffer is not big enough for the draw call.Understand this warning` warning.

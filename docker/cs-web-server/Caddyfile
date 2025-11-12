@@ -1,0 +1,37 @@
+cs16.os {
+  encode zstd gzip
+
+  # Proxy to your app container
+  reverse_proxy xash3d:27016
+
+  # Security + isolation headers
+  header {
+    # Cross-origin isolation (needed for SharedArrayBuffer/pthreads)
+    Cross-Origin-Opener-Policy "same-origin"
+    Cross-Origin-Embedder-Policy "require-corp"
+    Cross-Origin-Resource-Policy "same-origin"
+
+    # DO NOT block cross-origin-isolated via Permissions-Policy.
+    # If you previously set 'Permissions-Policy: cross-origin-isolated=()',
+    # remove it entirely.
+
+    # CSP that *allows* the worker model Emscripten uses
+    Content-Security-Policy "
+      default-src 'self';
+      base-uri 'self';
+      object-src 'none';
+      frame-ancestors 'none';
+
+      script-src 'self' 'unsafe-eval' 'wasm-unsafe-eval' blob:;
+      worker-src 'self' blob:;
+      connect-src 'self' ws: wss: data: blob:;
+      img-src 'self' data: blob:;
+      media-src 'self' blob: data:;
+      style-src 'self' 'unsafe-inline';
+      font-src 'self' data:;
+      form-action 'self';
+    "
+  }
+
+  tls internal
+}

@@ -38,6 +38,10 @@ export class RollingBuffer<T> {
         return item;
     }
 
+    peek(): T | undefined {
+        return this.buffer[this.tail];
+    }
+
     size(): number {
         return this.count;
     }

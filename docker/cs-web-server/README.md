@@ -4,7 +4,6 @@ This repository provides a **plug-and-play Docker image** for running a fully fu
 and dedicated server via the web. Powered by **Xash3D FWGS**, **WebRTC**, and modern web tooling, this setup allows for
 in-browser gameplay and remote multiplayer support.
 
-Repository: [github.com/yohimik/webxash3d-fwgs/docker/cs-web-server](https://github.com/yohimik/webxash3d-fwgs/tree/main/docker/cs-web-server)
 ---
 
 ## 🧱 Features

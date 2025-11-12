@@ -1,2 +1,2 @@
-export * from './defaultNet'
 export * from './net'
+export * from './emNet'

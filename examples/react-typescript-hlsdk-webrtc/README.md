@@ -13,7 +13,7 @@ WebRTC provides near-UDP performance in the browser—typically [2–3 times fas
 Install dependencies:
 
 ```shell
-npm install
+pnpm install
 ```
 
 Zip and copy the `valve` folder from your Half-Life installation into the `public/valve.zip`.

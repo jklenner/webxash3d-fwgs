@@ -13,7 +13,7 @@ WebRTC provides near-UDP performance in the browser—typically [2–3 times fas
 Install dependencies:
 
 ```shell
-npm install
+pnpm install
 ```
 
 Zip and copy the `valve` and `cstrike` folders from your Counter-Strike 1.6 installation into the `public/valve.zip`.

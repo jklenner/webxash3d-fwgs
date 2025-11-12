@@ -1,32 +1,46 @@
 FROM debian:trixie-slim AS engine
 
 RUN dpkg --add-architecture i386
-
 RUN echo "deb http://deb.debian.org/debian testing main" > /etc/apt/sources.list.d/testing.list
 
-RUN apt update && \
-    apt install -y -t testing gcc-14 g++-14 gcc-14-multilib g++-14-multilib && \
+# 1) Install a single, consistent toolchain (GCC 14 + binutils) from testing
+RUN apt-get update && \
+    apt-get install -y -t testing \
+      gcc-14 g++-14 gcc-14-multilib g++-14-multilib \
+      binutils binutils-gold gcc-14-plugin-dev && \
+    # keep other deps AFTER toolchain
+    apt-get install -y --no-install-recommends \
+      git ca-certificates build-essential \
+      gcc-multilib g++-multilib \
+      libbsd-dev:i386 libsdl2-dev:i386 libfreetype-dev:i386 \
+      libopus-dev:i386 libbz2-dev:i386 libvorbis-dev:i386 \
+      libopusfile-dev:i386 libogg-dev:i386 && \
+    # 2) Make /usr/bin/* resolve to the 14-series explicitly
     update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-14 100 && \
-    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-14 100
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-14 100 && \
+    update-alternatives --set gcc /usr/bin/gcc-14 && \
+    update-alternatives --set g++ /usr/bin/g++-14
 
-RUN apt install -y --no-install-recommends \
-    git ca-certificates build-essential \
-    gcc-multilib g++-multilib \
-    libbsd-dev:i386 libsdl2-dev:i386 libfreetype-dev:i386 \
-    libopus-dev:i386 libbz2-dev:i386 libvorbis-dev:i386 \
-    libopusfile-dev:i386 libogg-dev:i386
+# 3) Tell the build to use matching LTO-aware tools
+ENV CC=/usr/bin/gcc-14 \
+    CXX=/usr/bin/g++-14 \
+    AR=/usr/bin/gcc-ar-14 \
+    NM=/usr/bin/gcc-nm-14 \
+    RANLIB=/usr/bin/gcc-ranlib-14
 
 ENV PKG_CONFIG_PATH=/usr/lib/i386-linux-gnu/pkgconfig
-
 WORKDIR /xash
 
-#ADD https://api.github.com/repos/jklenner/xash3d-fwgs/git/refs/heads/go version.json
 RUN git clone --branch go --single-branch https://github.com/jklenner/xash3d-fwgs . \
     && git submodule update --init --recursive
 
+# 4) Clean any previous build dir just in case
+RUN rm -rf build
+
+# 5) Build with LTO using the pinned toolchain
 RUN ./waf configure -T release -d --enable-lto --enable-openmp && ./waf build
 
-FROM golang:1.24 AS go
+FROM golang:1.25 AS go
 
 WORKDIR /go
 COPY go.mod go.mod
@@ -47,7 +61,6 @@ ENV CC="gcc -m32 -D__i386__"
 ENV CGO_CFLAGS="-fopenmp -m32"
 ENV CGO_LDFLAGS="-fopenmp -m32"
 RUN go build -o ./xash ./src/server
-
 
 FROM debian:trixie-slim AS hlds
 
@@ -97,8 +110,8 @@ COPY vite.config.ts vite.config.ts
 COPY tsconfig.json tsconfig.json
 COPY src/client src/client
 
+RUN npm i -D @vitejs/plugin-basic-ssl
 RUN npm run build
-
 
 FROM debian:trixie-slim AS final
 

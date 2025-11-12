@@ -20,27 +20,10 @@ class CompileFile {
     }
 }
 
-async function ensureWritable(filePath: string) {
-    if (!existsSync(filePath)) {
-        console.error(`❌ File not found: ${filePath}`);
-        process.exit(1);
-    }
-
-    try {
-        await fs.unlink(filePath);
-    } catch (err) {
-        console.error(`❌ File not found: ${filePath}`);
-        process.exit(1);
-    }
-}
-
 const FILE_PATH = './dist/raw.js'
 
 async function main() {
-    const raw = (await fs.readFile(FILE_PATH, 'utf8')).split('var moduleRtn;')
-        .join("var moduleRtn;if(!moduleArg.arguments)moduleArg.arguments=[];if(!moduleArg.arguments.some(a => a.trim() === '-ref'))moduleArg.arguments.push('-ref', 'webgl2');");
-
-    await ensureWritable(FILE_PATH)
+    const raw = await fs.readFile(FILE_PATH, 'utf8')
 
     await fs.writeFile(FILE_PATH, raw)
     const f = new CompileFile(raw)
@@ -50,8 +33,8 @@ async function main() {
         'export default Xash3D;')
 
     // add on start async FS callback
-    f.deleteAll('preInit();')
     f.deleteAll('run();')
+    f.deleteAll(';if(runtimeInitialized){moduleRtn=Module}else{moduleRtn=new Promise((resolve,reject)=>{readyPromiseResolve=resolve;readyPromiseReject=reject})}')
 
     // return engine funcs instead of runtime promise
     f.replaceAll('return moduleRtn', `
@@ -76,8 +59,15 @@ async function main() {
             addRunDependency,
             removeRunDependency,
             start: () => {
-                preInit();
                 run();
+                if (runtimeInitialized) {
+                    moduleRtn = Module
+                } else {
+                    moduleRtn = new Promise((resolve, reject) => {
+                        readyPromiseResolve = resolve;
+                        readyPromiseReject = reject
+                    })
+                }
             },
         };
     `)

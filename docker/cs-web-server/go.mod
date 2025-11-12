@@ -1,6 +1,6 @@
 module github.com/yohimik/webxash3d-fwgs/docker/cs-web-server
 
-go 1.24.4
+go 1.25.1
 
 require (
 	github.com/gorilla/websocket v1.5.3
@@ -14,7 +14,7 @@ require (
 
 require (
 	github.com/google/uuid v1.6.0 // indirect
-	github.com/jklenner/goxash3d-fwgs v0.0.0-20250903055649-6bb91a9daa91 // indirect
+	github.com/jklenner/goxash3d-fwgs v0.0.0-20251112122806-1443c6b69713 // indirect
 	github.com/pion/datachannel v1.5.10 // indirect
 	github.com/pion/dtls/v3 v3.0.6 // indirect
 	github.com/pion/mdns/v2 v2.0.7 // indirect

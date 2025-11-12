@@ -29,10 +29,10 @@ const App: FC = () => {
                             gles3compat: gles3URL,
                         }
                     },
-                    dynamicLibraries: ['dlls/cs_emscripten_wasm32.so', '/rwdir/filesystem_stdio.wasm'],
+                    dynamicLibraries: ['dlls/cs_emscripten_wasm32.so', '/rodir/filesystem_stdio.wasm'],
                     filesMap: {
                         'dlls/cs_emscripten_wasm32.so': serverURL,
-                        '/rwdir/filesystem_stdio.wasm': filesystemURL,
+                        '/rodir/filesystem_stdio.wasm': filesystemURL,
                     },
                 });
 
@@ -61,10 +61,15 @@ const App: FC = () => {
                 }))
 
                 x.em.FS.writeFile('/rodir/cstrike/extras.pk3', new Uint8Array(extras))
+                x.em.FS.writeFile('/rodir/extras.pk3', new Uint8Array(extras))
+                x.em.FS.writeFile('/extras.pk3', new Uint8Array(extras))
+                console.log(x.em.FS.readdir('/rodir/valve'))
+                console.log(x.em.FS.readdir('/rodir/cstrike'))
 
                 x.em.FS.chdir('/rodir')
                 x.main()
                 x.Cmd_ExecuteString('_vgui_menus 0')
+                x.Cmd_ExecuteString('touch_enable 1')
             }}>
                 Start
             </button>

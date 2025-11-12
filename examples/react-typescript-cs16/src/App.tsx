@@ -28,10 +28,10 @@ const App: FC = () => {
                             gles3compat: gles3URL,
                         }
                     },
-                    dynamicLibraries: ['dlls/cs_emscripten_wasm32.so', '/rwdir/filesystem_stdio.wasm'],
+                    dynamicLibraries: ['dlls/cs_emscripten_wasm32.so', '/rodir/filesystem_stdio.wasm'],
                     filesMap: {
                         'dlls/cs_emscripten_wasm32.so': serverURL,
-                        '/rwdir/filesystem_stdio.wasm': filesystemURL,
+                        '/rodir/filesystem_stdio.wasm': filesystemURL,
                     },
                 });
 

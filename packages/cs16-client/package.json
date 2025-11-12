@@ -1,11 +1,12 @@
 {
   "name": "cs16-client",
-  "version": "0.1.0+commit.4d2fcf1",
+  "version": "0.1.2+commit.15278ca",
   "description": "cs16-client emscripten port",
   "homepage": "https://github.com/yohimik/webxash3d-fwgs",
   "scripts": {
     "build:wasm": "docker build --progress=plain -t cs-builder . && docker run --rm -v \"$(pwd)/dist:/out\" cs-builder",
-    "build": "npm run build:wasm"
+    "build": "npm run clean && npm run build:wasm",
+    "clean": "rm -rf ./dist"
   },
   "exports": {
     "./cl_dll/menu_emscripten_wasm32.wasm": "./dist/cstrike/cl_dlls/menu_emscripten_wasm32.wasm",

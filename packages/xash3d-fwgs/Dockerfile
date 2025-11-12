@@ -1,4 +1,4 @@
-FROM emscripten/emsdk:4.0.13
+FROM emscripten/emsdk:4.0.17
 
 WORKDIR /xash3d-fwgs
 COPY xash3d-fwgs .

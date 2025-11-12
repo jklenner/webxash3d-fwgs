@@ -1,10 +1,11 @@
 services:
   xash3d:
-    image: cs-web-server:latest
+    image: cs-web-server:0.0.5
 #    entrypoint: []
 #    command: sleep infinity
     command: ["+map aim_map_2010", "+maxplayers 14"]
 #    network_mode: host
+    networks: [default]
     restart: always
     platform: linux/386
     environment:
@@ -23,6 +24,19 @@ services:
       - "80:27016"
       - "27018:27018/tcp"
       - "27018:27018/udp"
+
+  caddy:
+    image: caddy:2
+    networks: [default]
+    restart: unless-stopped
+    ports:
+      - "443:443"
+    depends_on:
+      - xash3d
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./caddy_data:/data
+      - ./caddy_config:/config
 
 networks:
   csnet:

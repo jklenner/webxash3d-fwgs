@@ -28,6 +28,8 @@ export type Module = {
     net?: EmNet
     callbacks?: ModuleCallbacks
     locateFile?: (path: string) => string
+    print?: (log: string) => void
+    printErr?: (log: string) => void
     [key: string]: unknown
 }
 

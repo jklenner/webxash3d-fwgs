@@ -4,15 +4,10 @@
   "scripts": {
     "update-commits": "ts-node scripts/update-commits.ts"
   },
-  "workspaces": [
-    "packages/*",
-    "examples/*",
-    "docker/*"
-  ],
   "devDependencies": {
-    "@types/node": "^24.0.13",
+    "@types/node": "^24.9.1",
+    "lerna": "9.0.0",
     "ts-node": "^10.9.2",
-    "lerna": "^8.2.3",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.3"
   }
 }
