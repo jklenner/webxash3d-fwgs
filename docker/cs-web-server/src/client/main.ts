@@ -8,11 +8,6 @@ import gl4esURL from 'xash3d-fwgs/libref_webgl2.wasm?url'
 import extrasURL from 'cs16-client/extras.pk3?url'
 import { Xash3DWebRTC } from './webrtc'
 
-// ===== Touch controls =====
-const touchControls = document.getElementById('touchControls') as HTMLInputElement
-touchControls.addEventListener('change', () => {
-  localStorage.setItem('touchControls', String(touchControls.checked))
-})
 
 // ===== Username handshake =====
 let usernamePromiseResolve: (name: string) => void
@@ -398,7 +393,7 @@ async function main() {
   x.main()
   x.Cmd_ExecuteString('_vgui_menus 0')
 
-  if (touchControls.checked) {
+  if (false) {
     x.Cmd_ExecuteString('touch_enable 1')
   }
 
@@ -410,16 +405,6 @@ async function main() {
     event.returnValue = ''
     return ''
   })
-}
-
-// ===== Touch defaults =====
-const enableTouch = localStorage.getItem('touchControls')
-if (enableTouch === null) {
-  const isMobile = !window.matchMedia('(hover: hover)').matches
-  touchControls.checked = isMobile
-  localStorage.setItem('touchControls', String(isMobile))
-} else {
-  touchControls.checked = enableTouch === 'true'
 }
 
 // ===== Username persistence + form handling =====
