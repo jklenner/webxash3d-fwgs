@@ -10,7 +10,7 @@ import (
 	"github.com/pion/rtcp"
 	"github.com/pion/rtp"
 	"github.com/pion/webrtc/v4"
-	"github.com/jklenner/goxash3d-fwgs/pkg"
+	"github.com/yohimik/goxash3d-fwgs/pkg"
 	"io"
 	"math/rand"
 	"net/http"
@@ -288,15 +288,15 @@ func websocketHandler(w http.ResponseWriter, r *http.Request) { // nolint
 	defer peerConnection.Close() //nolint
 
 	// Accept one audio track incoming
-	for _, typ := range []webrtc.RTPCodecType{webrtc.RTPCodecTypeAudio} {
-		if _, err := peerConnection.AddTransceiverFromKind(typ, webrtc.RTPTransceiverInit{
-			Direction: webrtc.RTPTransceiverDirectionRecvonly,
-		}); err != nil {
-			log.Errorf("Failed to add transceiver: %v", err)
+	// for _, typ := range []webrtc.RTPCodecType{webrtc.RTPCodecTypeAudio} {
+	//	if _, err := peerConnection.AddTransceiverFromKind(typ, webrtc.RTPTransceiverInit{
+	//		Direction: webrtc.RTPTransceiverDirectionRecvonly,
+	//	}); err != nil {
+	//		log.Errorf("Failed to add transceiver: %v", err)
 
-			return
-		}
-	}
+	//		return
+	//	}
+	//}
 
 	f := false
 	var z uint16 = 0
@@ -381,34 +381,34 @@ func websocketHandler(w http.ResponseWriter, r *http.Request) { // nolint
 		}
 	})
 
-	peerConnection.OnTrack(func(t *webrtc.TrackRemote, _ *webrtc.RTPReceiver) {
+	//peerConnection.OnTrack(func(t *webrtc.TrackRemote, _ *webrtc.RTPReceiver) {
 		// Create a track to fan out our incoming video to all peers
-		trackLocal := addTrack(t)
-		defer removeTrack(trackLocal)
+	//	trackLocal := addTrack(t)
+	//	defer removeTrack(trackLocal)
 
-		buf := make([]byte, 1500)
-		rtpPkt := &rtp.Packet{}
+	//	buf := make([]byte, 1500)
+	//	rtpPkt := &rtp.Packet{}
 
-		for {
-			i, _, err := t.Read(buf)
-			if err != nil {
-				return
-			}
+	//	for {
+	//		i, _, err := t.Read(buf)
+	//		if err != nil {
+	//			return
+	//		}
 
-			if err = rtpPkt.Unmarshal(buf[:i]); err != nil {
-				log.Errorf("Failed to unmarshal incoming RTP packet: %v", err)
+//			if err = rtpPkt.Unmarshal(buf[:i]); err != nil {
+//				log.Errorf("Failed to unmarshal incoming RTP packet: %v", err)
 
-				return
-			}
+//				return
+//			}
 
-			rtpPkt.Extension = false
-			rtpPkt.Extensions = nil
+//			rtpPkt.Extension = false
+//			rtpPkt.Extensions = nil
 
-			if err = trackLocal.WriteRTP(rtpPkt); err != nil {
-				return
-			}
-		}
-	})
+//			if err = trackLocal.WriteRTP(rtpPkt); err != nil {
+//				return
+//			}
+//		}
+//	})
 
 	// Add our new PeerConnection to global list
 	state := peerConnectionState{peerConnection, c, DefaultSignalsCount}

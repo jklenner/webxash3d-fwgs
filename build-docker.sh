@@ -17,6 +17,7 @@ TAG="$1"
 
 # Run docker buildx with the provided tag and 'latest'
 docker buildx build --platform linux/386 \
+  -f docker/cs-web-server/Dockerfile \
   -t cs-web-server:"$TAG" \
   -t cs-web-server:latest \
   .
